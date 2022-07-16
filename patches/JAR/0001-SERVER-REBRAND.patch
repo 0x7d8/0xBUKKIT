@@ -103,7 +103,7 @@ index fba5dbdb7bcbb55400ef18342c9b54612972a718..5bc395be4ae36274117ddffadcae7cf8
  
      private static Component getUpdateStatusMessage(@Nonnull String repo, @Nonnull String branch, @Nonnull String versionInfo) {
          //int distance; // Purpur - use field
-+        // 0xBUKKIT Start
++        // 0xBUKKIT start
          try {
              int jenkinsBuild = Integer.parseInt(versionInfo);
              distance = fetchDistanceFromSiteApi(jenkinsBuild, getMinecraftVersion());
@@ -114,7 +114,7 @@ index fba5dbdb7bcbb55400ef18342c9b54612972a718..5bc395be4ae36274117ddffadcae7cf8
 +        /*
 +        versionInfo = versionInfo.replace("\"", "");
 +        distance = fetchDistanceFromGitHub(repo, branch, versionInfo);
-+        */// 0xBUKKIT End
++        */// 0xBUKKIT end
  
          switch (distance) {
              case -1:

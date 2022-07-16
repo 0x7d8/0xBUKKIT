@@ -75,7 +75,7 @@ index eac5830986cd0638950bbb1e6f10a30e246e09a7..692383857c6aa310d11e8bfe3958f49c
              }
              versionWaiters.add(sender);
 -            sender.sendMessage(net.kyori.adventure.text.Component.text("Checking version, please wait...", net.kyori.adventure.text.format.NamedTextColor.WHITE, net.kyori.adventure.text.format.TextDecoration.ITALIC)); // Paper
-+            sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <yellow>Überprüfe Version, bitte warten...")); // Paper
++            sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <yellow>Überprüfe Version, bitte warten...")); // Paper // 0xBUKKIT
              if (!versionTaskStarted) {
                  versionTaskStarted = true;
                  new Thread(new Runnable() {
