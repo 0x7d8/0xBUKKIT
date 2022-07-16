@@ -1,23 +1,56 @@
-# Compiled class file
-*.class
-
-# Log file
-*.log
-
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+# JVM CRASHES
+core.*
 hs_err_pid*
+
+# INTELLIJ
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# ECLIPSE
+.classpath
+.project
+.settings/
+
+# NETBEANS
+nbproject/
+nbactions.xml
+
+# GRADLE
+!gradle-wrapper.jar
+.gradle/
+build/
+*/build/
+
+# MAVEN
+build.xml
+log/
+target/
+dependency-reduced-pom.xml
+
+# BUILD FILES
+build/
+bin/
+dist/
+manifest.mf
+
+# MAC
+.DS_Store/
+.DS_Store
+
+# VIM
+.*.sw[a-p]
+
+# LINUX TEMP
+*~
+
+# OTHER STUFF
+run/
+
+build-data/
+0xSERVER-API
+0xSERVER-MojangAPI
+0xSERVER-Server
+*.jar
