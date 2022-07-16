@@ -52,5 +52,5 @@ run/
 build-data/
 0xSERVER-API
 0xSERVER-MojangAPI
-0xSERVER-Server
+0xSERVER-JAR
 *.jar
