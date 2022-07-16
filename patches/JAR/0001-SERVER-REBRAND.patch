@@ -46,7 +46,7 @@ index fd3805da1f276c76a2e814f755f6755245ec2ff4..6c437ecbf03514f847889a5c351042b3
  
  dependencies {
 -    implementation(project(":purpur-api")) // Purpur
-+    implementation(project(":0xSERVER-API")) // Purpur // 0xSERVER
++    implementation(project(":0xBUKKIT-API")) // Purpur // 0xBUKKIT
      // Pufferfish start
      implementation("io.papermc.paper:paper-mojangapi:1.19-R0.1-SNAPSHOT") {
          exclude("io.papermc.paper", "paper-api")
@@ -55,7 +55,7 @@ index fd3805da1f276c76a2e814f755f6755245ec2ff4..6c437ecbf03514f847889a5c351042b3
              "Main-Class" to "org.bukkit.craftbukkit.Main",
              "Implementation-Title" to "CraftBukkit",
 -            "Implementation-Version" to "git-Purpur-$implementationVersion",// Purpur
-+            "Implementation-Version" to "0xSERVER-$implementationVersion",// Purpur // 0xSERVER
++            "Implementation-Version" to "0xBUKKIT-$implementationVersion",// Purpur // 0xBUKKIT
              "Implementation-Vendor" to date, // Paper
              "Specification-Title" to "Bukkit",
              "Specification-Version" to project.version,
@@ -70,8 +70,8 @@ index fba5dbdb7bcbb55400ef18342c9b54612972a718..5bc395be4ae36274117ddffadcae7cf8
 -    private static final java.util.regex.Pattern VER_PATTERN = java.util.regex.Pattern.compile("^([0-9\\.]*)\\-.*R"); // R is an anchor, will always give '-R' at end
 -    // Purpur start
 -    private static final String DOWNLOAD_PAGE = "https://purpurmc.org/downloads";
-+    private static final java.util.regex.Pattern VER_PATTERN = java.util.regex.Pattern.compile("(?!^ +$)^.+$"); // Allow any Value except Spaces and Empty - 0xSERVER
-+    private static final String DOWNLOAD_PAGE = "https://jenkins.rjansen.de/job/0xSERVER"; // 0xSERVER
++    private static final java.util.regex.Pattern VER_PATTERN = java.util.regex.Pattern.compile("(?!^ +$)^.+$"); // Allow any Value except Spaces and Empty - 0xBUKKIT
++    private static final String DOWNLOAD_PAGE = "https://jenkins.rjansen.de/job/0xBUKKIT"; // 0xBUKKIT
      private static int distance = -2; public int distance() { return distance; }
 -    // Purpur end
      private static @Nullable String mcVer;
@@ -83,8 +83,8 @@ index fba5dbdb7bcbb55400ef18342c9b54612972a718..5bc395be4ae36274117ddffadcae7cf8
      public Component getVersionMessage(@Nonnull String serverVersion) {
 -        String[] parts = serverVersion.substring("git-Purpur-".length()).split("[-\\s]"); // Purpur
 -        final Component updateMessage = getUpdateStatusMessage("PurpurMC/Purpur", "ver/" + getMinecraftVersion(), parts[0]); // Purpur
-+        String[] parts = serverVersion.substring("0xSERVER-".length()).split("[-\\s]"); // Purpur // 0xSERVER
-+        final Component updateMessage = getUpdateStatusMessage("rotvproHD/0xSERVER", "ver/" + getMinecraftVersion(), parts[0]); // Purpur // 0xSERVER
++        String[] parts = serverVersion.substring("0xBUKKIT-".length()).split("[-\\s]"); // Purpur // 0xBUKKIT
++        final Component updateMessage = getUpdateStatusMessage("rotvproHD/0xBUKKIT", "ver/" + getMinecraftVersion(), parts[0]); // Purpur // 0xBUKKIT
          final Component history = getHistory();
  
          return history != null ? Component.join(net.kyori.adventure.text.JoinConfiguration.separator(Component.newline()), history, updateMessage) : updateMessage; // Purpur
@@ -94,7 +94,7 @@ index fba5dbdb7bcbb55400ef18342c9b54612972a718..5bc395be4ae36274117ddffadcae7cf8
              } else {
 -                org.bukkit.Bukkit.getLogger().warning("Unable to match version to pattern! Report to Purpur!"); // Purpur
 -                org.bukkit.Bukkit.getLogger().warning("Pattern: " + VER_PATTERN.toString());
-+                org.bukkit.Bukkit.getLogger().warning("Konnte nicht Version verarbeiten, kontaktiere den Fork ersteller!"); // Purpur // 0xSERVER
++                org.bukkit.Bukkit.getLogger().warning("Konnte nicht Version verarbeiten, kontaktiere den Fork ersteller!"); // Purpur // 0xBUKKIT
 +                org.bukkit.Bukkit.getLogger().warning("Muster: " + VER_PATTERN.toString());
                  org.bukkit.Bukkit.getLogger().warning("Version: " + org.bukkit.Bukkit.getBukkitVersion());
              }
@@ -103,7 +103,7 @@ index fba5dbdb7bcbb55400ef18342c9b54612972a718..5bc395be4ae36274117ddffadcae7cf8
  
      private static Component getUpdateStatusMessage(@Nonnull String repo, @Nonnull String branch, @Nonnull String versionInfo) {
          //int distance; // Purpur - use field
-+        // 0xSERVER Start
++        // 0xBUKKIT Start
          try {
              int jenkinsBuild = Integer.parseInt(versionInfo);
              distance = fetchDistanceFromSiteApi(jenkinsBuild, getMinecraftVersion());
@@ -114,18 +114,18 @@ index fba5dbdb7bcbb55400ef18342c9b54612972a718..5bc395be4ae36274117ddffadcae7cf8
 +        /*
 +        versionInfo = versionInfo.replace("\"", "");
 +        distance = fetchDistanceFromGitHub(repo, branch, versionInfo);
-+        */// 0xSERVER End
++        */// 0xBUKKIT End
  
          switch (distance) {
              case -1:
 -                return Component.text("* Error obtaining version information", NamedTextColor.RED); // Purpur
-+                return org.bukkit.ChatColor.parseMM("<white>[<grey>Server<white>] <yellow>Fehler beim ergattern von Versions Informationen. <white>[<red>Hast du Internet?<white>]"); // Purpur // 0xSERVER
++                return org.bukkit.ChatColor.parseMM("<white>[<grey>Server<white>] <yellow>Fehler beim ergattern von Versions Informationen. <white>[<red>Hast du Internet?<white>]"); // Purpur // 0xBUKKIT
              case 0:
 -                return Component.text("* You are running the latest version", NamedTextColor.GREEN); // Purpur
-+                return org.bukkit.ChatColor.parseMM("<white>[<grey>Server<white>] <green>Du bist auf der neuesten Version!"); // Purpur // 0xSERVER
++                return org.bukkit.ChatColor.parseMM("<white>[<grey>Server<white>] <green>Du bist auf der neuesten Version!"); // Purpur // 0xBUKKIT
              case -2:
 -                return Component.text("* Unknown version", NamedTextColor.RED); // Purpur
-+                return org.bukkit.ChatColor.parseMM("<white>[<grey>Server<white>] <red>Unbekannte Version!"); // Purpur // 0xSERVER
++                return org.bukkit.ChatColor.parseMM("<white>[<grey>Server<white>] <red>Unbekannte Version!"); // Purpur // 0xBUKKIT
              default:
 -                return Component.text("* You are " + distance + " version(s) behind", NamedTextColor.YELLOW) // Purpur
 -                        .append(Component.newline())
@@ -133,7 +133,7 @@ index fba5dbdb7bcbb55400ef18342c9b54612972a718..5bc395be4ae36274117ddffadcae7cf8
 -                                .append(Component.text(DOWNLOAD_PAGE, NamedTextColor.GOLD)
 -                                        .hoverEvent(Component.text("Click to open", NamedTextColor.WHITE))
 -                                        .clickEvent(ClickEvent.openUrl(DOWNLOAD_PAGE))));
-+                return org.bukkit.ChatColor.parseMM("<white>[<grey>Server<white>] <yellow>Du bist <gold>%s <yellow>Builds hinterher! Downloads: <gold>https://jenkins.rjansen.de/job/0xSERVER", distance); // Purpur // 0xSERVER
++                return org.bukkit.ChatColor.parseMM("<white>[<grey>Server<white>] <yellow>Du bist <gold>%s <yellow>Builds hinterher! Downloads: <gold>https://jenkins.rjansen.de/job/0xBUKKIT", distance); // Purpur // 0xBUKKIT
          }
      }
  
@@ -142,12 +142,12 @@ index fba5dbdb7bcbb55400ef18342c9b54612972a718..5bc395be4ae36274117ddffadcae7cf8
          try {
              try (BufferedReader reader = Resources.asCharSource(
 -                new URL("https://api.purpurmc.org/v2/purpur/" + siteApiVersion), // Purpur
-+                new URL("https://api.rjansen.de/v2/0xSERVER/1.19"), // 0xSERVER
++                new URL("https://api.rjansen.de/v2/0xBUKKIT/1.19"), // 0xBUKKIT
                  Charsets.UTF_8
              ).openBufferedStream()) {
                  JsonObject json = new Gson().fromJson(reader, JsonObject.class);
 -                int latest = json.getAsJsonObject("builds").getAsJsonPrimitive("latest").getAsInt(); // Purpur
-+                int latest = json.getAsJsonObject("builds").getAsJsonPrimitive("latest").getAsInt(); // Purpur // 0xSERVER
++                int latest = json.getAsJsonObject("builds").getAsJsonPrimitive("latest").getAsInt(); // Purpur // 0xBUKKIT
                  return latest - jenkinsBuild;
              } catch (JsonSyntaxException ex) {
                  ex.printStackTrace();
@@ -165,7 +165,7 @@ index fba5dbdb7bcbb55400ef18342c9b54612972a718..5bc395be4ae36274117ddffadcae7cf8
          }
  
 -        return org.bukkit.ChatColor.parseMM("<grey>Previous: %s", oldVersion); // Purpur
-+        return org.bukkit.ChatColor.parseMM("<white>[<grey>Server<white>] <green>Vorherige Version: <gold>%s", oldVersion); // Purpur // 0xSERVER
++        return org.bukkit.ChatColor.parseMM("<white>[<grey>Server<white>] <green>Vorherige Version: <gold>%s", oldVersion); // Purpur // 0xBUKKIT
      }
  }
 diff --git a/src/main/java/org/bukkit/craftbukkit/CraftServer.java b/src/main/java/org/bukkit/craftbukkit/CraftServer.java
@@ -177,7 +177,7 @@ index a376045e94d1811645f84b3e4963726fe12545a4..91b56e4015b4c3df260894589c4cfb5a
  
  public final class CraftServer implements Server {
 -    private final String serverName = "Purpur"; // Paper // Purpur
-+    private final String serverName = "0xSERVER"; // Paper // Purpur // 0xSERVER
++    private final String serverName = "0xBUKKIT"; // Paper // Purpur // 0xBUKKIT
      private final String serverVersion;
      private final String bukkitVersion = Versioning.getBukkitVersion();
      private final Logger logger = Logger.getLogger("Minecraft");
@@ -190,7 +190,7 @@ index fb87620c742ff7912f5e8ccd2a7930dd605576d9..cfb93e76cc3d9cabe22cb66b1c98a298
          String result = "Unknown-Version";
  
 -        InputStream stream = Bukkit.class.getClassLoader().getResourceAsStream("META-INF/maven/org.purpurmc.purpur/purpur-api/pom.properties"); // Purpur
-+        InputStream stream = Bukkit.class.getClassLoader().getResourceAsStream("META-INF/maven/0xSERVER/0xSERVER-API/pom.properties"); // Purpur // 0xSERVER
++        InputStream stream = Bukkit.class.getClassLoader().getResourceAsStream("META-INF/maven/0xBUKKIT/0xBUKKIT-API/pom.properties"); // Purpur // 0xBUKKIT
          Properties properties = new Properties();
  
          if (stream != null) {
@@ -203,7 +203,7 @@ index fecfe935e09ff52a6ec582e6f2e09611adb1106f..6547a43d93b3d4e09ca8b4b9f84deeaf
      }
  
 -    public static String serverModName = "Purpur";
-+    public static String serverModName = "0xSERVER"; // 0xSERVER
++    public static String serverModName = "0xBUKKIT"; // 0xBUKKIT
      private static void serverModName() {
          serverModName = getString("settings.server-mod-name", serverModName);
      }

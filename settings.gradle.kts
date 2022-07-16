@@ -7,8 +7,8 @@ pluginManagement {
     }
 }
 
-rootProject.name = "0xSERVER"
-for (name in listOf("0xSERVER-API", "0xSERVER-Server")) {
+rootProject.name = "0xBUKKIT"
+for (name in listOf("0xBUKKIT-API", "0xBUKKIT-JAR")) {
     include(name)
     findProject(":$name")!!.projectDir = file(name)
 }

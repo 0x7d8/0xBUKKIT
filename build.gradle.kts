@@ -61,7 +61,7 @@ subprojects {
 }
 
 paperweight {
-    serverProject.set(project(":0xSERVER-Server"))
+    serverProject.set(project(":0xBUKKIT-JAR"))
 
     remapRepo.set("https://maven.fabricmc.net/")
     decompileRepo.set("https://files.minecraftforge.net/maven/")
@@ -73,11 +73,11 @@ paperweight {
         withStandardPatcher {
             baseName("Purpur")
 
-            apiPatchDir.set(layout.projectDirectory.dir("patches/api"))
-            apiOutputDir.set(layout.projectDirectory.dir("0xSERVER-API"))
+            apiPatchDir.set(layout.projectDirectory.dir("patches/API"))
+            apiOutputDir.set(layout.projectDirectory.dir("0xBUKKIT-API"))
 
-            serverPatchDir.set(layout.projectDirectory.dir("patches/server"))
-            serverOutputDir.set(layout.projectDirectory.dir("0xSERVER-Server"))
+            serverPatchDir.set(layout.projectDirectory.dir("patches/JAR"))
+            serverOutputDir.set(layout.projectDirectory.dir("0xBUKKIT-JAR"))
         }
     }
 }
