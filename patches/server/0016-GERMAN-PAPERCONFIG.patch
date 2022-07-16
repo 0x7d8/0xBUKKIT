@@ -1,0 +1,49 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: root <root@ROBERT-PC.localdomain>
+Date: Mon, 13 Jun 2022 08:52:20 +0200
+Subject: [PATCH] GERMAN PAPERCONFIG
+
+
+diff --git a/src/main/java/io/papermc/paper/configuration/PaperConfigurations.java b/src/main/java/io/papermc/paper/configuration/PaperConfigurations.java
+index 15b6e73413eeaef4214889fc34f9af8093574b9a..b86bf07b7f431355d8b045f1652c42e7810c1e6b 100644
+--- a/src/main/java/io/papermc/paper/configuration/PaperConfigurations.java
++++ b/src/main/java/io/papermc/paper/configuration/PaperConfigurations.java
+@@ -79,34 +79,12 @@ public class PaperConfigurations extends Configurations<GlobalConfiguration, Wor
+     private static final String BACKUP_DIR ="legacy-backup";
+ 
+     private static final String GLOBAL_HEADER = String.format("""
+-            This is the global configuration file for Paper.
+-            As you can see, there's a lot to configure. Some options may impact gameplay, so use
+-            with caution, and make sure you know what each option does before configuring.
+-
+-            If you need help with the configuration or have any questions related to Paper,
+-            join us in our Discord or check the docs page.
+-
+-            The world configuration options have been moved inside
+-            their respective world folder. The files are named %s
+-
+-            Docs: https://docs.papermc.io/
+-            Discord: https://discord.gg/papermc
+-            Website: https://papermc.io/""", WORLD_CONFIG_FILE_NAME);
++            PAPER KONFIGURATON
++            https://discord.gg/papermc""", WORLD_CONFIG_FILE_NAME);
+ 
+     private static final String WORLD_DEFAULTS_HEADER = """
+-            This is the world defaults configuration file for Paper.
+-            As you can see, there's a lot to configure. Some options may impact gameplay, so use
+-            with caution, and make sure you know what each option does before configuring.
+-
+-            If you need help with the configuration or have any questions related to Paper,
+-            join us in our Discord or check the docs page.
+-
+-            Configuration options here apply to all worlds, unless you specify overrides inside
+-            the world-specific config file inside each world folder.
+-
+-            Docs: https://docs.papermc.io/
+-            Discord: https://discord.gg/papermc
+-            Website: https://papermc.io/""";
++            PAPER WELT KONFIGURATION
++            https://discord.gg/papermc""";
+ 
+     private static final Function<ContextMap, String> WORLD_HEADER = map -> String.format("""
+         This is a world configuration file for Paper.

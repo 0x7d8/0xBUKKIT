@@ -1,0 +1,51 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: root <root@ROBERT-PC.localdomain>
+Date: Tue, 14 Jun 2022 09:41:47 +0200
+Subject: [PATCH] GERMAN TRIGGERCOMMAND
+
+GERMAN TRIGGER
+
+diff --git a/src/main/java/net/minecraft/server/commands/TriggerCommand.java b/src/main/java/net/minecraft/server/commands/TriggerCommand.java
+index 035e0ad62d32e9695a3f5544c2b616baea0d41da..9fc9d34106475400a85abb036c2962ba914c1666 100644
+--- a/src/main/java/net/minecraft/server/commands/TriggerCommand.java
++++ b/src/main/java/net/minecraft/server/commands/TriggerCommand.java
+@@ -23,11 +23,14 @@ import net.minecraft.world.scores.Objective;
+ import net.minecraft.world.scores.Score;
+ import net.minecraft.world.scores.Scoreboard;
+ import net.minecraft.world.scores.criteria.ObjectiveCriteria;
++import io.papermc.paper.adventure.PaperAdventure;
++import net.kyori.adventure.text.minimessage.MiniMessage;
++import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
+ 
+ public class TriggerCommand {
+ 
+-    private static final SimpleCommandExceptionType ERROR_NOT_PRIMED = new SimpleCommandExceptionType(Component.translatable("commands.trigger.failed.unprimed"));
+-    private static final SimpleCommandExceptionType ERROR_INVALID_OBJECTIVE = new SimpleCommandExceptionType(Component.translatable("commands.trigger.failed.invalid"));
++    private static final SimpleCommandExceptionType ERROR_NOT_PRIMED = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Du kannst das Objekt nicht triggern!")));
++    private static final SimpleCommandExceptionType ERROR_INVALID_OBJECTIVE = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Du kannst nur Objekte mit <gold>TRIGGER <red>Typ triggern!")));
+ 
+     public TriggerCommand() {}
+ 
+@@ -70,19 +73,19 @@ public class TriggerCommand {
+ 
+     private static int addValue(CommandSourceStack source, Score score, int value) {
+         score.add(value);
+-        source.sendSuccess(Component.translatable("commands.trigger.add.success", score.getObjective().getFormattedDisplayName(), value), true);
++        source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Das Objekt <gold>" + score.getObjective().getFormattedDisplayName() + " <green>wurde getriggert und Wert wurde <gold>" + value + " <green>hinzugefügt!"));
+         return score.getScore();
+     }
+ 
+     private static int setValue(CommandSourceStack source, Score score, int value) {
+         score.setScore(value);
+-        source.sendSuccess(Component.translatable("commands.trigger.set.success", score.getObjective().getFormattedDisplayName(), value), true);
++        source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Das Objekt <gold>" + score.getObjective().getFormattedDisplayName() + " <green>wurde getriggert und Wert wurde auf <gold>" + value + " <green>gesetzt!"));
+         return value;
+     }
+ 
+     private static int simpleTrigger(CommandSourceStack source, Score score) {
+         score.add(1);
+-        source.sendSuccess(Component.translatable("commands.trigger.simple.success", score.getObjective().getFormattedDisplayName()), true);
++        source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Das Objekt <gold>" + score.getObjective().getFormattedDisplayName() + " <green>wurde getriggert!"));
+         return score.getScore();
+     }
+ 

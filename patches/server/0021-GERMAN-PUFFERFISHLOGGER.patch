@@ -1,0 +1,19 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: root <root@ROBERT-PC.localdomain>
+Date: Mon, 13 Jun 2022 13:59:00 +0200
+Subject: [PATCH] GERMAN PUFFERFISHLOGGER
+
+
+diff --git a/src/main/java/gg/pufferfish/pufferfish/PufferfishLogger.java b/src/main/java/gg/pufferfish/pufferfish/PufferfishLogger.java
+index 53f2df00c6809618a9ee3d2ea72e85e8052fbcf1..2de864792d2bc956ee8bf5ce31eec04cd121c634 100644
+--- a/src/main/java/gg/pufferfish/pufferfish/PufferfishLogger.java
++++ b/src/main/java/gg/pufferfish/pufferfish/PufferfishLogger.java
+@@ -8,7 +8,7 @@ public class PufferfishLogger extends Logger {
+     public static final PufferfishLogger LOGGER = new PufferfishLogger();
+ 
+     private PufferfishLogger() {
+-        super("Pufferfish", null);
++        super("0xSERVER", null);
+ 
+         setParent(Bukkit.getLogger());
+         setLevel(Level.ALL);

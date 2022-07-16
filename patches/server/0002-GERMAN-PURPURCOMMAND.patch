@@ -1,0 +1,60 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: root <root@ROBERT-PC.localdomain>
+Date: Sat, 11 Jun 2022 09:38:09 +0200
+Subject: [PATCH] GERMAN PURPURCOMMAND
+
+pur
+
+pur
+
+pur
+
+diff --git a/src/main/java/org/purpurmc/purpur/command/PurpurCommand.java b/src/main/java/org/purpurmc/purpur/command/PurpurCommand.java
+index 2621e54879e9ab0029a875f1d09eee67878b90d5..841acd76a5b991a30363c0ea08be09ffc5ca9ddc 100644
+--- a/src/main/java/org/purpurmc/purpur/command/PurpurCommand.java
++++ b/src/main/java/org/purpurmc/purpur/command/PurpurCommand.java
+@@ -3,6 +3,7 @@ package org.purpurmc.purpur.command;
+ import net.minecraft.server.MinecraftServer;
+ import net.minecraft.server.level.ServerLevel;
+ import org.purpurmc.purpur.PurpurConfig;
++import net.kyori.adventure.text.minimessage.MiniMessage;
+ import org.bukkit.ChatColor;
+ import org.bukkit.Location;
+ import org.bukkit.command.Command;
+@@ -17,8 +18,8 @@ import java.util.stream.Stream;
+ public class PurpurCommand extends Command {
+     public PurpurCommand(String name) {
+         super(name);
+-        this.description = "Purpur related commands";
+-        this.usageMessage = "/purpur [reload | version]";
++        this.description = "PURPUR BEFEHLE";
++        this.usageMessage = "/purpur <white>[ <gold>reload <white>| <gold>version <white>]";
+         this.setPermission("bukkit.command.purpur");
+     }
+ 
+@@ -37,13 +38,13 @@ public class PurpurCommand extends Command {
+         if (!testPermission(sender)) return true;
+ 
+         if (args.length != 1) {
+-            sender.sendMessage(ChatColor.RED + "Usage: " + usageMessage);
++            sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Bitte nutze den Befehl richtig! <gold>" + usageMessage));
+             return false;
+         }
+ 
+         if (args[0].equalsIgnoreCase("reload")) {
+-            Command.broadcastCommandMessage(sender, ChatColor.RED + "Please note that this command is not supported and may cause issues.");
+-            Command.broadcastCommandMessage(sender, ChatColor.RED + "If you encounter any issues please use the /stop command to restart your server.");
++            Command.broadcastCommandMessage(sender, MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Die Konfiguration neu zu laden ist nicht unterstützt!"));
++            Command.broadcastCommandMessage(sender, MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Bei Problemen den Server neustarten!"));
+ 
+             MinecraftServer console = MinecraftServer.getServer();
+             PurpurConfig.init((File) console.options.valueOf("purpur-settings"));
+@@ -53,7 +54,7 @@ public class PurpurCommand extends Command {
+             }
+             console.server.reloadCount++;
+ 
+-            Command.broadcastCommandMessage(sender, ChatColor.GREEN + "Purpur config reload complete.");
++            Command.broadcastCommandMessage(sender, MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <gold>PURPUR <green>Konfiguration neu geladen!"));
+         } else if (args[0].equalsIgnoreCase("version")) {
+             Command verCmd = org.bukkit.Bukkit.getServer().getCommandMap().getCommand("version");
+             if (verCmd != null) {

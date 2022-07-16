@@ -1,0 +1,54 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: root <root@ROBERT-PC.localdomain>
+Date: Sat, 18 Jun 2022 11:38:05 +0200
+Subject: [PATCH] GERMAN LOCATECOMMAND
+
+
+diff --git a/src/main/java/net/minecraft/server/commands/LocateCommand.java b/src/main/java/net/minecraft/server/commands/LocateCommand.java
+index e477d141260648d312935395a516612e7d0550d9..5c26696db12d31c582ecb26c2e6dd5b2c9eb0eff 100644
+--- a/src/main/java/net/minecraft/server/commands/LocateCommand.java
++++ b/src/main/java/net/minecraft/server/commands/LocateCommand.java
+@@ -23,25 +23,28 @@ import net.minecraft.world.entity.ai.village.poi.PoiManager;
+ import net.minecraft.world.entity.ai.village.poi.PoiType;
+ import net.minecraft.world.level.biome.Biome;
+ import net.minecraft.world.level.levelgen.structure.Structure;
++import io.papermc.paper.adventure.PaperAdventure;
++import net.kyori.adventure.text.minimessage.MiniMessage;
++import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
+ 
+ public class LocateCommand {
+     private static final DynamicCommandExceptionType ERROR_STRUCTURE_NOT_FOUND = new DynamicCommandExceptionType((id) -> {
+-        return Component.translatable("commands.locate.structure.not_found", id);
++        return PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Konnte Struktur <gold>" + id + " <red>nicht finden!"));
+     });
+     private static final DynamicCommandExceptionType ERROR_STRUCTURE_INVALID = new DynamicCommandExceptionType((id) -> {
+-        return Component.translatable("commands.locate.structure.invalid", id);
++        return PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Es gibt die Struktur <gold>" + id + " <red>nicht!"));
+     });
+     private static final DynamicCommandExceptionType ERROR_BIOME_NOT_FOUND = new DynamicCommandExceptionType((id) -> {
+-        return Component.translatable("commands.locate.biome.not_found", id);
++        return PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Konnte Biom <gold>" + id + " <red>nicht finden!"));
+     });
+     private static final DynamicCommandExceptionType ERROR_BIOME_INVALID = new DynamicCommandExceptionType((id) -> {
+-        return Component.translatable("commands.locate.biome.invalid", id);
++        return PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Es gibt das Biom <gold>" + id + " <red>nicht!"));
+     });
+     private static final DynamicCommandExceptionType ERROR_POI_NOT_FOUND = new DynamicCommandExceptionType((id) -> {
+-        return Component.translatable("commands.locate.poi.not_found", id);
++        return PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Konnte keinen Punkt der Interesse <gold>" + id + " <red>in der nähe finden!"));
+     });
+     private static final DynamicCommandExceptionType ERROR_POI_INVALID = new DynamicCommandExceptionType((id) -> {
+-        return Component.translatable("commands.locate.poi.invalid", id);
++        return PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Es gibt keinen Punkt der Interesse mit Typ <gold>" + id + " <red>!"));
+     });
+     private static final int MAX_STRUCTURE_SEARCH_RADIUS = 100;
+     private static final int MAX_BIOME_SEARCH_RADIUS = 6400;
+@@ -91,6 +94,8 @@ public class LocateCommand {
+             throw ERROR_BIOME_NOT_FOUND.create(predicate.asPrintable());
+         } else {
+             return showLocateResult(source, predicate, blockPos, pair, "commands.locate.biome.success", true);
++            ///source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Das Biom <gold><pred> <green>ist bei <gold><pos> <green>zu finden! <white>[ <gold><pos> <white>]", Placeholder.component("pred", PaperAdventure.asAdventure(predicate)), Placeholder.component("pos", PaperAdventure.asAdventure(blockpos)), Placeholder.component("pair", PaperAdventure.asAdventure(pair))));
++            ///return 0;
+         }
+     }
+ 

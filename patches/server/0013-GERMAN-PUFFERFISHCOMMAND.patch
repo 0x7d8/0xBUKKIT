@@ -1,0 +1,75 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: root <root@ROBERT-PC.localdomain>
+Date: Sat, 11 Jun 2022 10:18:44 +0200
+Subject: [PATCH] GERMAN PUFFERFISHCOMMAND
+
+puf
+
+puf
+
+puf
+
+puf
+
+puf
+
+puf
+
+puf
+
+diff --git a/src/main/java/gg/pufferfish/pufferfish/PufferfishCommand.java b/src/main/java/gg/pufferfish/pufferfish/PufferfishCommand.java
+index 020368da69b9a492155f6de6297f74732f4ab6ea..e8299689a00b0b1dc969cb321b42330631005f03 100644
+--- a/src/main/java/gg/pufferfish/pufferfish/PufferfishCommand.java
++++ b/src/main/java/gg/pufferfish/pufferfish/PufferfishCommand.java
+@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
+ import java.util.stream.Stream;
+ import net.kyori.adventure.text.Component;
+ import net.kyori.adventure.text.format.NamedTextColor;
++import net.kyori.adventure.text.minimessage.MiniMessage;
+ import net.md_5.bungee.api.ChatColor;
+ import net.minecraft.server.MinecraftServer;
+ import org.bukkit.Bukkit;
+@@ -18,8 +19,8 @@ public class PufferfishCommand extends Command {
+ 
+     public PufferfishCommand() {
+         super("pufferfish");
+-        this.description = "Pufferfish related commands";
+-        this.usageMessage = "/pufferfish [reload | version]";
++        this.description = "PUFFERFISH BEFEHLE";
++        this.usageMessage = "/pufferfish <white>[ <gold>reload <white>| <gold>version <white>]";
+         this.setPermission("bukkit.command.pufferfish");
+     }
+     
+@@ -43,8 +44,8 @@ public class PufferfishCommand extends Command {
+         String prefix = ChatColor.of("#12fff6") + "" + ChatColor.BOLD + "Pufferfish » " + ChatColor.of("#e8f9f9");
+ 
+         if (args.length != 1) {
+-            sender.sendMessage(prefix + "Usage: " + usageMessage);
+-            args = new String[]{"version"};
++            sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Bitte nutze den Befehl richtig! <gold>" + usageMessage));
++            return false;
+         }
+ 
+         if (args[0].equalsIgnoreCase("reload")) {
+@@ -52,15 +53,18 @@ public class PufferfishCommand extends Command {
+             try {
+                 PufferfishConfig.load();
+             } catch (IOException e) {
+-                sender.sendMessage(Component.text("Failed to reload.", NamedTextColor.RED));
++                sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Fehler beim neu laden der Konfiguration!"));
+                 e.printStackTrace();
+                 return true;
+             }
+             console.server.reloadCount++;
+ 
+-            Command.broadcastCommandMessage(sender, prefix + "Pufferfish configuration has been reloaded.");
++            Command.broadcastCommandMessage(sender, MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <gold>PUFFERFISH <green>Konfiguration neu geladen!"));
+         } else if (args[0].equalsIgnoreCase("version")) {
+-            Command.broadcastCommandMessage(sender, prefix + "This server is running " + Bukkit.getName() + " version " + Bukkit.getVersion() + " (Implementing API version " + Bukkit.getBukkitVersion() + ")");
++            Command verCmd = org.bukkit.Bukkit.getServer().getCommandMap().getCommand("version");
++            if (verCmd != null) {
++                return verCmd.execute(sender, commandLabel, new String[0]);
++            }
+         }
+ 
+         return true;

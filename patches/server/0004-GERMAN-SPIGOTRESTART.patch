@@ -1,0 +1,19 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: root <root@ROBERT-PC.localdomain>
+Date: Sat, 11 Jun 2022 09:49:45 +0200
+Subject: [PATCH] GERMAN SPIGOTRESTART
+
+
+diff --git a/src/main/java/org/spigotmc/RestartCommand.java b/src/main/java/org/spigotmc/RestartCommand.java
+index 160115bf8a153ff981ba308599d22c4c08026fb6..15e5e996f55741ffd205788a3efcf3b51cb598a6 100644
+--- a/src/main/java/org/spigotmc/RestartCommand.java
++++ b/src/main/java/org/spigotmc/RestartCommand.java
+@@ -13,7 +13,7 @@ public class RestartCommand extends Command
+     public RestartCommand(String name)
+     {
+         super( name );
+-        this.description = "Restarts the server";
++        this.description = "STARTE DEN SERVER NEU";
+         this.usageMessage = "/restart";
+         this.setPermission( "bukkit.command.restart" );
+     }

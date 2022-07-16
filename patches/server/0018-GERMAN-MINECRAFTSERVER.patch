@@ -1,0 +1,112 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: root <root@ROBERT-PC.localdomain>
+Date: Mon, 13 Jun 2022 12:18:52 +0200
+Subject: [PATCH] GERMAN MINECRAFTSERVER
+
+GERMAN MINECRAFTMAIN2
+
+GERMAN MCS
+
+diff --git a/src/main/java/net/minecraft/server/MinecraftServer.java b/src/main/java/net/minecraft/server/MinecraftServer.java
+index ee32920e59908c8808bae7bc29a4789d6a3810d3..046420421aac7835b5cde8d34c802144b4d0a022 100644
+--- a/src/main/java/net/minecraft/server/MinecraftServer.java
++++ b/src/main/java/net/minecraft/server/MinecraftServer.java
+@@ -908,7 +908,7 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
+             if (this.hasStopped) return;
+             this.hasStopped = true;
+         }
+-        if (!hasLoggedStop && isDebugging()) io.papermc.paper.util.TraceUtil.dumpTraceForThread("Server stopped"); // Paper
++        if (!hasLoggedStop && isDebugging()) io.papermc.paper.util.TraceUtil.dumpTraceForThread("Server gestoppt"); // Paper
+         // Paper start - kill main thread, and kill it hard
+         shutdownThread = Thread.currentThread();
+         org.spigotmc.WatchdogThread.doStop(); // Paper
+@@ -927,7 +927,7 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
+             this.cancelRecordingMetrics();
+         }
+ 
+-        MinecraftServer.LOGGER.info("Stopping server");
++        MinecraftServer.LOGGER.info("Stoppe Server");
+         MinecraftTimings.stopServer(); // Paper
+         // Purpur start
+         if (upnp) {
+@@ -949,13 +949,13 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
+ 
+         this.isSaving = true;
+         if (this.playerList != null) {
+-            MinecraftServer.LOGGER.info("Saving players");
++            MinecraftServer.LOGGER.info("Speichere Spieler");
+             this.playerList.saveAll();
+             this.playerList.removeAll(this.isRestarting); // Paper
+             try { Thread.sleep(100); } catch (InterruptedException ex) {} // CraftBukkit - SPIGOT-625 - give server at least a chance to send packets
+         }
+ 
+-        MinecraftServer.LOGGER.info("Saving worlds");
++        MinecraftServer.LOGGER.info("Speichere Welten");
+         Iterator iterator = this.getAllLevels().iterator();
+ 
+         ServerLevel worldserver;
+@@ -1025,11 +1025,11 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
+         }
+         // Spigot end
+         // Paper start - move final shutdown items here
+-        LOGGER.info("Flushing Chunk IO");
++        LOGGER.info("Leere Chunk IO");
+         com.destroystokyo.paper.io.PaperFileIOThread.Holder.INSTANCE.close(true, true); // Paper
+-        LOGGER.info("Closing Thread Pool");
++        LOGGER.info("Beende Prozesse");
+         Util.shutdownExecutors(); // Paper
+-        LOGGER.info("Closing Server");
++        LOGGER.info("Beende Server");
+         try {
+             net.minecrell.terminalconsole.TerminalConsoleAppender.close(); // Paper - Use TerminalConsoleAppender
+         } catch (Exception e) {
+@@ -1059,7 +1059,7 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
+         org.purpurmc.purpur.task.BeehiveTask.instance().unregister(); // Purpur
+         this.isRestarting = isRestarting;
+         this.hasLoggedStop = true; // Paper
+-        if (isDebugging()) io.papermc.paper.util.TraceUtil.dumpTraceForThread("Server stopped"); // Paper
++        if (isDebugging()) io.papermc.paper.util.TraceUtil.dumpTraceForThread("Server ist offline"); // Paper
+         // Paper end
+         this.running = false;
+         if (flag) {
+@@ -1153,7 +1153,7 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
+             // anything at 3+ won't be caught here but also will trip watchdog....
+             // tasks are default scheduled at -1 + delay, and first tick will tick at 1
+             String doneTime = String.format(java.util.Locale.ROOT, "%.3fs", (double) (Util.getNanos() - serverStartTime) / 1.0E9D);
+-            LOGGER.info("Done ({})! For help, type \"help\"", doneTime);
++            LOGGER.info("Done ({})! Der Server ist nun Online!", doneTime);
+             // Paper end
+ 
+             org.spigotmc.WatchdogThread.tick(); // Paper
+@@ -1168,7 +1168,7 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
+                     long j = i / 50L;
+ 
+                     if (this.server.getWarnOnOverload()) // CraftBukkit
+-                            MinecraftServer.LOGGER.warn("Can't keep up! Is the server overloaded? Running {}ms or {} ticks behind", i, j);
++                            MinecraftServer.LOGGER.warn("[Server] Ist der Server überfordert? {}ms oder {} ticks hinterher!", i, j);
+                     this.nextTickTime += j * 50L;
+                     this.lastOverloadWarning = this.nextTickTime;
+                 }
+@@ -1682,11 +1682,11 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
+ 
+     @DontObfuscate
+     public String getServerModName() {
+-        return org.purpurmc.purpur.PurpurConfig.serverModName; // Purpur - Purpur > // Paper - Paper > // Spigot - Spigot > // CraftBukkit - cb > vanilla!
++        return org.purpurmc.purpur.PurpurConfig.serverModName; // PAPERSTUDIOS - 0xSERVER > // Purpur - Purpur > // Paper - Paper > // Spigot - Spigot > // CraftBukkit - cb > vanilla!
+     }
+ 
+     public SystemReport fillSystemReport(SystemReport details) {
+-        details.setDetail("Server Running", () -> {
++        details.setDetail("Server Online", () -> {
+             return Boolean.toString(this.running);
+         });
+         if (this.playerList != null) {
+@@ -1994,7 +1994,7 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
+     @Override
+     public void executeIfPossible(Runnable runnable) {
+         if (this.isStopped()) {
+-            throw new RejectedExecutionException("Server already shutting down");
++            throw new RejectedExecutionException("Server stoppt schon!");
+         } else {
+             super.executeIfPossible(runnable);
+         }

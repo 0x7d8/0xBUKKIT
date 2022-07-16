@@ -1,0 +1,27 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: root <root@ROBERT-PC.localdomain>
+Date: Fri, 17 Jun 2022 21:53:32 +0200
+Subject: [PATCH] GERMAN STOPCOMMAND
+
+
+diff --git a/src/main/java/net/minecraft/server/commands/StopCommand.java b/src/main/java/net/minecraft/server/commands/StopCommand.java
+index d91e74e87b60eb756db7ed03405c0c1cfae4f72d..add0c2ad736391cc90c553b239f9df460be82c83 100644
+--- a/src/main/java/net/minecraft/server/commands/StopCommand.java
++++ b/src/main/java/net/minecraft/server/commands/StopCommand.java
+@@ -4,13 +4,15 @@ import com.mojang.brigadier.CommandDispatcher;
+ import net.minecraft.commands.CommandSourceStack;
+ import net.minecraft.commands.Commands;
+ import net.minecraft.network.chat.Component;
++import net.kyori.adventure.text.minimessage.MiniMessage;
++import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
+ 
+ public class StopCommand {
+     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
+         dispatcher.register(Commands.literal("stop").requires((source) -> {
+             return source.hasPermission(4);
+         }).executes((context) -> {
+-            context.getSource().sendSuccess(Component.translatable("commands.stop.stopping"), true);
++            context.getSource().sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <yellow>Stoppe den Server!"));
+             context.getSource().getServer().halt(false);
+             return 1;
+         }));

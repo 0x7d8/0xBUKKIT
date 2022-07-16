@@ -1,0 +1,75 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: root <root@ROBERT-PC.localdomain>
+Date: Mon, 13 Jun 2022 08:55:39 +0200
+Subject: [PATCH] GERMAN PAPERSETTINGS
+
+pap
+
+pap
+
+pap
+
+pap
+
+pap
+
+pap
+
+diff --git a/src/main/java/io/papermc/paper/configuration/GlobalConfiguration.java b/src/main/java/io/papermc/paper/configuration/GlobalConfiguration.java
+index fa47e173ee791e4eb09f70930cdb668ad07d7c31..b1174e065194b21c8d4e1a173d62d13ccaba9068 100644
+--- a/src/main/java/io/papermc/paper/configuration/GlobalConfiguration.java
++++ b/src/main/java/io/papermc/paper/configuration/GlobalConfiguration.java
+@@ -15,6 +15,10 @@ import org.spongepowered.configurate.objectmapping.meta.Comment;
+ import org.spongepowered.configurate.objectmapping.meta.Required;
+ import org.spongepowered.configurate.objectmapping.meta.Setting;
+ 
++import org.bukkit.command.Command;
++import org.bukkit.command.CommandSender;
++import net.kyori.adventure.text.minimessage.MiniMessage;
++
+ import java.util.List;
+ import java.util.Map;
+ import java.util.Objects;
+@@ -41,19 +45,19 @@ public class GlobalConfiguration extends ConfigurationPart {
+ 
+         public class Kick extends ConfigurationPart {
+             public Component authenticationServersDown = Component.translatable("multiplayer.disconnect.authservers_down");
+-            public Component connectionThrottle = Component.text("Connection throttled! Please wait before reconnecting.");
++            public Component connectionThrottle = Component.text("Verbindung abgebrochen, bitte warte");
+             public Component flyingPlayer = Component.translatable("multiplayer.disconnect.flying");
+             public Component flyingVehicle = Component.translatable("multiplayer.disconnect.flying");
+         }
+ 
+-        public Component noPermission = Component.text("I'm sorry, but you do not have permission to perform this command. Please contact the server administrators if you believe that this is in error.", NamedTextColor.RED);
++        public Component noPermission = Component.text("&f[&7Server&f] &cDu hast dafür keine Berechtigung!", NamedTextColor.RED);
+         public boolean useDisplayNameInQuitMessage = false;
+     }
+ 
+     public Timings timings;
+ 
+     public class Timings extends ConfigurationPart.Post {
+-        public boolean enabled = true;
++        public boolean enabled = false;
+         public boolean reallyEnabled = false;
+         public boolean verbose = true;
+         public String url = "https://timings.aikar.co/";
+@@ -64,15 +68,15 @@ public class GlobalConfiguration extends ConfigurationPart {
+         );
+         public int historyInterval = 300;
+         public int historyLength = 3600;
+-        public String serverName = "Unknown Server";
++        public String serverName = "Unbekannt";
+ 
+         @Override
+         public void postProcess() {
+             // Pufferfish start
+             if (enabled && !reallyEnabled) {
+-                Bukkit.getLogger().log(Level.WARNING, "[Pufferfish] To improve performance, timings have been disabled by default");
+-                Bukkit.getLogger().log(Level.WARNING, "[Pufferfish] You can still use timings by using /timings on, but they will not start on server startup unless you set timings.really-enabled to true in paper.yml");
+-                Bukkit.getLogger().log(Level.WARNING, "[Pufferfish] If you would like to disable this message, either set timings.really-enabled to true or timings.enabled to false.");
++                Bukkit.getLogger().log(Level.WARNING, "[0xSERVER] To improve performance, timings have been disabled by default");
++                Bukkit.getLogger().log(Level.WARNING, "[0xSERVER] You can still use timings by using /timings on, but they will not start on server startup unless you set timings.really-enabled to true in paper.yml");
++                Bukkit.getLogger().log(Level.WARNING, "[0xSERVER] If you would like to disable this message, either set timings.really-enabled to true or timings.enabled to false.");
+             }
+             enabled = reallyEnabled;
+             // Pufferfish end

@@ -1,0 +1,24 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: root <root@ROBERT-PC.localdomain>
+Date: Fri, 17 Jun 2022 21:51:23 +0200
+Subject: [PATCH] GERMAN EXPERIENCECOMMAND
+
+
+diff --git a/src/main/java/net/minecraft/server/commands/ExperienceCommand.java b/src/main/java/net/minecraft/server/commands/ExperienceCommand.java
+index a628e3730b1c26c2e6a85c449440af0afe4c0d8d..91f54f5e5ea77413aaa33354d1daca5c4eb1afb4 100644
+--- a/src/main/java/net/minecraft/server/commands/ExperienceCommand.java
++++ b/src/main/java/net/minecraft/server/commands/ExperienceCommand.java
+@@ -16,9 +16,12 @@ import net.minecraft.network.chat.Component;
+ import net.minecraft.server.level.ServerPlayer;
+ import net.minecraft.util.Mth;
+ import net.minecraft.world.entity.player.Player;
++import io.papermc.paper.adventure.PaperAdventure;
++import net.kyori.adventure.text.minimessage.MiniMessage;
++import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
+ 
+ public class ExperienceCommand {
+-    private static final SimpleCommandExceptionType ERROR_SET_POINTS_INVALID = new SimpleCommandExceptionType(Component.translatable("commands.experience.set.points.invalid"));
++    private static final SimpleCommandExceptionType ERROR_SET_POINTS_INVALID = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Du kannst die Erfahrung nicht so hoch setzen!")));
+ 
+     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
+         LiteralCommandNode<CommandSourceStack> literalCommandNode = dispatcher.register(Commands.literal("experience").requires((source) -> {

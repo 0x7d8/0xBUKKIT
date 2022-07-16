@@ -1,0 +1,46 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: root <root@ROBERT-PC.localdomain>
+Date: Tue, 14 Jun 2022 10:41:51 +0200
+Subject: [PATCH] GERMAN BUKKITCONFIG
+
+
+diff --git a/src/main/resources/configurations/bukkit.yml b/src/main/resources/configurations/bukkit.yml
+index 97239f7aadd761f6f709a6d6c913e577651a87df..0fbe08d37a8499dc39ea9146504f657f86fbb58b 100644
+--- a/src/main/resources/configurations/bukkit.yml
++++ b/src/main/resources/configurations/bukkit.yml
+@@ -1,15 +1,4 @@
+-# This is the main configuration file for Bukkit.
+-# As you can see, there's actually not that much to configure without any plugins.
+-# For a reference for any variable inside this file, check out the Bukkit Wiki at
+-# https://www.spigotmc.org/go/bukkit-yml
+-# 
+-# If you need help on this file, feel free to join us on Discord or leave a message
+-# on the forums asking for advice.
+-# 
+-# Discord: https://www.spigotmc.org/go/discord
+-# Forums: https://www.spigotmc.org/
+-# Bug tracker: https://www.spigotmc.org/go/bugs
+-
++# BUKKIT KONFIGURATION
+ 
+ settings:
+     allow-end: true
+diff --git a/src/main/resources/configurations/commands.yml b/src/main/resources/configurations/commands.yml
+index 18f54571200e2eca09a39b88f170fe7b99d8618f..a79c2915584a9be18ee5a78492afd2f66772bbd2 100644
+--- a/src/main/resources/configurations/commands.yml
++++ b/src/main/resources/configurations/commands.yml
+@@ -1,13 +1,4 @@
+-# This is the commands configuration file for Bukkit.
+-# For documentation on how to make use of this file, check out the Bukkit Wiki at
+-# https://www.spigotmc.org/go/commands-yml
+-# 
+-# If you need help on this file, feel free to join us on Discord or leave a message
+-# on the forums asking for advice.
+-# 
+-# Discord: https://www.spigotmc.org/go/discord
+-# Forums: https://www.spigotmc.org/
+-# Bug tracker: https://www.spigotmc.org/go/bugs
++# BUKKIT ALIASES
+ 
+ command-block-overrides: []
+ ignore-vanilla-permissions: false

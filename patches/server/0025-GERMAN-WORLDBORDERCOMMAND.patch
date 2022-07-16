@@ -1,0 +1,135 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: root <root@ROBERT-PC.localdomain>
+Date: Tue, 14 Jun 2022 08:53:40 +0200
+Subject: [PATCH] GERMAN WORLDBORDERCOMMAND
+
+GERMAN WORLDBORDERCOMMAND2
+
+GERMAN WORLDBORDERCOMMAND2
+
+GERMAN WBC
+
+GERMAN WBC
+
+GERMAN WBC
+
+GERMAN WBC
+
+GERMAN WBC
+
+GERMAN WB
+
+GERMAN WB
+
+GERMAN WB
+
+GERMAN WB
+
+GERMAN WB
+
+diff --git a/src/main/java/net/minecraft/server/commands/WorldBorderCommand.java b/src/main/java/net/minecraft/server/commands/WorldBorderCommand.java
+index 12637fca064ce944afd0a7f322b4201a90f32977..8d6c7754ebadc904917aaf21cb80285a9825fd81 100644
+--- a/src/main/java/net/minecraft/server/commands/WorldBorderCommand.java
++++ b/src/main/java/net/minecraft/server/commands/WorldBorderCommand.java
+@@ -1,6 +1,7 @@
+ package net.minecraft.server.commands;
+ 
+ import com.mojang.brigadier.CommandDispatcher;
++import com.mojang.brigadier.Message;
+ import com.mojang.brigadier.arguments.DoubleArgumentType;
+ import com.mojang.brigadier.arguments.FloatArgumentType;
+ import com.mojang.brigadier.arguments.IntegerArgumentType;
+@@ -15,18 +16,21 @@ import net.minecraft.network.chat.Component;
+ import net.minecraft.util.Mth;
+ import net.minecraft.world.level.border.WorldBorder;
+ import net.minecraft.world.phys.Vec2;
++import io.papermc.paper.adventure.PaperAdventure;
++import net.kyori.adventure.text.minimessage.MiniMessage;
++import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
+ 
+ public class WorldBorderCommand {
+ 
+-    private static final SimpleCommandExceptionType ERROR_SAME_CENTER = new SimpleCommandExceptionType(Component.translatable("commands.worldborder.center.failed"));
+-    private static final SimpleCommandExceptionType ERROR_SAME_SIZE = new SimpleCommandExceptionType(Component.translatable("commands.worldborder.set.failed.nochange"));
+-    private static final SimpleCommandExceptionType ERROR_TOO_SMALL = new SimpleCommandExceptionType(Component.translatable("commands.worldborder.set.failed.small"));
+-    private static final SimpleCommandExceptionType ERROR_TOO_BIG = new SimpleCommandExceptionType(Component.translatable("commands.worldborder.set.failed.big", 5.9999968E7D));
+-    private static final SimpleCommandExceptionType ERROR_TOO_FAR_OUT = new SimpleCommandExceptionType(Component.translatable("commands.worldborder.set.failed.far", 2.9999984E7D));
+-    private static final SimpleCommandExceptionType ERROR_SAME_WARNING_TIME = new SimpleCommandExceptionType(Component.translatable("commands.worldborder.warning.time.failed"));
+-    private static final SimpleCommandExceptionType ERROR_SAME_WARNING_DISTANCE = new SimpleCommandExceptionType(Component.translatable("commands.worldborder.warning.distance.failed"));
+-    private static final SimpleCommandExceptionType ERROR_SAME_DAMAGE_BUFFER = new SimpleCommandExceptionType(Component.translatable("commands.worldborder.damage.buffer.failed"));
+-    private static final SimpleCommandExceptionType ERROR_SAME_DAMAGE_AMOUNT = new SimpleCommandExceptionType(Component.translatable("commands.worldborder.damage.amount.failed"));
++    private static final SimpleCommandExceptionType ERROR_SAME_CENTER = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Das Weltgrenzen Center ist schon auf dieser Position!")));
++    private static final SimpleCommandExceptionType ERROR_SAME_SIZE = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Die Weltgrenze ist schon so weit gesetzt!")));
++    private static final SimpleCommandExceptionType ERROR_TOO_SMALL = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Die Weltgrenze kann nicht kleiner als <gold>1 <red>Block sein!")));
++    private static final SimpleCommandExceptionType ERROR_TOO_BIG = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Die Weltgrenze kann nicht so groß sein!")));
++    private static final SimpleCommandExceptionType ERROR_TOO_FAR_OUT = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Die Weltgrenze kann nicht so weit außen sein!")));
++    private static final SimpleCommandExceptionType ERROR_SAME_WARNING_TIME = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Die Weltgrenzen Warnung ist schon so lang gesetzt!")));
++    private static final SimpleCommandExceptionType ERROR_SAME_WARNING_DISTANCE = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Die Weltgrenzen Warnung ist schon so weit gesetzt!")));
++    private static final SimpleCommandExceptionType ERROR_SAME_DAMAGE_BUFFER = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Der Weltgrenzens Schaden Buffer ist schon auf das gesetzt!")));
++    private static final SimpleCommandExceptionType ERROR_SAME_DAMAGE_AMOUNT = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Der Weltgrenzens Schaden ist schon auf das gesetzt!")));
+ 
+     public WorldBorderCommand() {}
+ 
+@@ -63,7 +67,7 @@ public class WorldBorderCommand {
+             throw WorldBorderCommand.ERROR_SAME_DAMAGE_BUFFER.create();
+         } else {
+             worldborder.setDamageSafeZone((double) distance);
+-            source.sendSuccess(Component.translatable("commands.worldborder.damage.buffer.success", String.format(Locale.ROOT, "%.2f", distance)), true);
++            source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Der Weltgrenzens Schaden Buffer wurde auf <gold>" + String.format(Locale.ROOT, "%.2f", distance) + " <green>Blöcke gesetzt!"));
+             return (int) distance;
+         }
+     }
+@@ -75,7 +79,7 @@ public class WorldBorderCommand {
+             throw WorldBorderCommand.ERROR_SAME_DAMAGE_AMOUNT.create();
+         } else {
+             worldborder.setDamagePerBlock((double) damagePerBlock);
+-            source.sendSuccess(Component.translatable("commands.worldborder.damage.amount.success", String.format(Locale.ROOT, "%.2f", damagePerBlock)), true);
++            source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Der Weltgrenzens Schaden wurde auf <gold>" + String.format(Locale.ROOT, "%.2f", damagePerBlock) + " <green>pro Sekunde gesetzt!"));
+             return (int) damagePerBlock;
+         }
+     }
+@@ -87,7 +91,7 @@ public class WorldBorderCommand {
+             throw WorldBorderCommand.ERROR_SAME_WARNING_TIME.create();
+         } else {
+             worldborder.setWarningTime(time);
+-            source.sendSuccess(Component.translatable("commands.worldborder.warning.time.success", time), true);
++            source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Die Weltgrenzens Warnungs Zeit wurde auf <gold>" + time + "s <green>gesetzt!"));
+             return time;
+         }
+     }
+@@ -99,7 +103,7 @@ public class WorldBorderCommand {
+             throw WorldBorderCommand.ERROR_SAME_WARNING_DISTANCE.create();
+         } else {
+             worldborder.setWarningBlocks(distance);
+-            source.sendSuccess(Component.translatable("commands.worldborder.warning.distance.success", distance), true);
++            source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Die Weltgrenzens Warnung wurde auf <gold>" + distance + " <green>Blöcke gesetzt!"));
+             return distance;
+         }
+     }
+@@ -107,7 +111,7 @@ public class WorldBorderCommand {
+     private static int getSize(CommandSourceStack source) {
+         double d0 = source.getLevel().getWorldBorder().getSize(); // CraftBukkit
+ 
+-        source.sendSuccess(Component.translatable("commands.worldborder.get", String.format(Locale.ROOT, "%.0f", d0)), false);
++        source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Die Weltgrenze ist aktuell <gold>" + String.format(Locale.ROOT, "%.0f", d0) + " <green>Blöcke weit!"));
+         return Mth.floor(d0 + 0.5D);
+     }
+ 
+@@ -118,7 +122,7 @@ public class WorldBorderCommand {
+             throw WorldBorderCommand.ERROR_SAME_CENTER.create();
+         } else if ((double) Math.abs(pos.x) <= 2.9999984E7D && (double) Math.abs(pos.y) <= 2.9999984E7D) {
+             worldborder.setCenter((double) pos.x, (double) pos.y);
+-            source.sendSuccess(Component.translatable("commands.worldborder.center.success", String.format(Locale.ROOT, "%.2f", pos.x), String.format("%.2f", pos.y)), true);
++            source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Das Weltgrenzen Center wurde auf deine Position gesetzt!"));
+             return 0;
+         } else {
+             throw WorldBorderCommand.ERROR_TOO_FAR_OUT.create();
+@@ -145,7 +149,7 @@ public class WorldBorderCommand {
+                 }
+             } else {
+                 worldborder.setSize(distance);
+-                source.sendSuccess(Component.translatable("commands.worldborder.set.immediate", String.format(Locale.ROOT, "%.1f", distance)), true);
++                source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Die Weltgrenze wurde auf <gold>" + String.format(Locale.ROOT, "%.1f", distance) + " <green>Blöcke gesetzt!"));
+             }
+ 
+             return (int) (distance - d1);

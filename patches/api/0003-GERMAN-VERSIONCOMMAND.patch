@@ -1,0 +1,90 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: root <root@ROBERT-PC.localdomain>
+Date: Tue, 14 Jun 2022 14:52:36 +0200
+Subject: [PATCH] GERMAN VERSIONCOMMAND
+
+GERMAN VERSIONCOMMAND2
+
+GERMAN VERSIONCOMMAND2
+
+ver
+
+diff --git a/src/main/java/org/bukkit/command/defaults/VersionCommand.java b/src/main/java/org/bukkit/command/defaults/VersionCommand.java
+index eac5830986cd0638950bbb1e6f10a30e246e09a7..692383857c6aa310d11e8bfe3958f49c9e9099c0 100644
+--- a/src/main/java/org/bukkit/command/defaults/VersionCommand.java
++++ b/src/main/java/org/bukkit/command/defaults/VersionCommand.java
+@@ -25,6 +25,8 @@ import org.bukkit.plugin.Plugin;
+ import org.bukkit.plugin.PluginDescriptionFile;
+ import org.bukkit.util.StringUtil;
+ import org.jetbrains.annotations.NotNull;
++import net.kyori.adventure.text.minimessage.MiniMessage;
++import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
+ 
+ public class VersionCommand extends BukkitCommand {
+     private VersionFetcher versionFetcher;
+@@ -39,8 +41,8 @@ public class VersionCommand extends BukkitCommand {
+     public VersionCommand(@NotNull String name) {
+         super(name);
+ 
+-        this.description = "Gets the version of this server including any plugins in use";
+-        this.usageMessage = "/version [plugin name]";
++        this.description = "SERVER VERSION";
++        this.usageMessage = "/version [ PLUGIN ]";
+         this.setPermission("bukkit.command.version");
+         this.setAliases(Arrays.asList("ver", "about"));
+     }
+@@ -80,8 +82,7 @@ public class VersionCommand extends BukkitCommand {
+             }
+ 
+             if (!found) {
+-                sender.sendMessage("This server is not running any plugin by that name.");
+-                sender.sendMessage("Use /plugins to get a list of plugins.");
++                sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Kein Plugin mit dem Namen gefunden!"));
+             }
+         }
+         return true;
+@@ -101,14 +102,14 @@ public class VersionCommand extends BukkitCommand {
+ 
+         if (!desc.getAuthors().isEmpty()) {
+             if (desc.getAuthors().size() == 1) {
+-                sender.sendMessage("Author: " + getNameList(desc.getAuthors()));
++                sender.sendMessage("Autor: " + getNameList(desc.getAuthors()));
+             } else {
+-                sender.sendMessage("Authors: " + getNameList(desc.getAuthors()));
++                sender.sendMessage("Autoren: " + getNameList(desc.getAuthors()));
+             }
+         }
+ 
+         if (!desc.getContributors().isEmpty()) {
+-            sender.sendMessage("Contributors: " + getNameList(desc.getContributors()));
++            sender.sendMessage("Unterstützer: " + getNameList(desc.getContributors()));
+         }
+     }
+ 
+@@ -123,7 +124,7 @@ public class VersionCommand extends BukkitCommand {
+                 if (i < names.size() - 1) {
+                     result.append(", ");
+                 } else {
+-                    result.append(" and ");
++                    result.append(" und ");
+                 }
+             }
+ 
+@@ -178,7 +179,7 @@ public class VersionCommand extends BukkitCommand {
+                 return;
+             }
+             versionWaiters.add(sender);
+-            sender.sendMessage(net.kyori.adventure.text.Component.text("Checking version, please wait...", net.kyori.adventure.text.format.NamedTextColor.WHITE, net.kyori.adventure.text.format.TextDecoration.ITALIC)); // Paper
++            sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <yellow>Überprüfe Version, bitte warten...")); // Paper
+             if (!versionTaskStarted) {
+                 versionTaskStarted = true;
+                 new Thread(new Runnable() {
+@@ -242,7 +243,7 @@ public class VersionCommand extends BukkitCommand {
+         // Purpur start
+         int distance = getVersionFetcher().distance();
+         final net.kyori.adventure.text.Component message = net.kyori.adventure.text.Component.join(net.kyori.adventure.text.JoinConfiguration.separator(net.kyori.adventure.text.Component.newline()),
+-            ChatColor.parseMM("<grey>Current: %s%s*", distance == 0 ? "<green>" : distance > 0 ? "<yellow>" : "<red>", Bukkit.getVersion()),
++            ChatColor.parseMM("<white>[<grey>Server<white>] <green>Aktuell: <gold>%s%s*", distance == 0 ? "<gold>" : distance > 0 ? "<gold>" : "<gold>", Bukkit.getVersion()),
+             // Purpur end
+             msg
+         );

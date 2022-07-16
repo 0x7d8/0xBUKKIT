@@ -1,0 +1,37 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: root <root@ROBERT-PC.localdomain>
+Date: Sat, 11 Jun 2022 10:01:06 +0200
+Subject: [PATCH] GERMAN BUKKITMAIN
+
+
+diff --git a/src/main/java/org/bukkit/craftbukkit/Main.java b/src/main/java/org/bukkit/craftbukkit/Main.java
+index 1f3c4adf3aeb28bcb91cb6913459ea2923ad95a4..edd36af867c46c2f2d2b01968bd2e3aaea26db7c 100644
+--- a/src/main/java/org/bukkit/craftbukkit/Main.java
++++ b/src/main/java/org/bukkit/craftbukkit/Main.java
+@@ -170,7 +170,7 @@ public class Main {
+                 acceptsAll(asList("server-name"), "Name of the server")
+                         .withRequiredArg()
+                         .ofType(String.class)
+-                        .defaultsTo("Unknown Server")
++                        .defaultsTo("Unbekannt")
+                         .describedAs("Name");
+                 // Paper end
+             }
+@@ -232,7 +232,7 @@ public class Main {
+ 
+             float javaVersion = Float.parseFloat(System.getProperty("java.class.version"));
+             if (javaVersion < 61.0) {
+-                System.err.println("Unsupported Java detected (" + javaVersion + "). This version of Minecraft requires at least Java 17. Check your Java version with the command 'java -version'.");
++                System.err.println("DU BRAUCHST JAVA 17+ UM DEN SERVER ZU STARTEN.");
+                 return;
+             }
+ 
+@@ -298,7 +298,7 @@ public class Main {
+                 }
+                 // Paper end
+                 System.setProperty( "library.jansi.version", "Paper" ); // Paper - set meaningless jansi version to prevent git builds from crashing on Windows
+-                System.out.println("Loading libraries, please wait...");
++                System.out.println("LADE DEN SERVER, BITTE WARTEN");
+                 net.minecraft.server.Main.main(options);
+             } catch (Throwable t) {
+                 t.printStackTrace();

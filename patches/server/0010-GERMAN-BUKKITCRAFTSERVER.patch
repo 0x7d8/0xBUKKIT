@@ -1,0 +1,27 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: root <root@ROBERT-PC.localdomain>
+Date: Sat, 11 Jun 2022 10:09:39 +0200
+Subject: [PATCH] GERMAN BUKKITCRAFTSERVER
+
+
+diff --git a/src/main/java/org/bukkit/craftbukkit/CraftServer.java b/src/main/java/org/bukkit/craftbukkit/CraftServer.java
+index 91b56e4015b4c3df260894589c4cfb5a555f2707..d0dc004f1e6f08549b7183ac8bfd5c530c51f2e0 100644
+--- a/src/main/java/org/bukkit/craftbukkit/CraftServer.java
++++ b/src/main/java/org/bukkit/craftbukkit/CraftServer.java
+@@ -238,6 +238,7 @@ import org.bukkit.util.permissions.DefaultPermissions;
+ import org.yaml.snakeyaml.Yaml;
+ import org.yaml.snakeyaml.constructor.SafeConstructor;
+ import org.yaml.snakeyaml.error.MarkedYAMLException;
++import net.kyori.adventure.text.minimessage.MiniMessage;
+ 
+ import net.md_5.bungee.api.chat.BaseComponent; // Spigot
+ 
+@@ -1104,7 +1105,7 @@ public final class CraftServer implements Server {
+                 this.icon = CraftServer.loadServerIcon0(file);
+             }
+         } catch (Exception ex) {
+-            this.getLogger().log(Level.WARNING, "Couldn't load server icon", ex);
++            this.getLogger().log(Level.WARNING, "Konnte Server Bild nicht laden", ex);
+         }
+     }
+ 

@@ -1,0 +1,19 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: root <root@ROBERT-PC.localdomain>
+Date: Sat, 11 Jun 2022 10:12:39 +0200
+Subject: [PATCH] GERMAN BUKKITCRAFTLEGACY
+
+
+diff --git a/src/main/java/org/bukkit/craftbukkit/legacy/CraftLegacy.java b/src/main/java/org/bukkit/craftbukkit/legacy/CraftLegacy.java
+index 14600a7bc01bf61e8ffb736816d23df6aa794a16..cc9badf5a673f38a088df3cd4da1cc069ffcd8cc 100644
+--- a/src/main/java/org/bukkit/craftbukkit/legacy/CraftLegacy.java
++++ b/src/main/java/org/bukkit/craftbukkit/legacy/CraftLegacy.java
+@@ -256,7 +256,7 @@ public final class CraftLegacy {
+ 
+     static {
+         if (!org.purpurmc.purpur.PurpurConfig.loggerSuppressInitLegacyMaterialError) // Purpur
+-        System.err.println("Initializing Legacy Material Support. Unless you have legacy plugins and/or data this is a bug!");
++        System.err.println("Aktiviere Alte Komponenten von Bukkit, dies ist kein Fehler!");
+         if (MinecraftServer.getServer() != null && MinecraftServer.getServer().isDebugging()) {
+             new Exception().printStackTrace();
+         }

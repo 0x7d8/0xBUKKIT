@@ -1,0 +1,33 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: root <root@ROBERT-PC.localdomain>
+Date: Sat, 18 Jun 2022 11:31:20 +0200
+Subject: [PATCH] GERMAN OPCOMMAND
+
+
+diff --git a/src/main/java/net/minecraft/server/commands/OpCommand.java b/src/main/java/net/minecraft/server/commands/OpCommand.java
+index 43e77cef0fce75f59aeb05e161668bebb8fca229..65d6b55a99789fb8a66aa509552d868551e0702e 100644
+--- a/src/main/java/net/minecraft/server/commands/OpCommand.java
++++ b/src/main/java/net/minecraft/server/commands/OpCommand.java
+@@ -11,9 +11,12 @@ import net.minecraft.commands.SharedSuggestionProvider;
+ import net.minecraft.commands.arguments.GameProfileArgument;
+ import net.minecraft.network.chat.Component;
+ import net.minecraft.server.players.PlayerList;
++import io.papermc.paper.adventure.PaperAdventure;
++import net.kyori.adventure.text.minimessage.MiniMessage;
++import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
+ 
+ public class OpCommand {
+-    private static final SimpleCommandExceptionType ERROR_ALREADY_OP = new SimpleCommandExceptionType(Component.translatable("commands.op.failed"));
++    private static final SimpleCommandExceptionType ERROR_ALREADY_OP = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Der Spieler ist schon ein Operator!")));
+ 
+     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
+         dispatcher.register(Commands.literal("op").requires((source) -> {
+@@ -38,7 +41,7 @@ public class OpCommand {
+             if (!playerList.isOp(gameProfile)) {
+                 playerList.op(gameProfile);
+                 ++i;
+-                source.sendSuccess(Component.translatable("commands.op.success", targets.iterator().next().getName()), true);
++                source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Der Spieler <gold>" + targets.iterator().next().getName() + " <green>wurde zu einem Operator ernannt!"));
+             }
+         }
+ 

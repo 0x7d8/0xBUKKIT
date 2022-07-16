@@ -1,0 +1,103 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: root <root@ROBERT-PC.localdomain>
+Date: Mon, 13 Jun 2022 20:18:38 +0200
+Subject: [PATCH] GERMAN DIFFICULTYCOMMAND
+
+GERMAN DIFFICULTYCOMMAND2
+
+GERMAN DIFFICULTYCOMMAND2
+
+GERMAN DIFFICULTYCOMMAND2
+
+GERMAN DIFFICULTYCOMMAND2
+
+GERMAN DIFFICULTYCOMMAND2
+
+GERMAN DIFFICULTYCOMMAND2
+
+GERMAN DIFFICULTYCOMMAND2
+
+GERMAN DIFFICULTYCOMMAND2
+
+GERMAN DIFFICULTYCOMMAND2
+
+GERMAN DIFFICULTYCOMMAND2
+
+GERMAN DIFFICULTYCOMMAND2
+
+GERMAN DIFFICULTYCOMMAND2
+
+GERMAN DIFFICULTYCOMMAND2
+
+GERMAN DIFFICULTYCOMMAND2
+
+GERMAN DIFFICULTYCOMMAND2
+
+GERMAN DIFFICULTYCOMMAND2
+
+GERMAN DIFFICULTYCOMMAND2
+
+diff --git a/src/main/java/net/minecraft/commands/CommandSourceStack.java b/src/main/java/net/minecraft/commands/CommandSourceStack.java
+index 1f5a52c7890bfb399539362142241542788c7a19..c1c669927cebfd4e4bf0c8eade739cbf33291d8c 100644
+--- a/src/main/java/net/minecraft/commands/CommandSourceStack.java
++++ b/src/main/java/net/minecraft/commands/CommandSourceStack.java
+@@ -299,8 +299,9 @@ public class CommandSourceStack implements SharedSuggestionProvider, com.destroy
+         sendSuccess(net.kyori.adventure.text.minimessage.MiniMessage.miniMessage().deserialize(message), broadcastToOps);
+     }
+ 
+-    public void sendSuccess(@Nullable net.kyori.adventure.text.Component message) {
++    public net.kyori.adventure.text.Component sendSuccess(@Nullable net.kyori.adventure.text.Component message) {
+         sendSuccess(message, false);
++        return message;
+     }
+ 
+     public void sendSuccess(@Nullable net.kyori.adventure.text.Component message, boolean broadcastToOps) {
+diff --git a/src/main/java/net/minecraft/server/commands/DifficultyCommand.java b/src/main/java/net/minecraft/server/commands/DifficultyCommand.java
+index 817193ca5fc15134d2985187bc2226ccbb4f0108..4c9833b32232645f0391e578fd551f530ea3cf13 100644
+--- a/src/main/java/net/minecraft/server/commands/DifficultyCommand.java
++++ b/src/main/java/net/minecraft/server/commands/DifficultyCommand.java
+@@ -4,17 +4,17 @@ import com.mojang.brigadier.CommandDispatcher;
+ import com.mojang.brigadier.builder.LiteralArgumentBuilder;
+ import com.mojang.brigadier.exceptions.CommandSyntaxException;
+ import com.mojang.brigadier.exceptions.DynamicCommandExceptionType;
++import io.papermc.paper.adventure.PaperAdventure;
++import net.kyori.adventure.text.minimessage.MiniMessage;
++import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
+ import net.minecraft.commands.CommandSourceStack;
+ import net.minecraft.network.chat.Component;
+ import net.minecraft.server.MinecraftServer;
+ import net.minecraft.world.Difficulty;
++import org.bukkit.command.Command;
+ 
+ public class DifficultyCommand {
+ 
+-    private static final DynamicCommandExceptionType ERROR_ALREADY_DIFFICULT = new DynamicCommandExceptionType((object) -> {
+-        return Component.translatable("commands.difficulty.failure", object);
+-    });
+-
+     public DifficultyCommand() {}
+ 
+     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
+@@ -35,7 +35,7 @@ public class DifficultyCommand {
+         })).executes((commandcontext) -> {
+             Difficulty enumdifficulty1 = ((CommandSourceStack) commandcontext.getSource()).getLevel().getDifficulty();
+ 
+-            ((CommandSourceStack) commandcontext.getSource()).sendSuccess(Component.translatable("commands.difficulty.query", enumdifficulty1.getDisplayName()), false);
++            ((CommandSourceStack) commandcontext.getSource()).sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Die Schwierigkeit ist auf <gold>" + enumdifficulty1 + "<green>."));
+             return enumdifficulty1.getId();
+         }));
+     }
+@@ -45,10 +45,11 @@ public class DifficultyCommand {
+         net.minecraft.server.level.ServerLevel worldServer = source.getLevel(); // CraftBukkit
+ 
+         if (worldServer.getDifficulty() == difficulty) { // CraftBukkit
+-            throw DifficultyCommand.ERROR_ALREADY_DIFFICULT.create(difficulty.getKey());
++            source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Die Schwierigkeit war schon auf <gold>" + difficulty + " <red>gesetzt!"));
++            return 0;
+         } else {
+             minecraftserver.setDifficulty(worldServer, difficulty, true); // Paper - don't skip other difficulty-changing logic (fix upstream's fix)
+-            source.sendSuccess(Component.translatable("commands.difficulty.success", difficulty.getDisplayName()), true);
++            source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Die Schwierigkeit wurde auf <gold>" + difficulty + " <green>gesetzt!"));
+             return 0;
+         }
+     }

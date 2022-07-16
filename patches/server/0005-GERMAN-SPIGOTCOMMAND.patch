@@ -1,0 +1,60 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: root <root@ROBERT-PC.localdomain>
+Date: Sat, 11 Jun 2022 09:51:18 +0200
+Subject: [PATCH] GERMAN SPIGOTCOMMAND
+
+no
+
+spi
+
+spi
+
+diff --git a/src/main/java/org/spigotmc/SpigotCommand.java b/src/main/java/org/spigotmc/SpigotCommand.java
+index 3112a8695639c402e9d18710acbc11cff5611e9c..542c5abdf415b230269cb881adbaa539d74fbfc5 100644
+--- a/src/main/java/org/spigotmc/SpigotCommand.java
++++ b/src/main/java/org/spigotmc/SpigotCommand.java
+@@ -3,6 +3,7 @@ package org.spigotmc;
+ import java.io.File;
+ import net.minecraft.server.MinecraftServer;
+ import net.minecraft.server.level.ServerLevel;
++import net.kyori.adventure.text.minimessage.MiniMessage;
+ import org.bukkit.ChatColor;
+ import org.bukkit.command.Command;
+ import org.bukkit.command.CommandSender;
+@@ -11,8 +12,8 @@ public class SpigotCommand extends Command {
+ 
+     public SpigotCommand(String name) {
+         super(name);
+-        this.description = "Spigot related commands";
+-        this.usageMessage = "/spigot reload";
++        this.description = "SPIGOT BEFEHLE";
++        this.usageMessage = "/spigot <white>[ <gold>reload <white>]";
+         this.setPermission("bukkit.command.spigot");
+     }
+ 
+@@ -21,13 +22,13 @@ public class SpigotCommand extends Command {
+         if (!testPermission(sender)) return true;
+ 
+         if (args.length != 1) {
+-            sender.sendMessage(ChatColor.RED + "Usage: " + usageMessage);
++            sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Bitte nutze den Befehl richtig! <gold>" + usageMessage));
+             return false;
+         }
+ 
+         if (args[0].equals("reload")) {
+-            Command.broadcastCommandMessage(sender, ChatColor.RED + "Please note that this command is not supported and may cause issues.");
+-            Command.broadcastCommandMessage(sender, ChatColor.RED + "If you encounter any issues please use the /stop command to restart your server.");
++            Command.broadcastCommandMessage(sender, MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Die Konfiguration neu zu laden ist nicht unterstützt!"));
++            Command.broadcastCommandMessage(sender, MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Bei Problemen den Server neustarten!"));
+ 
+             MinecraftServer console = MinecraftServer.getServer();
+             org.spigotmc.SpigotConfig.init((File) console.options.valueOf("spigot-settings"));
+@@ -36,7 +37,7 @@ public class SpigotCommand extends Command {
+             }
+             console.server.reloadCount++;
+ 
+-            Command.broadcastCommandMessage(sender, ChatColor.GREEN + "Reload complete.");
++            Command.broadcastCommandMessage(sender, MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <gold>SPIGOT <green>Konfiguration neu geladen!"));
+         }
+ 
+         return true;

@@ -1,0 +1,69 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: root <root@ROBERT-PC.localdomain>
+Date: Tue, 14 Jun 2022 11:59:26 +0200
+Subject: [PATCH] GERMAN FILLCOMMAND
+
+GERMAN FILL
+
+GERMAN FILL
+
+GERMAN FILL2
+
+GERMAN FILL
+
+GERMAN FILL
+
+GERMAN FILL
+
+GERMAN FILL
+
+GERMAN FILL2
+
+GERMAN FILLCOMMAND
+
+GERMAN FILL
+
+GERMAN FILL
+
+GERMAN FILL
+
+diff --git a/src/main/java/net/minecraft/server/commands/FillCommand.java b/src/main/java/net/minecraft/server/commands/FillCommand.java
+index 5c81c64540579fbacc335a3fadf4bf59f853dc39..010acd71c398a823f1cf24e77b78db478735741f 100644
+--- a/src/main/java/net/minecraft/server/commands/FillCommand.java
++++ b/src/main/java/net/minecraft/server/commands/FillCommand.java
+@@ -26,14 +26,16 @@ import net.minecraft.world.level.block.Blocks;
+ import net.minecraft.world.level.block.entity.BlockEntity;
+ import net.minecraft.world.level.block.state.pattern.BlockInWorld;
+ import net.minecraft.world.level.levelgen.structure.BoundingBox;
++import io.papermc.paper.adventure.PaperAdventure;
++import net.kyori.adventure.text.minimessage.MiniMessage;
++import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
+ 
+ public class FillCommand {
+-    private static final int MAX_FILL_AREA = 32768;
++    private static final int MAX_FILL_AREA = 50000;
+     private static final Dynamic2CommandExceptionType ERROR_AREA_TOO_LARGE = new Dynamic2CommandExceptionType((maxCount, count) -> {
+-        return Component.translatable("commands.fill.toobig", maxCount, count);
++        return PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Du kannst nicht so viele Blöcke füllen! <white>[ <gold>" + count + " <green>/ <gold>" + maxCount + "<white> ]"));
+     });
+     static final BlockInput HOLLOW_CORE = new BlockInput(Blocks.AIR.defaultBlockState(), Collections.emptySet(), (CompoundTag)null);
+-    private static final SimpleCommandExceptionType ERROR_FAILED = new SimpleCommandExceptionType(Component.translatable("commands.fill.failed"));
+ 
+     public static void register(CommandDispatcher<CommandSourceStack> dispatcher, CommandBuildContext commandRegistryAccess) {
+         dispatcher.register(Commands.literal("fill").requires((source) -> {
+@@ -88,12 +90,13 @@ public class FillCommand {
+             }
+ 
+             if (j == 0) {
+-                throw ERROR_FAILED.create();
++                source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Es wurden keine Blöcke gefüllt!"));
+             } else {
+-                source.sendSuccess(Component.translatable("commands.fill.success", j), true);
++                source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Es wurden <gold>" + j + " <green>Blöcke gefüllt."));
+                 return j;
+             }
+         }
++        return 0;
+     }
+ 
+     static enum Mode {

@@ -1,0 +1,19 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: root <root@ROBERT-PC.localdomain>
+Date: Sat, 11 Jun 2022 10:03:21 +0200
+Subject: [PATCH] GERMAN BUKKITVANILLAWRAPPER
+
+
+diff --git a/src/main/java/org/bukkit/craftbukkit/command/VanillaCommandWrapper.java b/src/main/java/org/bukkit/craftbukkit/command/VanillaCommandWrapper.java
+index 7774ab6a2e553a40def4bb4dceea9e5f58d31c1e..1f68add6f81b6636e05035d8ca7d81244385e9f6 100644
+--- a/src/main/java/org/bukkit/craftbukkit/command/VanillaCommandWrapper.java
++++ b/src/main/java/org/bukkit/craftbukkit/command/VanillaCommandWrapper.java
+@@ -31,7 +31,7 @@ public final class VanillaCommandWrapper extends BukkitCommand {
+     public final CommandNode<CommandSourceStack> vanillaCommand;
+ 
+     public VanillaCommandWrapper(Commands dispatcher, CommandNode<CommandSourceStack> vanillaCommand) {
+-        super(vanillaCommand.getName(), "A Mojang provided command.", vanillaCommand.getUsageText(), Collections.EMPTY_LIST);
++        super(vanillaCommand.getName(), "EIN MOJANG BEFEHL", vanillaCommand.getUsageText(), Collections.EMPTY_LIST);
+         this.dispatcher = dispatcher;
+         this.vanillaCommand = vanillaCommand;
+         this.setPermission(VanillaCommandWrapper.getPermission(vanillaCommand));

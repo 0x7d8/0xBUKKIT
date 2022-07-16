@@ -1,0 +1,39 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: root <root@ROBERT-PC.localdomain>
+Date: Tue, 14 Jun 2022 08:32:30 +0200
+Subject: [PATCH] GERMAN SPAWNCOMMAND
+
+GERMAN SPAWNCOMMAND2
+
+sfx
+
+GERMAN MINECRAFTMAIN2
+
+GERMAN SPAWN
+
+diff --git a/src/main/java/net/minecraft/server/commands/SetSpawnCommand.java b/src/main/java/net/minecraft/server/commands/SetSpawnCommand.java
+index 1e41de9523c5fa3b9cfced798a5c35a24ec9d349..b4399750a1a9c5578bc3dfd6c67c531b4952f567 100644
+--- a/src/main/java/net/minecraft/server/commands/SetSpawnCommand.java
++++ b/src/main/java/net/minecraft/server/commands/SetSpawnCommand.java
+@@ -13,6 +13,9 @@ import net.minecraft.network.chat.Component;
+ import net.minecraft.resources.ResourceKey;
+ import net.minecraft.server.level.ServerPlayer;
+ import net.minecraft.world.level.Level;
++import io.papermc.paper.adventure.PaperAdventure;
++import net.kyori.adventure.text.minimessage.MiniMessage;
++import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
+ 
+ public class SetSpawnCommand {
+     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
+@@ -50,9 +53,9 @@ public class SetSpawnCommand {
+ 
+         String string = resourceKey.location().toString();
+         if (targets.size() == 1) {
+-            source.sendSuccess(Component.translatable("commands.spawnpoint.success.single", pos.getX(), pos.getY(), pos.getZ(), angle, string, targets.iterator().next().getDisplayName()), true);
++            source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Spawnpunkt für <gold>" + targets.iterator().next().getDisplayName() + " <green>auf <gold>" + pos.getX() + " <green>/ <gold>" + pos.getY() + " <green>/ <gold>" + pos.getZ() + " <green>gesetzt!"));
+         } else {
+-            source.sendSuccess(Component.translatable("commands.spawnpoint.success.multiple", pos.getX(), pos.getY(), pos.getZ(), angle, string, targets.size()), true);
++            source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Spawnpunkt für <gold>" + targets.size() + " <green>auf <gold>" + pos.getX() + " <green>/ <gold>" + pos.getY() + " <green>/ <gold>" + pos.getZ() + " <green>gesetzt!"));
+         }
+ 
+         return targets.size();

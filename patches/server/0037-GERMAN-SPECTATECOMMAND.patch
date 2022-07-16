@@ -1,0 +1,39 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: root <root@ROBERT-PC.localdomain>
+Date: Sat, 18 Jun 2022 11:39:14 +0200
+Subject: [PATCH] GERMAN SPECTATECOMMAND
+
+
+diff --git a/src/main/java/net/minecraft/server/commands/SpectateCommand.java b/src/main/java/net/minecraft/server/commands/SpectateCommand.java
+index 99cbe2eae6ef1783c485696307ab2d03d6d947ea..47ba128090263d787fd8336e36b9cb30aba9d859 100644
+--- a/src/main/java/net/minecraft/server/commands/SpectateCommand.java
++++ b/src/main/java/net/minecraft/server/commands/SpectateCommand.java
+@@ -12,11 +12,14 @@ import net.minecraft.network.chat.Component;
+ import net.minecraft.server.level.ServerPlayer;
+ import net.minecraft.world.entity.Entity;
+ import net.minecraft.world.level.GameType;
++import io.papermc.paper.adventure.PaperAdventure;
++import net.kyori.adventure.text.minimessage.MiniMessage;
++import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
+ 
+ public class SpectateCommand {
+-    private static final SimpleCommandExceptionType ERROR_SELF = new SimpleCommandExceptionType(Component.translatable("commands.spectate.self"));
++    private static final SimpleCommandExceptionType ERROR_SELF = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Du kannst dich nicht selber Beobachten!")));
+     private static final DynamicCommandExceptionType ERROR_NOT_SPECTATOR = new DynamicCommandExceptionType((playerName) -> {
+-        return Component.translatable("commands.spectate.not_spectator", playerName);
++        return PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Die Entität ist nicht im Beobachter Modus!"));
+     });
+ 
+     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
+@@ -39,9 +42,9 @@ public class SpectateCommand {
+         } else {
+             player.setCamera(entity);
+             if (entity != null) {
+-                source.sendSuccess(Component.translatable("commands.spectate.success.started", entity.getDisplayName()), false);
++                source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Beobachte nun <gold><obj> <green>!", Placeholder.component("obj", PaperAdventure.asAdventure(entity.getDisplayName()))));
+             } else {
+-                source.sendSuccess(Component.translatable("commands.spectate.success.stopped"), false);
++                source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Beobachte Entität nicht mehr!"));
+             }
+ 
+             return 1;

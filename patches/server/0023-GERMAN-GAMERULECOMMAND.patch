@@ -1,0 +1,61 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: root <root@ROBERT-PC.localdomain>
+Date: Tue, 14 Jun 2022 07:49:42 +0200
+Subject: [PATCH] GERMAN GAMERULECOMMAND
+
+GERMAN GAMERULECOMMAND2
+
+GERMAN GAMERULECOMMAND2
+
+GERMAN GAMERULECOMMAND2
+
+GERMAN GAMERULECOMMAND2
+
+GERMAN GAMERULECOMMAND2
+
+GERMAN GAMERULECOMMAND2
+
+GERMAN GAMERULECOMMAND2
+
+GERMAN GAMERULECOMMAND2
+
+GERMAN GAMERULECOMMAND2
+
+GERMAN GAMERULECOMMAND2
+
+GERMAN GAMERULECOMMAND2
+
+GERMAN GAMERULECOMMAND2
+
+diff --git a/src/main/java/net/minecraft/server/commands/GameRuleCommand.java b/src/main/java/net/minecraft/server/commands/GameRuleCommand.java
+index 745b8724b7536a5b2c2c94ae8fd703ea755e8072..676998a90bf2897e28fc4b43590a7f66542c1ee4 100644
+--- a/src/main/java/net/minecraft/server/commands/GameRuleCommand.java
++++ b/src/main/java/net/minecraft/server/commands/GameRuleCommand.java
+@@ -6,6 +6,9 @@ import com.mojang.brigadier.context.CommandContext;
+ import net.minecraft.commands.CommandSourceStack;
+ import net.minecraft.network.chat.Component;
+ import net.minecraft.world.level.GameRules;
++import io.papermc.paper.adventure.PaperAdventure;
++import net.kyori.adventure.text.minimessage.MiniMessage;
++import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
+ 
+ public class GameRuleCommand {
+ 
+@@ -34,14 +37,15 @@ public class GameRuleCommand {
+         T t0 = commandlistenerwrapper.getLevel().getGameRules().getRule(key); // CraftBukkit
+ 
+         t0.setFromArgument(context, "value", key); // Paper
+-        commandlistenerwrapper.sendSuccess(Component.translatable("commands.gamerule.set", key.getId(), t0.toString()), true);
++        commandlistenerwrapper.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Die Spielregel wurde auf <gold>" + t0.toString() + " <green>gesetzt!"));
+         return t0.getCommandResult();
+     }
+ 
+     static <T extends GameRules.Value<T>> int queryRule(CommandSourceStack source, GameRules.Key<T> key) {
++        
+         T t0 = source.getLevel().getGameRules().getRule(key); // CraftBukkit
+ 
+-        source.sendSuccess(Component.translatable("commands.gamerule.query", key.getId(), t0.toString()), false);
++        source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Die Spielregel <gold>" + key + "<green> ist auf <gold>" + t0.toString() + "<green>!"));
+         return t0.getCommandResult();
+     }
+ }
