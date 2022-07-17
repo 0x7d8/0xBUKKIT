@@ -50,6 +50,6 @@ manifest.mf
 run/
 
 build-data/
-0xSERVER-API
-0xSERVER-MojangAPI
-0xSERVER-JAR
+0xBUKKIT-API
+0xBUKKIT-MojangAPI
+0xBUKKIT-JAR
