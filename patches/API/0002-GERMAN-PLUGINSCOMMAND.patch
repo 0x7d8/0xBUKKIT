@@ -31,17 +31,18 @@ GERMAN PLUGINS
 
 GERMAN PLUGINS
 
+B1 - CLEAN UP CODE
+
 diff --git a/src/main/java/org/bukkit/command/defaults/PluginsCommand.java b/src/main/java/org/bukkit/command/defaults/PluginsCommand.java
-index 0b4937dc6d003caf0f43a01a5a0801d5804082bf..65285eae4c954ac445cadbf454145dad787980cf 100644
+index 0b4937dc6d003caf0f43a01a5a0801d5804082bf..224d1c6b7fdc34dc40d9ce232612010dd9071dc1 100644
 --- a/src/main/java/org/bukkit/command/defaults/PluginsCommand.java
 +++ b/src/main/java/org/bukkit/command/defaults/PluginsCommand.java
-@@ -18,12 +18,14 @@ import net.kyori.adventure.text.format.NamedTextColor;
- import net.kyori.adventure.text.event.ClickEvent;
+@@ -19,11 +19,13 @@ import net.kyori.adventure.text.event.ClickEvent;
  import org.bukkit.entity.Player;
  import org.bukkit.plugin.PluginDescriptionFile;
+ // Spigot end
 +import net.kyori.adventure.text.minimessage.MiniMessage; // 0xBUKKIT
 +import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder; // 0xBUKKIT
- // Spigot end
  
  public class PluginsCommand extends BukkitCommand {
      public PluginsCommand(@NotNull String name) {
@@ -103,7 +104,7 @@ index 0b4937dc6d003caf0f43a01a5a0801d5804082bf..65285eae4c954ac445cadbf454145dad
              }
  
              // Event components
-@@ -105,7 +106,7 @@ public class PluginsCommand extends BukkitCommand {
+@@ -105,22 +106,22 @@ public class PluginsCommand extends BukkitCommand {
  
              if (description.getDescription() != null) {
                  hover.append(Component.newline())
@@ -112,7 +113,13 @@ index 0b4937dc6d003caf0f43a01a5a0801d5804082bf..65285eae4c954ac445cadbf454145dad
                      .append(Component.text(description.getDescription(), NamedTextColor.GREEN));
              }
  
-@@ -118,9 +119,9 @@ public class PluginsCommand extends BukkitCommand {
+             if (description.getWebsite() != null) {
+                 hover.append(Component.newline())
+-                    .append(Component.text("Website: ", NamedTextColor.WHITE))
++                    .append(Component.text("Webseite: ", NamedTextColor.WHITE))
+                     .append(Component.text(description.getWebsite(), NamedTextColor.GREEN));
+             }
+ 
              if (!description.getAuthors().isEmpty()) {
                  hover.append(Component.newline());
                  if (description.getAuthors().size() == 1) {

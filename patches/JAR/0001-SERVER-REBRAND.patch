@@ -38,7 +38,7 @@ ver
 ver
 
 diff --git a/build.gradle.kts b/build.gradle.kts
-index fd3805da1f276c76a2e814f755f6755245ec2ff4..6c437ecbf03514f847889a5c351042b3a52083bb 100644
+index fd3805da1f276c76a2e814f755f6755245ec2ff4..5f7e7c690138c0cfdfec4e667cc2112255179537 100644
 --- a/build.gradle.kts
 +++ b/build.gradle.kts
 @@ -9,7 +9,7 @@ plugins {
@@ -60,7 +60,7 @@ index fd3805da1f276c76a2e814f755f6755245ec2ff4..6c437ecbf03514f847889a5c351042b3
              "Specification-Title" to "Bukkit",
              "Specification-Version" to project.version,
 diff --git a/src/main/java/com/destroystokyo/paper/PaperVersionFetcher.java b/src/main/java/com/destroystokyo/paper/PaperVersionFetcher.java
-index fba5dbdb7bcbb55400ef18342c9b54612972a718..5bc395be4ae36274117ddffadcae7cf8ef1c611a 100644
+index fba5dbdb7bcbb55400ef18342c9b54612972a718..a31e3a7a27ac3e0e2f8b6c0ab7e5d54a389a78b4 100644
 --- a/src/main/java/com/destroystokyo/paper/PaperVersionFetcher.java
 +++ b/src/main/java/com/destroystokyo/paper/PaperVersionFetcher.java
 @@ -18,11 +18,9 @@ import java.net.URL;
@@ -169,10 +169,10 @@ index fba5dbdb7bcbb55400ef18342c9b54612972a718..5bc395be4ae36274117ddffadcae7cf8
      }
  }
 diff --git a/src/main/java/org/bukkit/craftbukkit/CraftServer.java b/src/main/java/org/bukkit/craftbukkit/CraftServer.java
-index a376045e94d1811645f84b3e4963726fe12545a4..91b56e4015b4c3df260894589c4cfb5a555f2707 100644
+index 7208236ee3c604620fd0d0afe49215320e45e24b..7e8cd594b0d0d21cb3b6a19d86ba5335c8727d31 100644
 --- a/src/main/java/org/bukkit/craftbukkit/CraftServer.java
 +++ b/src/main/java/org/bukkit/craftbukkit/CraftServer.java
-@@ -245,7 +245,7 @@ import javax.annotation.Nullable; // Paper
+@@ -246,7 +246,7 @@ import javax.annotation.Nullable; // Paper
  import javax.annotation.Nonnull; // Paper
  
  public final class CraftServer implements Server {
@@ -182,7 +182,7 @@ index a376045e94d1811645f84b3e4963726fe12545a4..91b56e4015b4c3df260894589c4cfb5a
      private final String bukkitVersion = Versioning.getBukkitVersion();
      private final Logger logger = Logger.getLogger("Minecraft");
 diff --git a/src/main/java/org/bukkit/craftbukkit/util/Versioning.java b/src/main/java/org/bukkit/craftbukkit/util/Versioning.java
-index fb87620c742ff7912f5e8ccd2a7930dd605576d9..cfb93e76cc3d9cabe22cb66b1c98a29895dc2f3b 100644
+index fb87620c742ff7912f5e8ccd2a7930dd605576d9..8351b43a49a0b28a40864c923581683179faae6b 100644
 --- a/src/main/java/org/bukkit/craftbukkit/util/Versioning.java
 +++ b/src/main/java/org/bukkit/craftbukkit/util/Versioning.java
 @@ -11,7 +11,7 @@ public final class Versioning {
@@ -195,7 +195,7 @@ index fb87620c742ff7912f5e8ccd2a7930dd605576d9..cfb93e76cc3d9cabe22cb66b1c98a298
  
          if (stream != null) {
 diff --git a/src/main/java/org/purpurmc/purpur/PurpurConfig.java b/src/main/java/org/purpurmc/purpur/PurpurConfig.java
-index fecfe935e09ff52a6ec582e6f2e09611adb1106f..6547a43d93b3d4e09ca8b4b9f84deeaf94791e93 100644
+index d44b8ce90db7c6c27f71aa841d6fb64b159b7b42..61b2e901bdaa2df2159c0a832c5f4be44232e65b 100644
 --- a/src/main/java/org/purpurmc/purpur/PurpurConfig.java
 +++ b/src/main/java/org/purpurmc/purpur/PurpurConfig.java
 @@ -235,7 +235,7 @@ public class PurpurConfig {

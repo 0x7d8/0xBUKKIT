@@ -5,10 +5,10 @@ Subject: [PATCH] GERMAN BUKKITCRAFTSERVER
 
 
 diff --git a/src/main/java/org/bukkit/craftbukkit/CraftServer.java b/src/main/java/org/bukkit/craftbukkit/CraftServer.java
-index 91b56e4015b4c3df260894589c4cfb5a555f2707..d0dc004f1e6f08549b7183ac8bfd5c530c51f2e0 100644
+index 7e8cd594b0d0d21cb3b6a19d86ba5335c8727d31..c6e15443a9c281184a51261394f59cf86d744693 100644
 --- a/src/main/java/org/bukkit/craftbukkit/CraftServer.java
 +++ b/src/main/java/org/bukkit/craftbukkit/CraftServer.java
-@@ -238,6 +238,7 @@ import org.bukkit.util.permissions.DefaultPermissions;
+@@ -239,6 +239,7 @@ import org.bukkit.util.permissions.DefaultPermissions;
  import org.yaml.snakeyaml.Yaml;
  import org.yaml.snakeyaml.constructor.SafeConstructor;
  import org.yaml.snakeyaml.error.MarkedYAMLException;
@@ -16,7 +16,7 @@ index 91b56e4015b4c3df260894589c4cfb5a555f2707..d0dc004f1e6f08549b7183ac8bfd5c53
  
  import net.md_5.bungee.api.chat.BaseComponent; // Spigot
  
-@@ -1104,7 +1105,7 @@ public final class CraftServer implements Server {
+@@ -1101,7 +1102,7 @@ public final class CraftServer implements Server {
                  this.icon = CraftServer.loadServerIcon0(file);
              }
          } catch (Exception ex) {

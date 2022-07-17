@@ -5,10 +5,10 @@ Subject: [PATCH] SERVER KONFIGURATION
 
 
 diff --git a/src/main/java/org/bukkit/Server.java b/src/main/java/org/bukkit/Server.java
-index 72adbee17a6c5cb7f067fb4875ff39e4da3f8ef1..076a7502a2c350f94d5c8fb353ad05a1ae7ac8d1 100644
+index d73b7d72d00fa0edd6542226348af14c5203cf8d..afd4eab0c359ff38042348fd16a65654f8b91425 100644
 --- a/src/main/java/org/bukkit/Server.java
 +++ b/src/main/java/org/bukkit/Server.java
-@@ -1909,6 +1909,13 @@ public interface Server extends PluginMessageRecipient, net.kyori.adventure.audi
+@@ -1949,6 +1949,13 @@ public interface Server extends PluginMessageRecipient, net.kyori.adventure.audi
          }
          // Purpur end
  
