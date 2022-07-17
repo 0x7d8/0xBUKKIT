@@ -12,7 +12,7 @@ index 91b56e4015b4c3df260894589c4cfb5a555f2707..d0dc004f1e6f08549b7183ac8bfd5c53
  import org.yaml.snakeyaml.Yaml;
  import org.yaml.snakeyaml.constructor.SafeConstructor;
  import org.yaml.snakeyaml.error.MarkedYAMLException;
-+import net.kyori.adventure.text.minimessage.MiniMessage;
++import net.kyori.adventure.text.minimessage.MiniMessage; // 0xBUKKIT
  
  import net.md_5.bungee.api.chat.BaseComponent; // Spigot
  
@@ -21,7 +21,7 @@ index 91b56e4015b4c3df260894589c4cfb5a555f2707..d0dc004f1e6f08549b7183ac8bfd5c53
              }
          } catch (Exception ex) {
 -            this.getLogger().log(Level.WARNING, "Couldn't load server icon", ex);
-+            this.getLogger().log(Level.WARNING, "Konnte Server Bild nicht laden", ex);
++            this.getLogger().log(Level.WARNING, "Konnte Server Bild nicht laden", ex); // 0xBUKKIT
          }
      }
  

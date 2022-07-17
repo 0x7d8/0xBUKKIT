@@ -12,13 +12,13 @@ index 43e77cef0fce75f59aeb05e161668bebb8fca229..65d6b55a99789fb8a66aa509552d8685
  import net.minecraft.commands.arguments.GameProfileArgument;
  import net.minecraft.network.chat.Component;
  import net.minecraft.server.players.PlayerList;
-+import io.papermc.paper.adventure.PaperAdventure;
++import io.papermc.paper.adventure.PaperAdventure; // 0xBUKKIT start
 +import net.kyori.adventure.text.minimessage.MiniMessage;
-+import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
++import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder; // 0xBUKKIT end
  
  public class OpCommand {
 -    private static final SimpleCommandExceptionType ERROR_ALREADY_OP = new SimpleCommandExceptionType(Component.translatable("commands.op.failed"));
-+    private static final SimpleCommandExceptionType ERROR_ALREADY_OP = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Der Spieler ist schon ein Operator!")));
++    private static final SimpleCommandExceptionType ERROR_ALREADY_OP = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Der Spieler ist schon ein Operator!"))); // 0xBUKKIT
  
      public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
          dispatcher.register(Commands.literal("op").requires((source) -> {
@@ -27,7 +27,7 @@ index 43e77cef0fce75f59aeb05e161668bebb8fca229..65d6b55a99789fb8a66aa509552d8685
                  playerList.op(gameProfile);
                  ++i;
 -                source.sendSuccess(Component.translatable("commands.op.success", targets.iterator().next().getName()), true);
-+                source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Der Spieler <gold>" + targets.iterator().next().getName() + " <green>wurde zu einem Operator ernannt!"));
++                source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Der Spieler <gold>" + targets.iterator().next().getName() + " <green>wurde zu einem Operator ernannt!")); // 0xBUKKIT
              }
          }
  

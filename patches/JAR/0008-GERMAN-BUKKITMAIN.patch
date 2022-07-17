@@ -13,7 +13,7 @@ index 1f3c4adf3aeb28bcb91cb6913459ea2923ad95a4..edd36af867c46c2f2d2b01968bd2e3aa
                          .withRequiredArg()
                          .ofType(String.class)
 -                        .defaultsTo("Unknown Server")
-+                        .defaultsTo("Unbekannt")
++                        .defaultsTo("Unbekannt") // 0xBUKKIT
                          .describedAs("Name");
                  // Paper end
              }
@@ -22,7 +22,7 @@ index 1f3c4adf3aeb28bcb91cb6913459ea2923ad95a4..edd36af867c46c2f2d2b01968bd2e3aa
              float javaVersion = Float.parseFloat(System.getProperty("java.class.version"));
              if (javaVersion < 61.0) {
 -                System.err.println("Unsupported Java detected (" + javaVersion + "). This version of Minecraft requires at least Java 17. Check your Java version with the command 'java -version'.");
-+                System.err.println("DU BRAUCHST JAVA 17+ UM DEN SERVER ZU STARTEN.");
++                System.err.println("DU BRAUCHST JAVA 17+ UM DEN SERVER ZU STARTEN."); // 0xBUKKIT
                  return;
              }
  
@@ -31,7 +31,7 @@ index 1f3c4adf3aeb28bcb91cb6913459ea2923ad95a4..edd36af867c46c2f2d2b01968bd2e3aa
                  // Paper end
                  System.setProperty( "library.jansi.version", "Paper" ); // Paper - set meaningless jansi version to prevent git builds from crashing on Windows
 -                System.out.println("Loading libraries, please wait...");
-+                System.out.println("LADE DEN SERVER, BITTE WARTEN");
++                System.out.println("[0xSERVER] LADE DEN SERVER, BITTE WARTEN"); // 0xBUKKIT
                  net.minecraft.server.Main.main(options);
              } catch (Throwable t) {
                  t.printStackTrace();

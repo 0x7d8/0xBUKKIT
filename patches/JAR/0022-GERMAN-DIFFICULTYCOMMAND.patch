@@ -48,7 +48,7 @@ index 1f5a52c7890bfb399539362142241542788c7a19..c1c669927cebfd4e4bf0c8eade739cbf
 -    public void sendSuccess(@Nullable net.kyori.adventure.text.Component message) {
 +    public net.kyori.adventure.text.Component sendSuccess(@Nullable net.kyori.adventure.text.Component message) {
          sendSuccess(message, false);
-+        return message;
++        return message; // 0xBUKKIT
      }
  
      public void sendSuccess(@Nullable net.kyori.adventure.text.Component message, boolean broadcastToOps) {
@@ -60,14 +60,14 @@ index 817193ca5fc15134d2985187bc2226ccbb4f0108..4c9833b32232645f0391e578fd551f53
  import com.mojang.brigadier.builder.LiteralArgumentBuilder;
  import com.mojang.brigadier.exceptions.CommandSyntaxException;
  import com.mojang.brigadier.exceptions.DynamicCommandExceptionType;
-+import io.papermc.paper.adventure.PaperAdventure;
++import io.papermc.paper.adventure.PaperAdventure; // 0xBUKKIT start
 +import net.kyori.adventure.text.minimessage.MiniMessage;
-+import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
++import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder; // 0xBUKKIT end
  import net.minecraft.commands.CommandSourceStack;
  import net.minecraft.network.chat.Component;
  import net.minecraft.server.MinecraftServer;
  import net.minecraft.world.Difficulty;
-+import org.bukkit.command.Command;
++import org.bukkit.command.Command; // 0xBUKKIT
  
  public class DifficultyCommand {
  
@@ -83,7 +83,7 @@ index 817193ca5fc15134d2985187bc2226ccbb4f0108..4c9833b32232645f0391e578fd551f53
              Difficulty enumdifficulty1 = ((CommandSourceStack) commandcontext.getSource()).getLevel().getDifficulty();
  
 -            ((CommandSourceStack) commandcontext.getSource()).sendSuccess(Component.translatable("commands.difficulty.query", enumdifficulty1.getDisplayName()), false);
-+            ((CommandSourceStack) commandcontext.getSource()).sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Die Schwierigkeit ist auf <gold>" + enumdifficulty1 + "<green>."));
++            ((CommandSourceStack) commandcontext.getSource()).sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Die Schwierigkeit ist auf <gold>" + enumdifficulty1 + "<green>.")); // 0xBUKKIT
              return enumdifficulty1.getId();
          }));
      }
@@ -92,12 +92,12 @@ index 817193ca5fc15134d2985187bc2226ccbb4f0108..4c9833b32232645f0391e578fd551f53
  
          if (worldServer.getDifficulty() == difficulty) { // CraftBukkit
 -            throw DifficultyCommand.ERROR_ALREADY_DIFFICULT.create(difficulty.getKey());
-+            source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Die Schwierigkeit war schon auf <gold>" + difficulty + " <red>gesetzt!"));
-+            return 0;
++            source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Die Schwierigkeit war schon auf <gold>" + difficulty + " <red>gesetzt!")); // 0xBUKKIT
++            return 0; // 0xBUKKIT
          } else {
              minecraftserver.setDifficulty(worldServer, difficulty, true); // Paper - don't skip other difficulty-changing logic (fix upstream's fix)
 -            source.sendSuccess(Component.translatable("commands.difficulty.success", difficulty.getDisplayName()), true);
-+            source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Die Schwierigkeit wurde auf <gold>" + difficulty + " <green>gesetzt!"));
++            source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Die Schwierigkeit wurde auf <gold>" + difficulty + " <green>gesetzt!")); // 0xBUKKIT
              return 0;
          }
      }

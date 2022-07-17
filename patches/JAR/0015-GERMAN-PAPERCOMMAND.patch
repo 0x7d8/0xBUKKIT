@@ -10,7 +10,7 @@ index 0000000000000000000000000000000000000000..b3db56b95c17788c5fce866d5de8ee4c
 --- /dev/null
 +++ b/src/main/java/com/destroystokyo/paper/PaperCommand.java
 @@ -0,0 +1,834 @@
-+package com.destroystokyo.paper;
++package com.destroystokyo.paper; // 0xBUKKIT start
 +
 +import com.destroystokyo.paper.io.SyncLoadFinder;
 +import com.google.common.base.Functions;
@@ -843,4 +843,4 @@ index 0000000000000000000000000000000000000000..b3db56b95c17788c5fce866d5de8ee4c
 +            lightengine.setTaskPerBatch(world.paperConfig().misc.lightQueueSize);
 +        }, MinecraftServer.getServer());
 +    }
-+}
++} // 0xBUKKIT end

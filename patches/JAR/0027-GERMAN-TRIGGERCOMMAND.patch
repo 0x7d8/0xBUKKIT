@@ -13,16 +13,16 @@ index 035e0ad62d32e9695a3f5544c2b616baea0d41da..9fc9d34106475400a85abb036c2962ba
  import net.minecraft.world.scores.Score;
  import net.minecraft.world.scores.Scoreboard;
  import net.minecraft.world.scores.criteria.ObjectiveCriteria;
-+import io.papermc.paper.adventure.PaperAdventure;
++import io.papermc.paper.adventure.PaperAdventure; // 0xBUKKIT start
 +import net.kyori.adventure.text.minimessage.MiniMessage;
-+import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
++import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder; // 0xBUKKIT end
  
  public class TriggerCommand {
  
 -    private static final SimpleCommandExceptionType ERROR_NOT_PRIMED = new SimpleCommandExceptionType(Component.translatable("commands.trigger.failed.unprimed"));
 -    private static final SimpleCommandExceptionType ERROR_INVALID_OBJECTIVE = new SimpleCommandExceptionType(Component.translatable("commands.trigger.failed.invalid"));
-+    private static final SimpleCommandExceptionType ERROR_NOT_PRIMED = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Du kannst das Objekt nicht triggern!")));
-+    private static final SimpleCommandExceptionType ERROR_INVALID_OBJECTIVE = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Du kannst nur Objekte mit <gold>TRIGGER <red>Typ triggern!")));
++    private static final SimpleCommandExceptionType ERROR_NOT_PRIMED = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Du kannst das Objekt nicht triggern!"))); // 0xBUKKIT
++    private static final SimpleCommandExceptionType ERROR_INVALID_OBJECTIVE = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Du kannst nur Objekte mit <gold>TRIGGER <red>Typ triggern!"))); // 0xBUKKIT
  
      public TriggerCommand() {}
  
@@ -31,21 +31,21 @@ index 035e0ad62d32e9695a3f5544c2b616baea0d41da..9fc9d34106475400a85abb036c2962ba
      private static int addValue(CommandSourceStack source, Score score, int value) {
          score.add(value);
 -        source.sendSuccess(Component.translatable("commands.trigger.add.success", score.getObjective().getFormattedDisplayName(), value), true);
-+        source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Das Objekt <gold>" + score.getObjective().getFormattedDisplayName() + " <green>wurde getriggert und Wert wurde <gold>" + value + " <green>hinzugefügt!"));
++        source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Das Objekt <gold>" + score.getObjective().getFormattedDisplayName() + " <green>wurde getriggert und Wert wurde <gold>" + value + " <green>hinzugefügt!")); // 0xBUKKIT
          return score.getScore();
      }
  
      private static int setValue(CommandSourceStack source, Score score, int value) {
          score.setScore(value);
 -        source.sendSuccess(Component.translatable("commands.trigger.set.success", score.getObjective().getFormattedDisplayName(), value), true);
-+        source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Das Objekt <gold>" + score.getObjective().getFormattedDisplayName() + " <green>wurde getriggert und Wert wurde auf <gold>" + value + " <green>gesetzt!"));
++        source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Das Objekt <gold>" + score.getObjective().getFormattedDisplayName() + " <green>wurde getriggert und Wert wurde auf <gold>" + value + " <green>gesetzt!")); // 0xBUKKIT
          return value;
      }
  
      private static int simpleTrigger(CommandSourceStack source, Score score) {
          score.add(1);
 -        source.sendSuccess(Component.translatable("commands.trigger.simple.success", score.getObjective().getFormattedDisplayName()), true);
-+        source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Das Objekt <gold>" + score.getObjective().getFormattedDisplayName() + " <green>wurde getriggert!"));
++        source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Das Objekt <gold>" + score.getObjective().getFormattedDisplayName() + " <green>wurde getriggert!")); // 0xBUKKIT
          return score.getScore();
      }
  

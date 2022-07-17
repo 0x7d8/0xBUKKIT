@@ -17,7 +17,7 @@ index 5d162f59fc5ef9adf7fa762b137bbcfca745d9c5..6974971af7e44f051df8ba1e2b01d58a
  import org.apache.logging.log4j.LogManager;
  import org.apache.logging.log4j.core.LoggerContext;
  import org.apache.logging.log4j.core.config.Configuration;
-+import net.kyori.adventure.text.minimessage.MiniMessage;
++import net.kyori.adventure.text.minimessage.MiniMessage; // 0xBUKKIT
  import org.bukkit.Bukkit;
  import org.bukkit.ChatColor;
  import org.bukkit.command.Command;
@@ -36,8 +36,8 @@ index 5d162f59fc5ef9adf7fa762b137bbcfca745d9c5..6974971af7e44f051df8ba1e2b01d58a
 -            + "\n"
 -            + "Discord: https://www.spigotmc.org/go/discord\n"
 -            + "Forums: http://www.spigotmc.org/\n";
-+    private static final String HEADER = "SPIGOT KONFIGURATION\n"
-+            + "https://www.spigotmc.org/go/discord";
++    private static final String HEADER = "SPIGOT KONFIGURATION\n" // 0xBUKKIT
++            + "https://www.spigotmc.org/go/discord"; // 0xBUKKIT
      /*========================================================================*/
      public static YamlConfiguration config;
      static int version;
@@ -46,7 +46,7 @@ index 5d162f59fc5ef9adf7fa762b137bbcfca745d9c5..6974971af7e44f051df8ba1e2b01d58a
          } catch ( InvalidConfigurationException ex )
          {
 -            Bukkit.getLogger().log( Level.SEVERE, "Could not load spigot.yml, please correct your syntax errors", ex );
-+            Bukkit.getLogger().log( Level.SEVERE, "Konnte spigot.yml nicht laden, fixxe deine fehler", ex );
++            Bukkit.getLogger().log( Level.SEVERE, "Konnte spigot.yml nicht laden, fixxe deine fehler", ex ); // 0xBUKKIT
              throw Throwables.propagate( ex );
          }
  
@@ -56,8 +56,8 @@ index 5d162f59fc5ef9adf7fa762b137bbcfca745d9c5..6974971af7e44f051df8ba1e2b01d58a
      public static String serverFullMessage;
 -    public static String outdatedClientMessage = "Outdated client! Please use {0}";
 -    public static String outdatedServerMessage = "Outdated server! I\'m still on {0}";
-+    public static String outdatedClientMessage = "&cFalsche Version! Bitte nutz &6{0}";
-+    public static String outdatedServerMessage = "&cFalsche Version! Bitte nutz &6{0}";
++    public static String outdatedClientMessage = "&cFalsche Version! Bitte nutz &6{0}"; // 0xBUKKIT
++    public static String outdatedServerMessage = "&cFalsche Version! Bitte nutz &6{0}"; // 0xBUKKIT
      private static String transform(String s)
      {
          return ChatColor.translateAlternateColorCodes( '&', s ).replaceAll( "\\\\n", "\n" );
@@ -68,9 +68,9 @@ index 5d162f59fc5ef9adf7fa762b137bbcfca745d9c5..6974971af7e44f051df8ba1e2b01d58a
 -        SpigotConfig.whitelistMessage = SpigotConfig.transform( SpigotConfig.getString( "messages.whitelist", "You are not whitelisted on this server!" ) );
 -        SpigotConfig.unknownCommandMessage = SpigotConfig.transform( SpigotConfig.getString( "messages.unknown-command", "Unknown command. Type \"/help\" for help." ) );
 -        SpigotConfig.serverFullMessage = SpigotConfig.transform( SpigotConfig.getString( "messages.server-full", "The server is full!" ) );
-+        SpigotConfig.whitelistMessage = SpigotConfig.transform( SpigotConfig.getString( "messages.whitelist", "&cDu bist nicht auf der Whitelist!" ) );
-+        SpigotConfig.unknownCommandMessage = SpigotConfig.transform( SpigotConfig.getString( "messages.unknown-command", "&f[&7Server&f] &cUnbekannter Befehl." ) );
-+        SpigotConfig.serverFullMessage = SpigotConfig.transform( SpigotConfig.getString( "messages.server-full", "&cDer Server ist voll!" ) );
++        SpigotConfig.whitelistMessage = SpigotConfig.transform( SpigotConfig.getString( "messages.whitelist", "&cDu bist nicht auf der Whitelist!" ) ); // 0xBUKKIT
++        SpigotConfig.unknownCommandMessage = SpigotConfig.transform( SpigotConfig.getString( "messages.unknown-command", "&f[&7Server&f] &cUnbekannter Befehl." ) ); // 0xBUKKIT
++        SpigotConfig.serverFullMessage = SpigotConfig.transform( SpigotConfig.getString( "messages.server-full", "&cDer Server ist voll!" ) ); // 0xBUKKIT
          SpigotConfig.outdatedClientMessage = SpigotConfig.transform( SpigotConfig.getString( "messages.outdated-client", SpigotConfig.outdatedClientMessage ) );
          SpigotConfig.outdatedServerMessage = SpigotConfig.transform( SpigotConfig.getString( "messages.outdated-server", SpigotConfig.outdatedServerMessage ) );
      }
@@ -79,7 +79,7 @@ index 5d162f59fc5ef9adf7fa762b137bbcfca745d9c5..6974971af7e44f051df8ba1e2b01d58a
          SpigotConfig.restartOnCrash = SpigotConfig.getBoolean( "settings.restart-on-crash", SpigotConfig.restartOnCrash );
          SpigotConfig.restartScript = SpigotConfig.getString( "settings.restart-script", SpigotConfig.restartScript );
 -        SpigotConfig.restartMessage = SpigotConfig.transform( SpigotConfig.getString( "messages.restart", "Server is restarting" ) );
-+        SpigotConfig.restartMessage = SpigotConfig.transform( SpigotConfig.getString( "messages.restart", "&eServer startet neu" ) );
++        SpigotConfig.restartMessage = SpigotConfig.transform( SpigotConfig.getString( "messages.restart", "&eServer startet neu" ) ); // 0xBUKKIT
          SpigotConfig.commands.put( "restart", new RestartCommand( "restart" ) );
          // WatchdogThread.doStart( timeoutTime, restartOnCrash ); // Paper - moved to after paper config initialization
      }

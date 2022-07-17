@@ -12,9 +12,9 @@ index 556c4fe8d0d044c2995533f4f20cbde7283a2711..b2e3f854cc1dfed5f41491f4fc154d04
  import net.minecraft.world.entity.SpawnGroupData;
  import net.minecraft.world.level.Level;
  import net.minecraft.world.phys.Vec3;
-+import io.papermc.paper.adventure.PaperAdventure;
++import io.papermc.paper.adventure.PaperAdventure; // 0xBUKKIT start
 +import net.kyori.adventure.text.minimessage.MiniMessage;
-+import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
++import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder; // 0xBUKKIT end
  
  public class SummonCommand {
  
@@ -23,7 +23,7 @@ index 556c4fe8d0d044c2995533f4f20cbde7283a2711..b2e3f854cc1dfed5f41491f4fc154d04
                      throw SummonCommand.ERROR_DUPLICATE_UUID.create();
                  } else {
 -                    source.sendSuccess(Component.translatable("commands.summon.success", entity1.getDisplayName()), true);
-+                    source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Du hast <gold>" + entity1.getDisplayName() + " <green>gespawnt!"));
++                    source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Du hast <gold>" + entity1.getDisplayName() + " <green>gespawnt!")); // 0xBUKKIT
                      return 1;
                  }
              }

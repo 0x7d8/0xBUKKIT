@@ -28,8 +28,8 @@ index 6547a43d93b3d4e09ca8b4b9f84deeaf94791e93..18557936c3850456e69fed3ba0587e8d
 -            + "\n"
 -            + "Website: https://purpurmc.org \n"
 -            + "Docs: https://purpurmc.org/docs \n";
-+    private static final String HEADER = "PURPUR KONFIGURATION\n"
-+            + "https://purpurmc.org/discord";
++    private static final String HEADER = "PURPUR KONFIGURATION\n" // 0xBUKKIT
++            + "https://purpurmc.org/discord"; // 0xBUKKIT
      private static File CONFIG_FILE;
      public static YamlConfiguration config;
  
@@ -38,7 +38,7 @@ index 6547a43d93b3d4e09ca8b4b9f84deeaf94791e93..18557936c3850456e69fed3ba0587e8d
          } catch (IOException ignore) {
          } catch (InvalidConfigurationException ex) {
 -            Bukkit.getLogger().log(Level.SEVERE, "Could not load purpur.yml, please correct your syntax errors", ex);
-+            Bukkit.getLogger().log(Level.SEVERE, "Konnte purpur.yml nicht laden, fixe die fehler", ex);
++            Bukkit.getLogger().log(Level.SEVERE, "Konnte purpur.yml nicht laden, fixe die fehler", ex); // 0xBUKKIT
              throw Throwables.propagate(ex);
          }
          config.options().header(HEADER);
@@ -49,9 +49,9 @@ index 6547a43d93b3d4e09ca8b4b9f84deeaf94791e93..18557936c3850456e69fed3ba0587e8d
 -    public static String cannotRideMob = "<red>You cannot mount that mob";
 -    public static String afkBroadcastAway = "<yellow><italic>%s is now AFK";
 -    public static String afkBroadcastBack = "<yellow><italic>%s is no longer AFK";
-+    public static String cannotRideMob = "<red>Du kannst das Mob nicht reiten.";
-+    public static String afkBroadcastAway = "<yellow><italic>%s ist nun AFK";
-+    public static String afkBroadcastBack = "<yellow><italic>%s ist nun nicht AFK";
++    public static String cannotRideMob = "<red>Du kannst das Mob nicht reiten."; // 0xBUKKIT
++    public static String afkBroadcastAway = "<yellow><italic>%s ist nun AFK"; // 0xBUKKIT
++    public static String afkBroadcastBack = "<yellow><italic>%s ist nun nicht AFK"; // 0xBUKKIT
      public static String afkTabListPrefix = "[AFK] ";
      public static String afkTabListSuffix = "";
 -    public static String creditsCommandOutput = "<green>%s has been shown the end credits";
@@ -60,12 +60,12 @@ index 6547a43d93b3d4e09ca8b4b9f84deeaf94791e93..18557936c3850456e69fed3ba0587e8d
 -    public static String tpsbarCommandOutput = "<green>Tpsbar toggled <onoff> for <target>";
 -    public static String dontRunWithScissors = "<red><italic>Don't run with scissors!";
 -    public static String uptimeCommandOutput = "<green>Server uptime is <uptime>";
-+    public static String creditsCommandOutput = "<white>[<gray>Server<white>] <green>Die End Credits wurden <gold>%s <green>angezeigt.";
-+    public static String demoCommandOutput = "<white>[<gray>Server<white>] <green>Der Demo Screen wurde <gold>%s <green<gezeigt.";
-+    public static String pingCommandOutput = "<white>[<gray>Server<white>] <green>Der Ping von <gold>%s <green>ist <gold>%sms<green>.";
-+    public static String tpsbarCommandOutput = "<white>[<gray>Server<white>] <green>TPSBAR <gold><onoff> <green>gemacht für <gold><target><green>.";
-+    public static String dontRunWithScissors = "<white>[<gray>Server<white>] <red>Renne nicht mit Scheren!";
-+    public static String uptimeCommandOutput = "<white>[<gray>Server<white>] <green>Server läuft schon seit <gold><uptime><green>.";
++    public static String creditsCommandOutput = "<white>[<gray>Server<white>] <green>Die End Credits wurden <gold>%s <green>angezeigt."; // 0xBUKKIT
++    public static String demoCommandOutput = "<white>[<gray>Server<white>] <green>Der Demo Screen wurde <gold>%s <green<gezeigt."; // 0xBUKKIT
++    public static String pingCommandOutput = "<white>[<gray>Server<white>] <green>Der Ping von <gold>%s <green>ist <gold>%sms<green>."; // 0xBUKKIT
++    public static String tpsbarCommandOutput = "<white>[<gray>Server<white>] <green>TPSBAR <gold><onoff> <green>gemacht für <gold><target><green>."; // 0xBUKKIT
++    public static String dontRunWithScissors = "<white>[<gray>Server<white>] <red>Renne nicht mit Scheren!"; // 0xBUKKIT
++    public static String uptimeCommandOutput = "<white>[<gray>Server<white>] <green>Server läuft schon seit <gold><uptime><green>."; // 0xBUKKIT
      public static String unverifiedUsername = "default";
      public static String sleepSkippingNight = "default";
      public static String sleepingPlayersPercent = "default";
@@ -74,7 +74,7 @@ index 6547a43d93b3d4e09ca8b4b9f84deeaf94791e93..18557936c3850456e69fed3ba0587e8d
      }
  
 -    public static String commandTPSBarTitle = "<gray>TPS<yellow>:</yellow> <tps> MSPT<yellow>:</yellow> <mspt> Ping<yellow>:</yellow> <ping>ms";
-+    public static String commandTPSBarTitle = "<gray>TPS <tps> MSPT <mspt> Ping <ping>ms";
++    public static String commandTPSBarTitle = "<gray>TPS <tps> MSPT <mspt> Ping <ping>ms"; // 0xBUKKIT
      public static BossBar.Overlay commandTPSBarProgressOverlay = BossBar.Overlay.NOTCHED_20;
      public static TPSBarTask.FillMode commandTPSBarProgressFillMode = TPSBarTask.FillMode.MSPT;
      public static BossBar.Color commandTPSBarProgressColorGood = BossBar.Color.GREEN;
@@ -83,7 +83,7 @@ index 6547a43d93b3d4e09ca8b4b9f84deeaf94791e93..18557936c3850456e69fed3ba0587e8d
      public static String commandTPSBarTextColorLow = "<gradient:#ff5555:#aa0000><text></gradient>";
      public static int commandTPSBarTickInterval = 20;
 -    public static String commandCompassBarTitle = "S  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  SW  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  W  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  NW  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  N  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  NE  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  E  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  SE  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  S  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  SW  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  W  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  NW  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  N  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  NE  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  E  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  SE  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  ";
-+    public static String commandCompassBarTitle = "S  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  SW  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  W  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  NW  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  N  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  NE  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  E  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  SE  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  S  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  SW  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  W  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  NW  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  N  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  NO  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  O  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  SO  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  ";
++    public static String commandCompassBarTitle = "S  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  SW  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  W  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  NW  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  N  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  NE  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  E  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  SE  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  S  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  SW  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  W  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  NW  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  N  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  NO  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  O  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  SO  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  \u25C8  \u00B7  "; // 0xBUKKIT
      public static BossBar.Overlay commandCompassBarProgressOverlay = BossBar.Overlay.PROGRESS;
      public static BossBar.Color commandCompassBarProgressColor = BossBar.Color.BLUE;
      public static float commandCompassBarProgressPercent = 1.0F;
@@ -99,14 +99,14 @@ index 6547a43d93b3d4e09ca8b4b9f84deeaf94791e93..18557936c3850456e69fed3ba0587e8d
 -    public static String uptimeMinutes = "%02d minutes, and ";
 -    public static String uptimeSecond = "%02d second";
 -    public static String uptimeSeconds = "%02d seconds";
-+    public static String uptimeDay = "%02d Tag, ";
-+    public static String uptimeDays = "%02d Tage, ";
-+    public static String uptimeHour = "%02d Stunde, ";
-+    public static String uptimeHours = "%02d Stunden, ";
-+    public static String uptimeMinute = "%02d Minute, und ";
-+    public static String uptimeMinutes = "%02d Minuten, und ";
-+    public static String uptimeSecond = "%02d Sekunde";
-+    public static String uptimeSeconds = "%02d Sekunden";
++    public static String uptimeDay = "%02d Tag, "; // 0xBUKKIT
++    public static String uptimeDays = "%02d Tage, "; // 0xBUKKIT
++    public static String uptimeHour = "%02d Stunde, "; // 0xBUKKIT
++    public static String uptimeHours = "%02d Stunden, "; // 0xBUKKIT
++    public static String uptimeMinute = "%02d Minute, und "; // 0xBUKKIT
++    public static String uptimeMinutes = "%02d Minuten, und "; // 0xBUKKIT
++    public static String uptimeSecond = "%02d Sekunde"; // 0xBUKKIT
++    public static String uptimeSeconds = "%02d Sekunden"; // 0xBUKKIT
      private static void commandSettings() {
          commandTPSBarTitle = getString("settings.command.tpsbar.title", commandTPSBarTitle);
          commandTPSBarProgressOverlay = BossBar.Overlay.valueOf(getString("settings.command.tpsbar.overlay", commandTPSBarProgressOverlay.name()));

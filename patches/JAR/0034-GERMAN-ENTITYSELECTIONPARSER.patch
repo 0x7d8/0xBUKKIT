@@ -13,9 +13,9 @@ index a57ae219d57ed47baedfb73b3d815f39d4f87035..bb9f8ace8b270bb1ca489976849bdad5
  import net.minecraft.world.entity.EntityType;
  import net.minecraft.world.phys.AABB;
  import net.minecraft.world.phys.Vec3;
-+import io.papermc.paper.adventure.PaperAdventure;
++import io.papermc.paper.adventure.PaperAdventure; // 0xBUKKIT start
 +import net.kyori.adventure.text.minimessage.MiniMessage;
-+import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
++import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder; // 0xBUKKIT end
  
  public class EntitySelectorParser {
  
@@ -24,20 +24,20 @@ index a57ae219d57ed47baedfb73b3d815f39d4f87035..bb9f8ace8b270bb1ca489976849bdad5
      private static final char SELECTOR_CURRENT_ENTITY = 's';
      private static final char SELECTOR_ALL_ENTITIES = 'e';
 -    public static final SimpleCommandExceptionType ERROR_INVALID_NAME_OR_UUID = new SimpleCommandExceptionType(Component.translatable("argument.entity.invalid"));
-+    public static final SimpleCommandExceptionType ERROR_INVALID_NAME_OR_UUID = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Entität nicht gefunden!")));
++    public static final SimpleCommandExceptionType ERROR_INVALID_NAME_OR_UUID = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Entität nicht gefunden!"))); // 0xBUKKIT
      public static final DynamicCommandExceptionType ERROR_UNKNOWN_SELECTOR_TYPE = new DynamicCommandExceptionType((object) -> {
 -        return Component.translatable("argument.entity.selector.unknown", object);
-+        return PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Unbekannter Selektor Typ <gold>" + object + "<red>!"));
++        return PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Unbekannter Selektor Typ <gold>" + object + "<red>!")); // 0xBUKKIT
      });
 -    public static final SimpleCommandExceptionType ERROR_SELECTORS_NOT_ALLOWED = new SimpleCommandExceptionType(Component.translatable("argument.entity.selector.not_allowed"));
 -    public static final SimpleCommandExceptionType ERROR_MISSING_SELECTOR_TYPE = new SimpleCommandExceptionType(Component.translatable("argument.entity.selector.missing"));
 -    public static final SimpleCommandExceptionType ERROR_EXPECTED_END_OF_OPTIONS = new SimpleCommandExceptionType(Component.translatable("argument.entity.options.unterminated"));
-+    public static final SimpleCommandExceptionType ERROR_SELECTORS_NOT_ALLOWED = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Der Selektor ist nicht erlaubt!")));
++    public static final SimpleCommandExceptionType ERROR_SELECTORS_NOT_ALLOWED = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Der Selektor ist nicht erlaubt!"))); // 0xBUKKIT start
 +    public static final SimpleCommandExceptionType ERROR_MISSING_SELECTOR_TYPE = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Der Selektor Typ Fehlt!")));
-+    public static final SimpleCommandExceptionType ERROR_EXPECTED_END_OF_OPTIONS = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Erwartetes Ende von Optionen!")));
++    public static final SimpleCommandExceptionType ERROR_EXPECTED_END_OF_OPTIONS = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Erwartetes Ende von Optionen!"))); // 0xBUKKIT end
      public static final DynamicCommandExceptionType ERROR_EXPECTED_OPTION_VALUE = new DynamicCommandExceptionType((object) -> {
 -        return Component.translatable("argument.entity.options.valueless", object);
-+        return PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Wert erwartet für Option <gold>" + object + "<red>!"));
++        return PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Wert erwartet für Option <gold>" + object + "<red>!")); // 0xBUKKIT
      });
      public static final BiConsumer<Vec3, List<? extends Entity>> ORDER_ARBITRARY = (vec3d, list) -> {
      };

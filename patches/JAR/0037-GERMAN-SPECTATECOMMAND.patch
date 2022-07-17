@@ -12,16 +12,16 @@ index 99cbe2eae6ef1783c485696307ab2d03d6d947ea..47ba128090263d787fd8336e36b9cb30
  import net.minecraft.server.level.ServerPlayer;
  import net.minecraft.world.entity.Entity;
  import net.minecraft.world.level.GameType;
-+import io.papermc.paper.adventure.PaperAdventure;
++import io.papermc.paper.adventure.PaperAdventure; // 0xBUKKIT start
 +import net.kyori.adventure.text.minimessage.MiniMessage;
-+import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
++import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder; // 0xBUKKIT end
  
  public class SpectateCommand {
 -    private static final SimpleCommandExceptionType ERROR_SELF = new SimpleCommandExceptionType(Component.translatable("commands.spectate.self"));
-+    private static final SimpleCommandExceptionType ERROR_SELF = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Du kannst dich nicht selber Beobachten!")));
++    private static final SimpleCommandExceptionType ERROR_SELF = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Du kannst dich nicht selber Beobachten!"))); // 0xBUKKIT
      private static final DynamicCommandExceptionType ERROR_NOT_SPECTATOR = new DynamicCommandExceptionType((playerName) -> {
 -        return Component.translatable("commands.spectate.not_spectator", playerName);
-+        return PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Die Entität ist nicht im Beobachter Modus!"));
++        return PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Die Entität ist nicht im Beobachter Modus!")); // 0xBUKKIT
      });
  
      public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
@@ -30,10 +30,10 @@ index 99cbe2eae6ef1783c485696307ab2d03d6d947ea..47ba128090263d787fd8336e36b9cb30
              player.setCamera(entity);
              if (entity != null) {
 -                source.sendSuccess(Component.translatable("commands.spectate.success.started", entity.getDisplayName()), false);
-+                source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Beobachte nun <gold><obj> <green>!", Placeholder.component("obj", PaperAdventure.asAdventure(entity.getDisplayName()))));
++                source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Beobachte nun <gold><obj> <green>!", Placeholder.component("obj", PaperAdventure.asAdventure(entity.getDisplayName())))); // 0xBUKKIT
              } else {
 -                source.sendSuccess(Component.translatable("commands.spectate.success.stopped"), false);
-+                source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Beobachte Entität nicht mehr!"));
++                source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Beobachte Entität nicht mehr!")); // 0xBUKKIT
              }
  
              return 1;

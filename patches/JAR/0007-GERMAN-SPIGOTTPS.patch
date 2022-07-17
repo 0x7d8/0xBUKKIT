@@ -37,7 +37,7 @@ index 088239d17aa8178cf8af09ec23cfd4deaaf2bbb6..42d26c76a50589c2789e706210b2dfce
  import org.bukkit.ChatColor;
  import org.bukkit.command.Command;
  import org.bukkit.command.CommandSender;
-+import net.kyori.adventure.text.minimessage.MiniMessage;
++import net.kyori.adventure.text.minimessage.MiniMessage; // 0xBUKKIT
  
  public class TicksPerSecondCommand extends Command
  {
@@ -47,8 +47,8 @@ index 088239d17aa8178cf8af09ec23cfd4deaaf2bbb6..42d26c76a50589c2789e706210b2dfce
          super( name );
 -        this.description = "Gets the current ticks per second for the server";
 -        this.usageMessage = "/tps";
-+        this.description = "TPS BEFEHL";
-+        this.usageMessage = "/tps [ mem ]";
++        this.description = "TPS BEFEHL"; // 0xBUKKIT
++        this.usageMessage = "/tps [ mem ]"; // 0xBUKKIT
          this.setPermission( "bukkit.command.tps" );
      }
  
@@ -64,12 +64,12 @@ index 088239d17aa8178cf8af09ec23cfd4deaaf2bbb6..42d26c76a50589c2789e706210b2dfce
 -                sender.sendMessage(ChatColor.RED + "Warning: " + ChatColor.GOLD + " Memory usage on modern garbage collectors is not a stable value and it is perfectly normal to see it reach max. Please do not pay it much attention.");
 -                hasShownMemoryWarning = true;
 -            }
-+            sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>RAM <white>[<gold> NUTZUNG <white>]<green>: <white>[ <gold>" + ((Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / (1024 * 1024)) + "<gold>MB <white>/ <gold>" + (Runtime.getRuntime().maxMemory() / (1024 * 1024)) + "<gold>MB <white>]"));
-+            return true;
++            sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>RAM <white>[<gold> NUTZUNG <white>]<green>: <white>[ <gold>" + ((Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / (1024 * 1024)) + "<gold>MB <white>/ <gold>" + (Runtime.getRuntime().maxMemory() / (1024 * 1024)) + "<gold>MB <white>]")); // 0xBUKKIT
++            return true; // 0xBUKKIT
          }
          // Paper end
 -
-+        sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>TPS <white>[<gold> 5s <white>| <gold>1m <white>| <gold>5m <white>| <gold>15m <white>]<green>: <white>[ " + org.apache.commons.lang.StringUtils.join(tpsAvg, " <white>| ") + "<white> ]")); // Purpur
++        sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>TPS <white>[<gold> 5s <white>| <gold>1m <white>| <gold>5m <white>| <gold>15m <white>]<green>: <white>[ " + org.apache.commons.lang.StringUtils.join(tpsAvg, " <white>| ") + "<white> ]")); // Purpur // 0xBUKKIT
          return true;
      }
  
@@ -77,7 +77,7 @@ index 088239d17aa8178cf8af09ec23cfd4deaaf2bbb6..42d26c76a50589c2789e706210b2dfce
      private static String format(double tps) // Paper - Made static
      {
 -        return ( ( tps > 18.0 ) ? ChatColor.GREEN : ( tps > 16.0 ) ? ChatColor.YELLOW : ChatColor.RED ).toString()
-+        return ( ( tps > 18.0 ) ? "<green>" : ( tps > 16.0 ) ? "<yellow>" : "<red>" ).toString()
++        return ( ( tps > 18.0 ) ? "<green>" : ( tps > 16.0 ) ? "<yellow>" : "<red>" ).toString() // 0xBUKKIT
                  + ( ( tps > 21.0 ) ? "*" : "" ) + Math.min( Math.round( tps * 100.0 ) / 100.0, 20.0 ); // Paper - only print * at 21, we commonly peak to 20.02 as the tick sleep is not accurate enough, stop the noise
      }
  }

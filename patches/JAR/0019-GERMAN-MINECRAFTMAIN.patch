@@ -15,12 +15,12 @@ index 0a843e0afbcb1af8e2641515eb244b791b819b8c..6204f863f58828e732a47a59abd99c89
 -                System.err.println( "You have used the Spigot command line EULA agreement flag." );
 -                System.err.println( "By using this setting you are indicating your agreement to Mojang's EULA (https://account.mojang.com/documents/minecraft_eula)." );
 -                System.err.println( "If you do not agree to the above EULA please stop your server and remove this flag immediately." );
-+                System.err.println( "EULA automatisch akzeptiert." );
++                System.err.println( "EULA automatisch akzeptiert." ); // 0xBUKKIT
              }
              // Spigot End
              if (!eula.hasAgreedToEULA() && !eulaAgreed) { // Spigot
 -                Main.LOGGER.info("You need to agree to the EULA in order to run the server. Go to eula.txt for more info.");
-+                Main.LOGGER.info("Bitte akzeptiere die EULA in EULA.txt");
++                Main.LOGGER.info("Bitte akzeptiere die EULA in EULA.txt"); // 0xBUKKIT
                  return;
              }
  
@@ -29,7 +29,7 @@ index 0a843e0afbcb1af8e2641515eb244b791b819b8c..6204f863f58828e732a47a59abd99c89
                  com.google.common.io.Files.write("{\n"
                          + "    \"pack\": {\n"
 -                        + "        \"description\": \"Data pack for resources provided by Bukkit plugins\",\n"
-+                        + "        \"description\": \"BUKKIT\",\n"
++                        + "        \"description\": \"BUKKIT\",\n" // 0xBUKKIT
                          + "        \"pack_format\": " + SharedConstants.getCurrentVersion().getPackVersion() + "\n"
                          + "    }\n"
                          + "}\n", mcMeta, com.google.common.base.Charsets.UTF_8);

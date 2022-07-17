@@ -39,8 +39,8 @@ index 0b4937dc6d003caf0f43a01a5a0801d5804082bf..65285eae4c954ac445cadbf454145dad
  import net.kyori.adventure.text.event.ClickEvent;
  import org.bukkit.entity.Player;
  import org.bukkit.plugin.PluginDescriptionFile;
-+import net.kyori.adventure.text.minimessage.MiniMessage;
-+import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
++import net.kyori.adventure.text.minimessage.MiniMessage; // 0xBUKKIT
++import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder; // 0xBUKKIT
  // Spigot end
  
  public class PluginsCommand extends BukkitCommand {
@@ -56,10 +56,10 @@ index 0b4937dc6d003caf0f43a01a5a0801d5804082bf..65285eae4c954ac445cadbf454145dad
          // Spigot start
          if (sender instanceof Player && sender.hasPermission("bukkit.command.version")) {
 -            sender.sendMessage(getPluginListSpigot());
-+            sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Server Plugins <gold>" + getPluginList()));
++            sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Server Plugins <gold>" + getPluginList())); // 0xBUKKIT
          } else {
 -            sender.sendMessage("Plugins " + getPluginList());
-+            sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Deine Plugins <gold>" + getPluginList()));
++            sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Deine Plugins <gold>" + getPluginList())); // 0xBUKKIT
          }
          // Spigot end
          return true;
@@ -69,13 +69,13 @@ index 0b4937dc6d003caf0f43a01a5a0801d5804082bf..65285eae4c954ac445cadbf454145dad
              if (pluginList.length() > 0) {
 -                pluginList.append(ChatColor.WHITE);
 -                pluginList.append(", ");
-+                pluginList.append(" <white>| <gold>");
++                pluginList.append(" <white>| <gold>"); // 0xBUKKIT
              }
  
              Plugin plugin = entry.getValue();
  
 -            pluginList.append(plugin.isEnabled() ? ChatColor.GREEN : ChatColor.RED);
-+            pluginList.append(plugin.isEnabled() ? "<green>" : "<red>");
++            pluginList.append(plugin.isEnabled() ? "<green>" : "<red>"); // 0xBUKKIT
              // Paper start - Add an asterisk to legacy plugins (so admins are aware)
              String pluginName = plugin.getDescription().getName();
              if (org.bukkit.UnsafeValues.isLegacyPlugin(plugin)) {
@@ -84,7 +84,7 @@ index 0b4937dc6d003caf0f43a01a5a0801d5804082bf..65285eae4c954ac445cadbf454145dad
          }
  
 -        return "(" + plugins.size() + "): " + pluginList.toString();
-+        return "<white>[ <gold>" + plugins.size() + " <white>]<green>: <white>[ " + pluginList.toString() + " <white>]";
++        return "<white>[ <gold>" + plugins.size() + " <white>]<green>: <white>[ " + pluginList.toString() + " <white>]"; // 0xBUKKIT
          // Paper end
      }
  
@@ -93,13 +93,13 @@ index 0b4937dc6d003caf0f43a01a5a0801d5804082bf..65285eae4c954ac445cadbf454145dad
          Plugin[] plugins = Arrays.stream(Bukkit.getPluginManager().getPlugins()).sorted(java.util.Comparator.comparing(plugin -> plugin.getName().toLowerCase())).toArray(Plugin[]::new); // Purpur
          TextComponent.Builder builder = Component.text();
 -        builder.append(Component.text("Plugins (" + plugins.length + "): "));
-+        builder.append(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Deine Plugins <white>[ <gold>" + plugins.length + " <white>]<green>: "));
++        builder.append(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Deine Plugins <white>[ <gold>" + plugins.length + " <white>]<green>: ")); // 0xBUKKIT
  
          int index = 0;
          for (Plugin plugin : plugins) {
              if (index++ > 0) {
 -                builder.append(Component.text(", ", NamedTextColor.WHITE));
-+                builder.append(MiniMessage.miniMessage().deserialize("<white> | <gold>"));
++                builder.append(MiniMessage.miniMessage().deserialize("<white> | <gold>")); // 0xBUKKIT
              }
  
              // Event components
@@ -108,7 +108,7 @@ index 0b4937dc6d003caf0f43a01a5a0801d5804082bf..65285eae4c954ac445cadbf454145dad
              if (description.getDescription() != null) {
                  hover.append(Component.newline())
 -                    .append(Component.text("Description: ", NamedTextColor.WHITE))
-+                    .append(Component.text("Beschreibung: ", NamedTextColor.WHITE))
++                    .append(Component.text("Beschreibung: ", NamedTextColor.WHITE)) // 0xBUKKIT
                      .append(Component.text(description.getDescription(), NamedTextColor.GREEN));
              }
  
@@ -117,10 +117,10 @@ index 0b4937dc6d003caf0f43a01a5a0801d5804082bf..65285eae4c954ac445cadbf454145dad
                  hover.append(Component.newline());
                  if (description.getAuthors().size() == 1) {
 -                    hover.append(Component.text("Author: "));
-+                    hover.append(Component.text("Autor: "));
++                    hover.append(Component.text("Autor: ")); // 0xBUKKIT
                  } else {
 -                    hover.append(Component.text("Authors: "));
-+                    hover.append(Component.text("Autoren: "));
++                    hover.append(Component.text("Autoren: ")); // 0xBUKKIT
                  }
  
                  hover.append(getAuthors(description));
@@ -129,7 +129,7 @@ index 0b4937dc6d003caf0f43a01a5a0801d5804082bf..65285eae4c954ac445cadbf454145dad
  
              if (plugin.getDescription().getProvides().size() > 0) {
 -                builder.append(Component.text(" (", NamedTextColor.WHITE)).append(Component.text(String.join(", ", plugin.getDescription().getProvides()))).append(Component.text(")"));
-+                builder.append(Component.text(" (", NamedTextColor.WHITE)).append(Component.text(String.join(" | ", plugin.getDescription().getProvides()))).append(Component.text(")"));
++                builder.append(Component.text(" (", NamedTextColor.WHITE)).append(Component.text(String.join(" | ", plugin.getDescription().getProvides()))).append(Component.text(")")); // 0xBUKKIT
              }
          }
  
@@ -138,7 +138,7 @@ index 0b4937dc6d003caf0f43a01a5a0801d5804082bf..65285eae4c954ac445cadbf454145dad
          for (int i = 0; i < authors.size(); i++) {
              if (i > 0) {
 -                builder.append(Component.text(i < authors.size() - 1 ? ", " : " and ", NamedTextColor.WHITE));
-+                builder.append(Component.text(i < authors.size() - 1 ? ", " : " und ", NamedTextColor.WHITE));
++                builder.append(Component.text(i < authors.size() - 1 ? ", " : " und ", NamedTextColor.WHITE)); // 0xBUKKIT
              }
  
              builder.append(Component.text(authors.get(i), NamedTextColor.GREEN));

@@ -25,8 +25,8 @@ index 15b6e73413eeaef4214889fc34f9af8093574b9a..b86bf07b7f431355d8b045f1652c42e7
 -            Docs: https://docs.papermc.io/
 -            Discord: https://discord.gg/papermc
 -            Website: https://papermc.io/""", WORLD_CONFIG_FILE_NAME);
-+            PAPER KONFIGURATON
-+            https://discord.gg/papermc""", WORLD_CONFIG_FILE_NAME);
++            PAPER KONFIGURATON // 0xBUKKIT
++            https://discord.gg/papermc""", WORLD_CONFIG_FILE_NAME); // 0xBUKKIT
  
      private static final String WORLD_DEFAULTS_HEADER = """
 -            This is the world defaults configuration file for Paper.
@@ -42,8 +42,8 @@ index 15b6e73413eeaef4214889fc34f9af8093574b9a..b86bf07b7f431355d8b045f1652c42e7
 -            Docs: https://docs.papermc.io/
 -            Discord: https://discord.gg/papermc
 -            Website: https://papermc.io/""";
-+            PAPER WELT KONFIGURATION
-+            https://discord.gg/papermc""";
++            PAPER WELT KONFIGURATION // 0xBUKKIT
++            https://discord.gg/papermc"""; // 0xBUKKIT
  
      private static final Function<ContextMap, String> WORLD_HEADER = map -> String.format("""
          This is a world configuration file for Paper.

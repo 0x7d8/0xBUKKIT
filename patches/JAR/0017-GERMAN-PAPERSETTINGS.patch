@@ -23,9 +23,9 @@ index fa47e173ee791e4eb09f70930cdb668ad07d7c31..b1174e065194b21c8d4e1a173d62d13c
  import org.spongepowered.configurate.objectmapping.meta.Required;
  import org.spongepowered.configurate.objectmapping.meta.Setting;
  
-+import org.bukkit.command.Command;
++import org.bukkit.command.Command; // 0xBUKKIT start
 +import org.bukkit.command.CommandSender;
-+import net.kyori.adventure.text.minimessage.MiniMessage;
++import net.kyori.adventure.text.minimessage.MiniMessage; // 0xBUKKIT end
 +
  import java.util.List;
  import java.util.Map;
@@ -35,13 +35,13 @@ index fa47e173ee791e4eb09f70930cdb668ad07d7c31..b1174e065194b21c8d4e1a173d62d13c
          public class Kick extends ConfigurationPart {
              public Component authenticationServersDown = Component.translatable("multiplayer.disconnect.authservers_down");
 -            public Component connectionThrottle = Component.text("Connection throttled! Please wait before reconnecting.");
-+            public Component connectionThrottle = Component.text("Verbindung abgebrochen, bitte warte");
++            public Component connectionThrottle = Component.text("Verbindung abgebrochen, bitte warte"); // 0xBUKKIT
              public Component flyingPlayer = Component.translatable("multiplayer.disconnect.flying");
              public Component flyingVehicle = Component.translatable("multiplayer.disconnect.flying");
          }
  
 -        public Component noPermission = Component.text("I'm sorry, but you do not have permission to perform this command. Please contact the server administrators if you believe that this is in error.", NamedTextColor.RED);
-+        public Component noPermission = Component.text("&f[&7Server&f] &cDu hast dafür keine Berechtigung!", NamedTextColor.RED);
++        public Component noPermission = Component.text("&f[&7Server&f] &cDu hast dafür keine Berechtigung!", NamedTextColor.RED); // 0xBUKKIT
          public boolean useDisplayNameInQuitMessage = false;
      }
  
@@ -49,7 +49,7 @@ index fa47e173ee791e4eb09f70930cdb668ad07d7c31..b1174e065194b21c8d4e1a173d62d13c
  
      public class Timings extends ConfigurationPart.Post {
 -        public boolean enabled = true;
-+        public boolean enabled = false;
++        public boolean enabled = false; // 0xBUKKIT
          public boolean reallyEnabled = false;
          public boolean verbose = true;
          public String url = "https://timings.aikar.co/";
@@ -58,7 +58,7 @@ index fa47e173ee791e4eb09f70930cdb668ad07d7c31..b1174e065194b21c8d4e1a173d62d13c
          public int historyInterval = 300;
          public int historyLength = 3600;
 -        public String serverName = "Unknown Server";
-+        public String serverName = "Unbekannt";
++        public String serverName = "Unbekannter Server"; // 0xBUKKIT
  
          @Override
          public void postProcess() {
@@ -67,9 +67,9 @@ index fa47e173ee791e4eb09f70930cdb668ad07d7c31..b1174e065194b21c8d4e1a173d62d13c
 -                Bukkit.getLogger().log(Level.WARNING, "[Pufferfish] To improve performance, timings have been disabled by default");
 -                Bukkit.getLogger().log(Level.WARNING, "[Pufferfish] You can still use timings by using /timings on, but they will not start on server startup unless you set timings.really-enabled to true in paper.yml");
 -                Bukkit.getLogger().log(Level.WARNING, "[Pufferfish] If you would like to disable this message, either set timings.really-enabled to true or timings.enabled to false.");
-+                Bukkit.getLogger().log(Level.WARNING, "[0xSERVER] To improve performance, timings have been disabled by default");
++                Bukkit.getLogger().log(Level.WARNING, "[0xSERVER] To improve performance, timings have been disabled by default"); // 0xBUKKIT start
 +                Bukkit.getLogger().log(Level.WARNING, "[0xSERVER] You can still use timings by using /timings on, but they will not start on server startup unless you set timings.really-enabled to true in paper.yml");
-+                Bukkit.getLogger().log(Level.WARNING, "[0xSERVER] If you would like to disable this message, either set timings.really-enabled to true or timings.enabled to false.");
++                Bukkit.getLogger().log(Level.WARNING, "[0xSERVER] If you would like to disable this message, either set timings.really-enabled to true or timings.enabled to false."); // 0xBUKKIT end
              }
              enabled = reallyEnabled;
              // Pufferfish end

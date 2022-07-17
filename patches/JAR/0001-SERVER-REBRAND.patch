@@ -95,7 +95,7 @@ index fba5dbdb7bcbb55400ef18342c9b54612972a718..5bc395be4ae36274117ddffadcae7cf8
 -                org.bukkit.Bukkit.getLogger().warning("Unable to match version to pattern! Report to Purpur!"); // Purpur
 -                org.bukkit.Bukkit.getLogger().warning("Pattern: " + VER_PATTERN.toString());
 +                org.bukkit.Bukkit.getLogger().warning("Konnte nicht Version verarbeiten, kontaktiere den Fork ersteller!"); // Purpur // 0xBUKKIT
-+                org.bukkit.Bukkit.getLogger().warning("Muster: " + VER_PATTERN.toString());
++                org.bukkit.Bukkit.getLogger().warning("Muster: " + VER_PATTERN.toString()); // 0xBUKKIT
                  org.bukkit.Bukkit.getLogger().warning("Version: " + org.bukkit.Bukkit.getBukkitVersion());
              }
          }
@@ -156,7 +156,7 @@ index fba5dbdb7bcbb55400ef18342c9b54612972a718..5bc395be4ae36274117ddffadcae7cf8
              HttpURLConnection connection = (HttpURLConnection) new URL("https://api.github.com/repos/" + repo + "/compare/" + branch + "..." + hash).openConnection();
              connection.connect();
 -            if (connection.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND) return -2; // Unknown commit
-+            if (connection.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND) return -2;
++            if (connection.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND) return -2; // 0xBUKKIT
              try (BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charsets.UTF_8))) {
                  JsonObject obj = new Gson().fromJson(reader, JsonObject.class);
                  String status = obj.get("status").getAsString();

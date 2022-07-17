@@ -13,9 +13,9 @@ index a2ea64b7ec5f47224312a1e08dd64347be6f7c43..f94de0df1c0688130a9945c6c69c17bb
  import net.minecraft.network.chat.Component;
  import net.minecraft.server.level.ServerPlayer;
  import net.minecraft.world.entity.Entity;
-+import io.papermc.paper.adventure.PaperAdventure;
++import io.papermc.paper.adventure.PaperAdventure; // 0xBUKKIT start
 +import net.kyori.adventure.text.minimessage.MiniMessage;
-+import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
++import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder; // 0xBUKKIT end
  
  public class EntityArgument implements ArgumentType<EntitySelector> {
  
@@ -26,12 +26,12 @@ index a2ea64b7ec5f47224312a1e08dd64347be6f7c43..f94de0df1c0688130a9945c6c69c17bb
 -    public static final SimpleCommandExceptionType NO_ENTITIES_FOUND = new SimpleCommandExceptionType(Component.translatable("argument.entity.notfound.entity"));
 -    public static final SimpleCommandExceptionType NO_PLAYERS_FOUND = new SimpleCommandExceptionType(Component.translatable("argument.entity.notfound.player"));
 -    public static final SimpleCommandExceptionType ERROR_SELECTORS_NOT_ALLOWED = new SimpleCommandExceptionType(Component.translatable("argument.entity.selector.not_allowed"));
-+    public static final SimpleCommandExceptionType ERROR_NOT_SINGLE_ENTITY = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Nur eine Entität ist erlaubt!")));
++    public static final SimpleCommandExceptionType ERROR_NOT_SINGLE_ENTITY = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Nur eine Entität ist erlaubt!"))); // 0xBUKKIT start
 +    public static final SimpleCommandExceptionType ERROR_NOT_SINGLE_PLAYER = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Nur ein Spieler ist erlaubt!")));
 +    public static final SimpleCommandExceptionType ERROR_ONLY_PLAYERS_ALLOWED = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Nur Spieler sind erlaubt!")));
 +    public static final SimpleCommandExceptionType NO_ENTITIES_FOUND = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Keine Entität gefunden!")));
 +    public static final SimpleCommandExceptionType NO_PLAYERS_FOUND = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Keinen Spieler gefunden!")));
-+    public static final SimpleCommandExceptionType ERROR_SELECTORS_NOT_ALLOWED = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Selector nicht erlaubt!")));
++    public static final SimpleCommandExceptionType ERROR_SELECTORS_NOT_ALLOWED = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Selector nicht erlaubt!"))); // 0xBUKKIT end
      final boolean single;
      final boolean playersOnly;
  

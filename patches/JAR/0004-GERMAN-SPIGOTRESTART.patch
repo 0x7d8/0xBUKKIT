@@ -13,7 +13,7 @@ index 160115bf8a153ff981ba308599d22c4c08026fb6..15e5e996f55741ffd205788a3efcf3b5
      {
          super( name );
 -        this.description = "Restarts the server";
-+        this.description = "STARTE DEN SERVER NEU";
++        this.description = "STARTE DEN SERVER NEU"; // 0xBUKKIT
          this.usageMessage = "/restart";
          this.setPermission( "bukkit.command.restart" );
      }

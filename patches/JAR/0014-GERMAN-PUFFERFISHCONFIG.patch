@@ -19,9 +19,9 @@ index e76c7e04274d8e94a3e5d6576e42364b2320a9ee..9b290769e630fde5328c334a0968b24a
 -				"Check out Pufferfish Host for maximum performance server hosting: https://pufferfish.host",
 -				"Join our Discord for support: https://discord.gg/reZw4vQV9H",
 -				"Download new builds at https://ci.pufferfish.host/job/Pufferfish");
-+				"PUFFERFISH KONFIGURATION",
-+				"https://discord.gg/reZw4vQV9H",
-+				"");
++				"PUFFERFISH KONFIGURATION", // 0xBUKKIT
++				"https://discord.gg/reZw4vQV9H", // 0xBUKKIT
++				""); // 0xBUKKIT
  		
  		for (Method method : PufferfishConfig.class.getDeclaredMethods()) {
  			if (Modifier.isStatic(method.getModifiers()) && Modifier.isPrivate(method.getModifiers()) && method.getParameterCount() == 0 &&

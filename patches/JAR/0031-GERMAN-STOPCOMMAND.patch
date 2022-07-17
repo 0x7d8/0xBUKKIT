@@ -12,8 +12,8 @@ index d91e74e87b60eb756db7ed03405c0c1cfae4f72d..add0c2ad736391cc90c553b239f9df46
  import net.minecraft.commands.CommandSourceStack;
  import net.minecraft.commands.Commands;
  import net.minecraft.network.chat.Component;
-+import net.kyori.adventure.text.minimessage.MiniMessage;
-+import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
++import net.kyori.adventure.text.minimessage.MiniMessage; // 0xBUKKIT
++import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder; // 0xBUKKIT
  
  public class StopCommand {
      public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
@@ -21,7 +21,7 @@ index d91e74e87b60eb756db7ed03405c0c1cfae4f72d..add0c2ad736391cc90c553b239f9df46
              return source.hasPermission(4);
          }).executes((context) -> {
 -            context.getSource().sendSuccess(Component.translatable("commands.stop.stopping"), true);
-+            context.getSource().sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <yellow>Stoppe den Server!"));
++            context.getSource().sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <yellow>Stoppe den Server!")); // 0xBUKKIT
              context.getSource().getServer().halt(false);
              return 1;
          }));

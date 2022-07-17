@@ -16,7 +16,7 @@ index ee32920e59908c8808bae7bc29a4789d6a3810d3..046420421aac7835b5cde8d34c802144
              this.hasStopped = true;
          }
 -        if (!hasLoggedStop && isDebugging()) io.papermc.paper.util.TraceUtil.dumpTraceForThread("Server stopped"); // Paper
-+        if (!hasLoggedStop && isDebugging()) io.papermc.paper.util.TraceUtil.dumpTraceForThread("Server gestoppt"); // Paper
++        if (!hasLoggedStop && isDebugging()) io.papermc.paper.util.TraceUtil.dumpTraceForThread("Server gestoppt"); // Paper // 0xBUKKIT
          // Paper start - kill main thread, and kill it hard
          shutdownThread = Thread.currentThread();
          org.spigotmc.WatchdogThread.doStop(); // Paper
@@ -25,7 +25,7 @@ index ee32920e59908c8808bae7bc29a4789d6a3810d3..046420421aac7835b5cde8d34c802144
          }
  
 -        MinecraftServer.LOGGER.info("Stopping server");
-+        MinecraftServer.LOGGER.info("Stoppe Server");
++        MinecraftServer.LOGGER.info("Stoppe Server"); // 0xBUKKIT
          MinecraftTimings.stopServer(); // Paper
          // Purpur start
          if (upnp) {
@@ -34,14 +34,14 @@ index ee32920e59908c8808bae7bc29a4789d6a3810d3..046420421aac7835b5cde8d34c802144
          this.isSaving = true;
          if (this.playerList != null) {
 -            MinecraftServer.LOGGER.info("Saving players");
-+            MinecraftServer.LOGGER.info("Speichere Spieler");
++            MinecraftServer.LOGGER.info("Speichere Spieler"); // 0xBUKKIT
              this.playerList.saveAll();
              this.playerList.removeAll(this.isRestarting); // Paper
              try { Thread.sleep(100); } catch (InterruptedException ex) {} // CraftBukkit - SPIGOT-625 - give server at least a chance to send packets
          }
  
 -        MinecraftServer.LOGGER.info("Saving worlds");
-+        MinecraftServer.LOGGER.info("Speichere Welten");
++        MinecraftServer.LOGGER.info("Speichere Welten"); // 0xBUKKIT
          Iterator iterator = this.getAllLevels().iterator();
  
          ServerLevel worldserver;
@@ -50,13 +50,13 @@ index ee32920e59908c8808bae7bc29a4789d6a3810d3..046420421aac7835b5cde8d34c802144
          // Spigot end
          // Paper start - move final shutdown items here
 -        LOGGER.info("Flushing Chunk IO");
-+        LOGGER.info("Leere Chunk IO");
++        LOGGER.info("[0xSERVER] Leere Chunk IO"); // 0xBUKKIT
          com.destroystokyo.paper.io.PaperFileIOThread.Holder.INSTANCE.close(true, true); // Paper
 -        LOGGER.info("Closing Thread Pool");
-+        LOGGER.info("Beende Prozesse");
++        LOGGER.info("[0xSERVER] Beende Prozesse"); // 0xBUKKIT
          Util.shutdownExecutors(); // Paper
 -        LOGGER.info("Closing Server");
-+        LOGGER.info("Beende Server");
++        LOGGER.info("[0xSERVER] Beende Server"); // 0xBUKKIT
          try {
              net.minecrell.terminalconsole.TerminalConsoleAppender.close(); // Paper - Use TerminalConsoleAppender
          } catch (Exception e) {
@@ -65,7 +65,7 @@ index ee32920e59908c8808bae7bc29a4789d6a3810d3..046420421aac7835b5cde8d34c802144
          this.isRestarting = isRestarting;
          this.hasLoggedStop = true; // Paper
 -        if (isDebugging()) io.papermc.paper.util.TraceUtil.dumpTraceForThread("Server stopped"); // Paper
-+        if (isDebugging()) io.papermc.paper.util.TraceUtil.dumpTraceForThread("Server ist offline"); // Paper
++        if (isDebugging()) io.papermc.paper.util.TraceUtil.dumpTraceForThread("[0xSERVER] Server ist offline"); // Paper // 0xBUKKIT
          // Paper end
          this.running = false;
          if (flag) {
@@ -74,7 +74,7 @@ index ee32920e59908c8808bae7bc29a4789d6a3810d3..046420421aac7835b5cde8d34c802144
              // tasks are default scheduled at -1 + delay, and first tick will tick at 1
              String doneTime = String.format(java.util.Locale.ROOT, "%.3fs", (double) (Util.getNanos() - serverStartTime) / 1.0E9D);
 -            LOGGER.info("Done ({})! For help, type \"help\"", doneTime);
-+            LOGGER.info("Done ({})! Der Server ist nun Online!", doneTime);
++            LOGGER.info("Done ({})! Der Server ist nun Online!", doneTime); // 0xBUKKIT
              // Paper end
  
              org.spigotmc.WatchdogThread.tick(); // Paper
@@ -83,7 +83,7 @@ index ee32920e59908c8808bae7bc29a4789d6a3810d3..046420421aac7835b5cde8d34c802144
  
                      if (this.server.getWarnOnOverload()) // CraftBukkit
 -                            MinecraftServer.LOGGER.warn("Can't keep up! Is the server overloaded? Running {}ms or {} ticks behind", i, j);
-+                            MinecraftServer.LOGGER.warn("[Server] Ist der Server überfordert? {}ms oder {} ticks hinterher!", i, j);
++                            MinecraftServer.LOGGER.warn("[0xSERVER] Ist der Server überfordert? {}ms oder {} ticks hinterher!", i, j); // 0xBUKKIT
                      this.nextTickTime += j * 50L;
                      this.lastOverloadWarning = this.nextTickTime;
                  }
@@ -92,7 +92,7 @@ index ee32920e59908c8808bae7bc29a4789d6a3810d3..046420421aac7835b5cde8d34c802144
      @DontObfuscate
      public String getServerModName() {
 -        return org.purpurmc.purpur.PurpurConfig.serverModName; // Purpur - Purpur > // Paper - Paper > // Spigot - Spigot > // CraftBukkit - cb > vanilla!
-+        return org.purpurmc.purpur.PurpurConfig.serverModName; // PAPERSTUDIOS - 0xSERVER > // Purpur - Purpur > // Paper - Paper > // Spigot - Spigot > // CraftBukkit - cb > vanilla!
++        return org.purpurmc.purpur.PurpurConfig.serverModName; // PAPERSTUDIOS - 0xBUKKIT > // Purpur - Purpur > // Paper - Paper > // Spigot - Spigot > // CraftBukkit - cb > vanilla!
      }
  
      public SystemReport fillSystemReport(SystemReport details) {
@@ -106,7 +106,7 @@ index ee32920e59908c8808bae7bc29a4789d6a3810d3..046420421aac7835b5cde8d34c802144
      public void executeIfPossible(Runnable runnable) {
          if (this.isStopped()) {
 -            throw new RejectedExecutionException("Server already shutting down");
-+            throw new RejectedExecutionException("Server stoppt schon!");
++            throw new RejectedExecutionException("Server stoppt schon!"); // 0xBUKKIT
          } else {
              super.executeIfPossible(runnable);
          }

@@ -35,16 +35,16 @@ index 5c81c64540579fbacc335a3fadf4bf59f853dc39..010acd71c398a823f1cf24e77b78db47
  import net.minecraft.world.level.block.entity.BlockEntity;
  import net.minecraft.world.level.block.state.pattern.BlockInWorld;
  import net.minecraft.world.level.levelgen.structure.BoundingBox;
-+import io.papermc.paper.adventure.PaperAdventure;
++import io.papermc.paper.adventure.PaperAdventure; // 0xBUKKIT start
 +import net.kyori.adventure.text.minimessage.MiniMessage;
-+import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
++import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder; // 0xBUKKIT end
  
  public class FillCommand {
 -    private static final int MAX_FILL_AREA = 32768;
-+    private static final int MAX_FILL_AREA = 50000;
++    private static final int MAX_FILL_AREA = 50000; // 0xBUKKIT
      private static final Dynamic2CommandExceptionType ERROR_AREA_TOO_LARGE = new Dynamic2CommandExceptionType((maxCount, count) -> {
 -        return Component.translatable("commands.fill.toobig", maxCount, count);
-+        return PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Du kannst nicht so viele Blöcke füllen! <white>[ <gold>" + count + " <green>/ <gold>" + maxCount + "<white> ]"));
++        return PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Du kannst nicht so viele Blöcke füllen! <white>[ <gold>" + count + " <green>/ <gold>" + maxCount + "<white> ]")); // 0xBUKKIT
      });
      static final BlockInput HOLLOW_CORE = new BlockInput(Blocks.AIR.defaultBlockState(), Collections.emptySet(), (CompoundTag)null);
 -    private static final SimpleCommandExceptionType ERROR_FAILED = new SimpleCommandExceptionType(Component.translatable("commands.fill.failed"));
@@ -56,14 +56,14 @@ index 5c81c64540579fbacc335a3fadf4bf59f853dc39..010acd71c398a823f1cf24e77b78db47
  
              if (j == 0) {
 -                throw ERROR_FAILED.create();
-+                source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Es wurden keine Blöcke gefüllt!"));
++                source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Es wurden keine Blöcke gefüllt!")); // 0xBUKKIT
              } else {
 -                source.sendSuccess(Component.translatable("commands.fill.success", j), true);
-+                source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Es wurden <gold>" + j + " <green>Blöcke gefüllt."));
++                source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Es wurden <gold>" + j + " <green>Blöcke gefüllt.")); // 0xBUKKIT
                  return j;
              }
          }
-+        return 0;
++        return 0; // 0xBUKKIT
      }
  
      static enum Mode {

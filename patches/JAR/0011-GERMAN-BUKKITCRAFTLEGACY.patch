@@ -13,7 +13,7 @@ index 14600a7bc01bf61e8ffb736816d23df6aa794a16..cc9badf5a673f38a088df3cd4da1cc06
      static {
          if (!org.purpurmc.purpur.PurpurConfig.loggerSuppressInitLegacyMaterialError) // Purpur
 -        System.err.println("Initializing Legacy Material Support. Unless you have legacy plugins and/or data this is a bug!");
-+        System.err.println("Aktiviere Alte Komponenten von Bukkit, dies ist kein Fehler!");
++        System.err.println("Aktiviere Alte Komponenten von Bukkit, dies ist kein Fehler!"); // 0xBUKKIT
          if (MinecraftServer.getServer() != null && MinecraftServer.getServer().isDebugging()) {
              new Exception().printStackTrace();
          }

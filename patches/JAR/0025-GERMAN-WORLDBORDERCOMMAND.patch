@@ -35,7 +35,7 @@ index 12637fca064ce944afd0a7f322b4201a90f32977..8d6c7754ebadc904917aaf21cb80285a
  package net.minecraft.server.commands;
  
  import com.mojang.brigadier.CommandDispatcher;
-+import com.mojang.brigadier.Message;
++import com.mojang.brigadier.Message; // 0xBUKKIT
  import com.mojang.brigadier.arguments.DoubleArgumentType;
  import com.mojang.brigadier.arguments.FloatArgumentType;
  import com.mojang.brigadier.arguments.IntegerArgumentType;
@@ -43,9 +43,9 @@ index 12637fca064ce944afd0a7f322b4201a90f32977..8d6c7754ebadc904917aaf21cb80285a
  import net.minecraft.util.Mth;
  import net.minecraft.world.level.border.WorldBorder;
  import net.minecraft.world.phys.Vec2;
-+import io.papermc.paper.adventure.PaperAdventure;
++import io.papermc.paper.adventure.PaperAdventure; // 0xBUKKIT start
 +import net.kyori.adventure.text.minimessage.MiniMessage;
-+import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
++import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder; // 0xBUKKIT end
  
  public class WorldBorderCommand {
  
@@ -58,7 +58,7 @@ index 12637fca064ce944afd0a7f322b4201a90f32977..8d6c7754ebadc904917aaf21cb80285a
 -    private static final SimpleCommandExceptionType ERROR_SAME_WARNING_DISTANCE = new SimpleCommandExceptionType(Component.translatable("commands.worldborder.warning.distance.failed"));
 -    private static final SimpleCommandExceptionType ERROR_SAME_DAMAGE_BUFFER = new SimpleCommandExceptionType(Component.translatable("commands.worldborder.damage.buffer.failed"));
 -    private static final SimpleCommandExceptionType ERROR_SAME_DAMAGE_AMOUNT = new SimpleCommandExceptionType(Component.translatable("commands.worldborder.damage.amount.failed"));
-+    private static final SimpleCommandExceptionType ERROR_SAME_CENTER = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Das Weltgrenzen Center ist schon auf dieser Position!")));
++    private static final SimpleCommandExceptionType ERROR_SAME_CENTER = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Das Weltgrenzen Center ist schon auf dieser Position!"))); // 0xBUKKIT start
 +    private static final SimpleCommandExceptionType ERROR_SAME_SIZE = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Die Weltgrenze ist schon so weit gesetzt!")));
 +    private static final SimpleCommandExceptionType ERROR_TOO_SMALL = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Die Weltgrenze kann nicht kleiner als <gold>1 <red>Block sein!")));
 +    private static final SimpleCommandExceptionType ERROR_TOO_BIG = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Die Weltgrenze kann nicht so groß sein!")));
@@ -66,7 +66,7 @@ index 12637fca064ce944afd0a7f322b4201a90f32977..8d6c7754ebadc904917aaf21cb80285a
 +    private static final SimpleCommandExceptionType ERROR_SAME_WARNING_TIME = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Die Weltgrenzen Warnung ist schon so lang gesetzt!")));
 +    private static final SimpleCommandExceptionType ERROR_SAME_WARNING_DISTANCE = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Die Weltgrenzen Warnung ist schon so weit gesetzt!")));
 +    private static final SimpleCommandExceptionType ERROR_SAME_DAMAGE_BUFFER = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Der Weltgrenzens Schaden Buffer ist schon auf das gesetzt!")));
-+    private static final SimpleCommandExceptionType ERROR_SAME_DAMAGE_AMOUNT = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Der Weltgrenzens Schaden ist schon auf das gesetzt!")));
++    private static final SimpleCommandExceptionType ERROR_SAME_DAMAGE_AMOUNT = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Der Weltgrenzens Schaden ist schon auf das gesetzt!"))); // 0xBUKKIT end
  
      public WorldBorderCommand() {}
  
@@ -75,7 +75,7 @@ index 12637fca064ce944afd0a7f322b4201a90f32977..8d6c7754ebadc904917aaf21cb80285a
          } else {
              worldborder.setDamageSafeZone((double) distance);
 -            source.sendSuccess(Component.translatable("commands.worldborder.damage.buffer.success", String.format(Locale.ROOT, "%.2f", distance)), true);
-+            source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Der Weltgrenzens Schaden Buffer wurde auf <gold>" + String.format(Locale.ROOT, "%.2f", distance) + " <green>Blöcke gesetzt!"));
++            source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Der Weltgrenzens Schaden Buffer wurde auf <gold>" + String.format(Locale.ROOT, "%.2f", distance) + " <green>Blöcke gesetzt!")); // 0xBUKKIT
              return (int) distance;
          }
      }
@@ -84,7 +84,7 @@ index 12637fca064ce944afd0a7f322b4201a90f32977..8d6c7754ebadc904917aaf21cb80285a
          } else {
              worldborder.setDamagePerBlock((double) damagePerBlock);
 -            source.sendSuccess(Component.translatable("commands.worldborder.damage.amount.success", String.format(Locale.ROOT, "%.2f", damagePerBlock)), true);
-+            source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Der Weltgrenzens Schaden wurde auf <gold>" + String.format(Locale.ROOT, "%.2f", damagePerBlock) + " <green>pro Sekunde gesetzt!"));
++            source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Der Weltgrenzens Schaden wurde auf <gold>" + String.format(Locale.ROOT, "%.2f", damagePerBlock) + " <green>pro Sekunde gesetzt!")); // 0xBUKKIT
              return (int) damagePerBlock;
          }
      }
@@ -93,7 +93,7 @@ index 12637fca064ce944afd0a7f322b4201a90f32977..8d6c7754ebadc904917aaf21cb80285a
          } else {
              worldborder.setWarningTime(time);
 -            source.sendSuccess(Component.translatable("commands.worldborder.warning.time.success", time), true);
-+            source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Die Weltgrenzens Warnungs Zeit wurde auf <gold>" + time + "s <green>gesetzt!"));
++            source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Die Weltgrenzens Warnungs Zeit wurde auf <gold>" + time + "s <green>gesetzt!")); // 0xBUKKIT
              return time;
          }
      }
@@ -102,7 +102,7 @@ index 12637fca064ce944afd0a7f322b4201a90f32977..8d6c7754ebadc904917aaf21cb80285a
          } else {
              worldborder.setWarningBlocks(distance);
 -            source.sendSuccess(Component.translatable("commands.worldborder.warning.distance.success", distance), true);
-+            source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Die Weltgrenzens Warnung wurde auf <gold>" + distance + " <green>Blöcke gesetzt!"));
++            source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Die Weltgrenzens Warnung wurde auf <gold>" + distance + " <green>Blöcke gesetzt!")); // 0xBUKKIT
              return distance;
          }
      }
@@ -111,7 +111,7 @@ index 12637fca064ce944afd0a7f322b4201a90f32977..8d6c7754ebadc904917aaf21cb80285a
          double d0 = source.getLevel().getWorldBorder().getSize(); // CraftBukkit
  
 -        source.sendSuccess(Component.translatable("commands.worldborder.get", String.format(Locale.ROOT, "%.0f", d0)), false);
-+        source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Die Weltgrenze ist aktuell <gold>" + String.format(Locale.ROOT, "%.0f", d0) + " <green>Blöcke weit!"));
++        source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Die Weltgrenze ist aktuell <gold>" + String.format(Locale.ROOT, "%.0f", d0) + " <green>Blöcke weit!")); // 0xBUKKIT
          return Mth.floor(d0 + 0.5D);
      }
  
@@ -120,7 +120,7 @@ index 12637fca064ce944afd0a7f322b4201a90f32977..8d6c7754ebadc904917aaf21cb80285a
          } else if ((double) Math.abs(pos.x) <= 2.9999984E7D && (double) Math.abs(pos.y) <= 2.9999984E7D) {
              worldborder.setCenter((double) pos.x, (double) pos.y);
 -            source.sendSuccess(Component.translatable("commands.worldborder.center.success", String.format(Locale.ROOT, "%.2f", pos.x), String.format("%.2f", pos.y)), true);
-+            source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Das Weltgrenzen Center wurde auf deine Position gesetzt!"));
++            source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Das Weltgrenzen Center wurde auf deine Position gesetzt!")); // 0xBUKKIT
              return 0;
          } else {
              throw WorldBorderCommand.ERROR_TOO_FAR_OUT.create();
@@ -129,7 +129,7 @@ index 12637fca064ce944afd0a7f322b4201a90f32977..8d6c7754ebadc904917aaf21cb80285a
              } else {
                  worldborder.setSize(distance);
 -                source.sendSuccess(Component.translatable("commands.worldborder.set.immediate", String.format(Locale.ROOT, "%.1f", distance)), true);
-+                source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Die Weltgrenze wurde auf <gold>" + String.format(Locale.ROOT, "%.1f", distance) + " <green>Blöcke gesetzt!"));
++                source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Die Weltgrenze wurde auf <gold>" + String.format(Locale.ROOT, "%.1f", distance) + " <green>Blöcke gesetzt!")); // 0xBUKKIT
              }
  
              return (int) (distance - d1);

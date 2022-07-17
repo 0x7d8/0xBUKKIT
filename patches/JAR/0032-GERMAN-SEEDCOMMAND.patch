@@ -12,9 +12,9 @@ index 621b6f2072d1299855419f1b21dd4d1ea456282a..4fe90d167c47df24199ccd0ac5d6ea37
  import net.minecraft.network.chat.Component;
  import net.minecraft.network.chat.ComponentUtils;
  import net.minecraft.network.chat.HoverEvent;
-+import io.papermc.paper.adventure.PaperAdventure;
++import io.papermc.paper.adventure.PaperAdventure; // 0xBUKKIT start
 +import net.kyori.adventure.text.minimessage.MiniMessage;
-+import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
++import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder; // 0xBUKKIT end
  
  public class SeedCommand {
      public static void register(CommandDispatcher<CommandSourceStack> dispatcher, boolean dedicated) {
@@ -23,7 +23,7 @@ index 621b6f2072d1299855419f1b21dd4d1ea456282a..4fe90d167c47df24199ccd0ac5d6ea37
                  return style.withColor(ChatFormatting.GREEN).withClickEvent(new ClickEvent(ClickEvent.Action.COPY_TO_CLIPBOARD, String.valueOf(l))).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Component.translatable("chat.copy.click"))).withInsertion(String.valueOf(l));
              }));
 -            context.getSource().sendSuccess(Component.translatable("commands.seed.success", component), false);
-+            context.getSource().sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Der Welt-Seed: <white>[ <gold><hover:show_text:'<red>MUSST DU ABSCHREIBEN'>" + String.valueOf(l) + " <reset><white>]"));
++            context.getSource().sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Der Welt-Seed: <white>[ <gold><hover:show_text:'<red>MUSST DU ABSCHREIBEN'>" + String.valueOf(l) + " <reset><white>]")); // 0xBUKKIT
              return (int)l;
          }));
      }

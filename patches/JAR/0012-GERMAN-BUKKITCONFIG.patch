@@ -21,7 +21,7 @@ index 97239f7aadd761f6f709a6d6c913e577651a87df..0fbe08d37a8499dc39ea9146504f657f
 -# Forums: https://www.spigotmc.org/
 -# Bug tracker: https://www.spigotmc.org/go/bugs
 -
-+# BUKKIT KONFIGURATION
++# BUKKIT KONFIGURATION // 0xBUKKIT
  
  settings:
      allow-end: true
@@ -40,7 +40,7 @@ index 18f54571200e2eca09a39b88f170fe7b99d8618f..a79c2915584a9be18ee5a78492afd2f6
 -# Discord: https://www.spigotmc.org/go/discord
 -# Forums: https://www.spigotmc.org/
 -# Bug tracker: https://www.spigotmc.org/go/bugs
-+# BUKKIT ALIASES
++# BUKKIT ALIASES // 0xBUKKIT
  
  command-block-overrides: []
  ignore-vanilla-permissions: false

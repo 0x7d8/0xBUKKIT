@@ -13,7 +13,7 @@ index aafa84578c7fb25feeee043259f9c056929ca008..b68d39ca7231ec3d1bfb5e73201dd1d3
  
              try {
 -                this.properties.store(bufferedOutputStream, "Minecraft server properties"); // Paper - use bufferedOutputStream
-+                this.properties.store(bufferedOutputStream, "MINECRAFT KONFIGURATION"); // Paper - use bufferedOutputStream
++                this.properties.store(bufferedOutputStream, "MINECRAFT KONFIGURATION"); // Paper - use bufferedOutputStream // 0xBUKKIT
              } catch (Throwable throwable) {
                  if (outputstream != null) {
                      try {

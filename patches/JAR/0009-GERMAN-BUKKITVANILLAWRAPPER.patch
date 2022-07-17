@@ -13,7 +13,7 @@ index 7774ab6a2e553a40def4bb4dceea9e5f58d31c1e..1f68add6f81b6636e05035d8ca7d8124
  
      public VanillaCommandWrapper(Commands dispatcher, CommandNode<CommandSourceStack> vanillaCommand) {
 -        super(vanillaCommand.getName(), "A Mojang provided command.", vanillaCommand.getUsageText(), Collections.EMPTY_LIST);
-+        super(vanillaCommand.getName(), "EIN MOJANG BEFEHL", vanillaCommand.getUsageText(), Collections.EMPTY_LIST);
++        super(vanillaCommand.getName(), "EIN MOJANG BEFEHL", vanillaCommand.getUsageText(), Collections.EMPTY_LIST); // 0xBUKKIT
          this.dispatcher = dispatcher;
          this.vanillaCommand = vanillaCommand;
          this.setPermission(VanillaCommandWrapper.getPermission(vanillaCommand));

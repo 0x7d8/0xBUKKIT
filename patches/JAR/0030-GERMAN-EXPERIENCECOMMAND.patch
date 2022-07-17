@@ -12,13 +12,13 @@ index a628e3730b1c26c2e6a85c449440af0afe4c0d8d..91f54f5e5ea77413aaa33354d1daca5c
  import net.minecraft.server.level.ServerPlayer;
  import net.minecraft.util.Mth;
  import net.minecraft.world.entity.player.Player;
-+import io.papermc.paper.adventure.PaperAdventure;
++import io.papermc.paper.adventure.PaperAdventure; // 0xBUKKIT start
 +import net.kyori.adventure.text.minimessage.MiniMessage;
-+import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
++import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder; // 0xBUKKIT end
  
  public class ExperienceCommand {
 -    private static final SimpleCommandExceptionType ERROR_SET_POINTS_INVALID = new SimpleCommandExceptionType(Component.translatable("commands.experience.set.points.invalid"));
-+    private static final SimpleCommandExceptionType ERROR_SET_POINTS_INVALID = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Du kannst die Erfahrung nicht so hoch setzen!")));
++    private static final SimpleCommandExceptionType ERROR_SET_POINTS_INVALID = new SimpleCommandExceptionType(PaperAdventure.asVanilla(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Du kannst die Erfahrung nicht so hoch setzen!"))); // 0xBUKKIT
  
      public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
          LiteralCommandNode<CommandSourceStack> literalCommandNode = dispatcher.register(Commands.literal("experience").requires((source) -> {

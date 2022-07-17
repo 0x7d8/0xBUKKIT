@@ -17,8 +17,8 @@ index eac5830986cd0638950bbb1e6f10a30e246e09a7..692383857c6aa310d11e8bfe3958f49c
  import org.bukkit.plugin.PluginDescriptionFile;
  import org.bukkit.util.StringUtil;
  import org.jetbrains.annotations.NotNull;
-+import net.kyori.adventure.text.minimessage.MiniMessage;
-+import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
++import net.kyori.adventure.text.minimessage.MiniMessage; // 0xBUKKIT
++import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder; // 0xBUKKIT
  
  public class VersionCommand extends BukkitCommand {
      private VersionFetcher versionFetcher;
@@ -28,8 +28,8 @@ index eac5830986cd0638950bbb1e6f10a30e246e09a7..692383857c6aa310d11e8bfe3958f49c
  
 -        this.description = "Gets the version of this server including any plugins in use";
 -        this.usageMessage = "/version [plugin name]";
-+        this.description = "SERVER VERSION";
-+        this.usageMessage = "/version [ PLUGIN ]";
++        this.description = "SERVER VERSION"; // 0xBUKKIT
++        this.usageMessage = "/version [ PLUGIN ]"; // 0xBUKKIT
          this.setPermission("bukkit.command.version");
          this.setAliases(Arrays.asList("ver", "about"));
      }
@@ -39,7 +39,7 @@ index eac5830986cd0638950bbb1e6f10a30e246e09a7..692383857c6aa310d11e8bfe3958f49c
              if (!found) {
 -                sender.sendMessage("This server is not running any plugin by that name.");
 -                sender.sendMessage("Use /plugins to get a list of plugins.");
-+                sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Kein Plugin mit dem Namen gefunden!"));
++                sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Kein Plugin mit dem Namen gefunden!")); // 0xBUKKIT
              }
          }
          return true;
@@ -48,16 +48,16 @@ index eac5830986cd0638950bbb1e6f10a30e246e09a7..692383857c6aa310d11e8bfe3958f49c
          if (!desc.getAuthors().isEmpty()) {
              if (desc.getAuthors().size() == 1) {
 -                sender.sendMessage("Author: " + getNameList(desc.getAuthors()));
-+                sender.sendMessage("Autor: " + getNameList(desc.getAuthors()));
++                sender.sendMessage("Autor: " + getNameList(desc.getAuthors())); // 0xBUKKIT
              } else {
 -                sender.sendMessage("Authors: " + getNameList(desc.getAuthors()));
-+                sender.sendMessage("Autoren: " + getNameList(desc.getAuthors()));
++                sender.sendMessage("Autoren: " + getNameList(desc.getAuthors())); // 0xBUKKIT
              }
          }
  
          if (!desc.getContributors().isEmpty()) {
 -            sender.sendMessage("Contributors: " + getNameList(desc.getContributors()));
-+            sender.sendMessage("Unterstützer: " + getNameList(desc.getContributors()));
++            sender.sendMessage("Unterstützer: " + getNameList(desc.getContributors())); // 0xBUKKIT
          }
      }
  
@@ -66,7 +66,7 @@ index eac5830986cd0638950bbb1e6f10a30e246e09a7..692383857c6aa310d11e8bfe3958f49c
                      result.append(", ");
                  } else {
 -                    result.append(" and ");
-+                    result.append(" und ");
++                    result.append(" und "); // 0xBUKKIT
                  }
              }
  
@@ -84,7 +84,7 @@ index eac5830986cd0638950bbb1e6f10a30e246e09a7..692383857c6aa310d11e8bfe3958f49c
          int distance = getVersionFetcher().distance();
          final net.kyori.adventure.text.Component message = net.kyori.adventure.text.Component.join(net.kyori.adventure.text.JoinConfiguration.separator(net.kyori.adventure.text.Component.newline()),
 -            ChatColor.parseMM("<grey>Current: %s%s*", distance == 0 ? "<green>" : distance > 0 ? "<yellow>" : "<red>", Bukkit.getVersion()),
-+            ChatColor.parseMM("<white>[<grey>Server<white>] <green>Aktuell: <gold>%s%s*", distance == 0 ? "<gold>" : distance > 0 ? "<gold>" : "<gold>", Bukkit.getVersion()),
++            ChatColor.parseMM("<white>[<grey>Server<white>] <green>Aktuell: <gold>%s%s*", distance == 0 ? "<gold>" : distance > 0 ? "<gold>" : "<gold>", Bukkit.getVersion()), // 0xBUKKIT
              // Purpur end
              msg
          );

@@ -35,9 +35,9 @@ index 745b8724b7536a5b2c2c94ae8fd703ea755e8072..676998a90bf2897e28fc4b43590a7f66
  import net.minecraft.commands.CommandSourceStack;
  import net.minecraft.network.chat.Component;
  import net.minecraft.world.level.GameRules;
-+import io.papermc.paper.adventure.PaperAdventure;
++import io.papermc.paper.adventure.PaperAdventure; // 0xBUKKIT start
 +import net.kyori.adventure.text.minimessage.MiniMessage;
-+import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
++import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder; // 0xBUKKIT end
  
  public class GameRuleCommand {
  
@@ -46,7 +46,7 @@ index 745b8724b7536a5b2c2c94ae8fd703ea755e8072..676998a90bf2897e28fc4b43590a7f66
  
          t0.setFromArgument(context, "value", key); // Paper
 -        commandlistenerwrapper.sendSuccess(Component.translatable("commands.gamerule.set", key.getId(), t0.toString()), true);
-+        commandlistenerwrapper.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Die Spielregel wurde auf <gold>" + t0.toString() + " <green>gesetzt!"));
++        commandlistenerwrapper.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Die Spielregel wurde auf <gold>" + t0.toString() + " <green>gesetzt!")); // 0xBUKKIT
          return t0.getCommandResult();
      }
  
@@ -55,7 +55,7 @@ index 745b8724b7536a5b2c2c94ae8fd703ea755e8072..676998a90bf2897e28fc4b43590a7f66
          T t0 = source.getLevel().getGameRules().getRule(key); // CraftBukkit
  
 -        source.sendSuccess(Component.translatable("commands.gamerule.query", key.getId(), t0.toString()), false);
-+        source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Die Spielregel <gold>" + key + "<green> ist auf <gold>" + t0.toString() + "<green>!"));
++        source.sendSuccess(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Die Spielregel <gold>" + key + "<green> ist auf <gold>" + t0.toString() + "<green>!")); // 0xBUKKIT
          return t0.getCommandResult();
      }
  }
