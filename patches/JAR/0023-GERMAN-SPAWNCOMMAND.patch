@@ -12,7 +12,7 @@ GERMAN MINECRAFTMAIN2
 GERMAN SPAWN
 
 diff --git a/src/main/java/net/minecraft/server/commands/SetSpawnCommand.java b/src/main/java/net/minecraft/server/commands/SetSpawnCommand.java
-index 1e41de9523c5fa3b9cfced798a5c35a24ec9d349..b4399750a1a9c5578bc3dfd6c67c531b4952f567 100644
+index 1e41de9523c5fa3b9cfced798a5c35a24ec9d349..649e24665e4f85cec3e69df072b9aecc86953000 100644
 --- a/src/main/java/net/minecraft/server/commands/SetSpawnCommand.java
 +++ b/src/main/java/net/minecraft/server/commands/SetSpawnCommand.java
 @@ -13,6 +13,9 @@ import net.minecraft.network.chat.Component;

@@ -28,7 +28,7 @@ GERMAN GAMERULECOMMAND2
 GERMAN GAMERULECOMMAND2
 
 diff --git a/src/main/java/net/minecraft/server/commands/GameRuleCommand.java b/src/main/java/net/minecraft/server/commands/GameRuleCommand.java
-index 745b8724b7536a5b2c2c94ae8fd703ea755e8072..676998a90bf2897e28fc4b43590a7f66542c1ee4 100644
+index 745b8724b7536a5b2c2c94ae8fd703ea755e8072..a2537e71e149b9b4e2faa7e912a818e62b04b23e 100644
 --- a/src/main/java/net/minecraft/server/commands/GameRuleCommand.java
 +++ b/src/main/java/net/minecraft/server/commands/GameRuleCommand.java
 @@ -6,6 +6,9 @@ import com.mojang.brigadier.context.CommandContext;

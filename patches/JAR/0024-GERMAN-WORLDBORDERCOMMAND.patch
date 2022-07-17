@@ -28,7 +28,7 @@ GERMAN WB
 GERMAN WB
 
 diff --git a/src/main/java/net/minecraft/server/commands/WorldBorderCommand.java b/src/main/java/net/minecraft/server/commands/WorldBorderCommand.java
-index 12637fca064ce944afd0a7f322b4201a90f32977..8d6c7754ebadc904917aaf21cb80285a9825fd81 100644
+index 12637fca064ce944afd0a7f322b4201a90f32977..e647dc22211bdb041a150869bb52e192e63d9a5c 100644
 --- a/src/main/java/net/minecraft/server/commands/WorldBorderCommand.java
 +++ b/src/main/java/net/minecraft/server/commands/WorldBorderCommand.java
 @@ -1,6 +1,7 @@

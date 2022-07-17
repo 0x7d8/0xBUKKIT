@@ -5,7 +5,7 @@ Subject: [PATCH] GERMAN EXPERIENCECOMMAND
 
 
 diff --git a/src/main/java/net/minecraft/server/commands/ExperienceCommand.java b/src/main/java/net/minecraft/server/commands/ExperienceCommand.java
-index a628e3730b1c26c2e6a85c449440af0afe4c0d8d..91f54f5e5ea77413aaa33354d1daca5c4eb1afb4 100644
+index a628e3730b1c26c2e6a85c449440af0afe4c0d8d..85dabc8d0f4d0e6099216e62807c6d75d2c078ac 100644
 --- a/src/main/java/net/minecraft/server/commands/ExperienceCommand.java
 +++ b/src/main/java/net/minecraft/server/commands/ExperienceCommand.java
 @@ -16,9 +16,12 @@ import net.minecraft.network.chat.Component;

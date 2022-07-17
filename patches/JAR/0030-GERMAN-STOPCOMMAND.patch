@@ -5,7 +5,7 @@ Subject: [PATCH] GERMAN STOPCOMMAND
 
 
 diff --git a/src/main/java/net/minecraft/server/commands/StopCommand.java b/src/main/java/net/minecraft/server/commands/StopCommand.java
-index d91e74e87b60eb756db7ed03405c0c1cfae4f72d..add0c2ad736391cc90c553b239f9df460be82c83 100644
+index d91e74e87b60eb756db7ed03405c0c1cfae4f72d..eaa78d35ece598177a1d45691c943db590a2f916 100644
 --- a/src/main/java/net/minecraft/server/commands/StopCommand.java
 +++ b/src/main/java/net/minecraft/server/commands/StopCommand.java
 @@ -4,13 +4,15 @@ import com.mojang.brigadier.CommandDispatcher;

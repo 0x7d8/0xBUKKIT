@@ -5,7 +5,7 @@ Subject: [PATCH] GERMAN WHITELISTCOMMAND
 
 
 diff --git a/src/main/java/net/minecraft/server/commands/WhitelistCommand.java b/src/main/java/net/minecraft/server/commands/WhitelistCommand.java
-index 0f1d7d2185182b27a7624c1f255c0f36e2349ad1..bc201f27cba49721e482fe2ce0a984599cdd9517 100644
+index 0f1d7d2185182b27a7624c1f255c0f36e2349ad1..cfe74936a62a84e7166be2e6fb245a47aebfca66 100644
 --- a/src/main/java/net/minecraft/server/commands/WhitelistCommand.java
 +++ b/src/main/java/net/minecraft/server/commands/WhitelistCommand.java
 @@ -14,12 +14,15 @@ import net.minecraft.network.chat.ComponentUtils;

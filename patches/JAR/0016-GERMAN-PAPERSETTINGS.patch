@@ -16,7 +16,7 @@ pap
 pap
 
 diff --git a/src/main/java/io/papermc/paper/configuration/GlobalConfiguration.java b/src/main/java/io/papermc/paper/configuration/GlobalConfiguration.java
-index fa47e173ee791e4eb09f70930cdb668ad07d7c31..b1174e065194b21c8d4e1a173d62d13ccaba9068 100644
+index bc72131afa1ae9986ee311a9b371e97c8feb38f8..7942728db1b0da3b3457504d8fd919c42bc4aa6f 100644
 --- a/src/main/java/io/papermc/paper/configuration/GlobalConfiguration.java
 +++ b/src/main/java/io/papermc/paper/configuration/GlobalConfiguration.java
 @@ -15,6 +15,10 @@ import org.spongepowered.configurate.objectmapping.meta.Comment;

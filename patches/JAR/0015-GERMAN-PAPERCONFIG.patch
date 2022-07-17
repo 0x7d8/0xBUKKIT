@@ -5,7 +5,7 @@ Subject: [PATCH] GERMAN PAPERCONFIG
 
 
 diff --git a/src/main/java/io/papermc/paper/configuration/PaperConfigurations.java b/src/main/java/io/papermc/paper/configuration/PaperConfigurations.java
-index 15b6e73413eeaef4214889fc34f9af8093574b9a..b86bf07b7f431355d8b045f1652c42e7810c1e6b 100644
+index 28c54542f8c4168c6da8e9d897d33569fc145caf..637f346188aa41e94797caf5dddc48385b0e8e80 100644
 --- a/src/main/java/io/papermc/paper/configuration/PaperConfigurations.java
 +++ b/src/main/java/io/papermc/paper/configuration/PaperConfigurations.java
 @@ -79,34 +79,12 @@ public class PaperConfigurations extends Configurations<GlobalConfiguration, Wor

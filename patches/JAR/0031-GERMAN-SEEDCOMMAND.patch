@@ -5,7 +5,7 @@ Subject: [PATCH] GERMAN SEEDCOMMAND
 
 
 diff --git a/src/main/java/net/minecraft/server/commands/SeedCommand.java b/src/main/java/net/minecraft/server/commands/SeedCommand.java
-index 621b6f2072d1299855419f1b21dd4d1ea456282a..4fe90d167c47df24199ccd0ac5d6ea37e03289a4 100644
+index 621b6f2072d1299855419f1b21dd4d1ea456282a..692d913999a189473a12a78d3e9100e5ee1c652b 100644
 --- a/src/main/java/net/minecraft/server/commands/SeedCommand.java
 +++ b/src/main/java/net/minecraft/server/commands/SeedCommand.java
 @@ -8,6 +8,9 @@ import net.minecraft.network.chat.ClickEvent;

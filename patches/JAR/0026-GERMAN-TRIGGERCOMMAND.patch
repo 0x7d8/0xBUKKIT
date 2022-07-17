@@ -6,7 +6,7 @@ Subject: [PATCH] GERMAN TRIGGERCOMMAND
 GERMAN TRIGGER
 
 diff --git a/src/main/java/net/minecraft/server/commands/TriggerCommand.java b/src/main/java/net/minecraft/server/commands/TriggerCommand.java
-index 035e0ad62d32e9695a3f5544c2b616baea0d41da..9fc9d34106475400a85abb036c2962ba914c1666 100644
+index 035e0ad62d32e9695a3f5544c2b616baea0d41da..b4091f7c1da41d1809f11fce67e46c35d115a11b 100644
 --- a/src/main/java/net/minecraft/server/commands/TriggerCommand.java
 +++ b/src/main/java/net/minecraft/server/commands/TriggerCommand.java
 @@ -23,11 +23,14 @@ import net.minecraft.world.scores.Objective;

@@ -5,7 +5,7 @@ Subject: [PATCH] GERMAN OPCOMMAND
 
 
 diff --git a/src/main/java/net/minecraft/server/commands/OpCommand.java b/src/main/java/net/minecraft/server/commands/OpCommand.java
-index 43e77cef0fce75f59aeb05e161668bebb8fca229..65d6b55a99789fb8a66aa509552d868551e0702e 100644
+index 43e77cef0fce75f59aeb05e161668bebb8fca229..13dddceb83b40b1c93de2763fb577ce336825cf2 100644
 --- a/src/main/java/net/minecraft/server/commands/OpCommand.java
 +++ b/src/main/java/net/minecraft/server/commands/OpCommand.java
 @@ -11,9 +11,12 @@ import net.minecraft.commands.SharedSuggestionProvider;

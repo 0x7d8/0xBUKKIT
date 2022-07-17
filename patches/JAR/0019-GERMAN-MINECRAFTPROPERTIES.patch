@@ -5,7 +5,7 @@ Subject: [PATCH] GERMAN MINECRAFTPROPERTIES
 
 
 diff --git a/src/main/java/net/minecraft/server/dedicated/Settings.java b/src/main/java/net/minecraft/server/dedicated/Settings.java
-index aafa84578c7fb25feeee043259f9c056929ca008..b68d39ca7231ec3d1bfb5e73201dd1d31c0e584f 100644
+index aafa84578c7fb25feeee043259f9c056929ca008..d2f66f70871fe5a27b94b61c565a35006f2d754c 100644
 --- a/src/main/java/net/minecraft/server/dedicated/Settings.java
 +++ b/src/main/java/net/minecraft/server/dedicated/Settings.java
 @@ -120,7 +120,7 @@ public abstract class Settings<T extends Settings<T>> {

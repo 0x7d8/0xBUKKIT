@@ -8,7 +8,7 @@ GERMAN MINECRAFTMAIN2
 GERMAN MCS
 
 diff --git a/src/main/java/net/minecraft/server/MinecraftServer.java b/src/main/java/net/minecraft/server/MinecraftServer.java
-index ee32920e59908c8808bae7bc29a4789d6a3810d3..046420421aac7835b5cde8d34c802144b4d0a022 100644
+index 2ece154b5e7daaa3e0b128145fc5e1d452125f72..116cb22544a4d5871d4fe6ea03caa113b16114c5 100644
 --- a/src/main/java/net/minecraft/server/MinecraftServer.java
 +++ b/src/main/java/net/minecraft/server/MinecraftServer.java
 @@ -908,7 +908,7 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa

@@ -5,7 +5,7 @@ Subject: [PATCH] GERMAN LOCATECOMMAND
 
 
 diff --git a/src/main/java/net/minecraft/server/commands/LocateCommand.java b/src/main/java/net/minecraft/server/commands/LocateCommand.java
-index e477d141260648d312935395a516612e7d0550d9..5c26696db12d31c582ecb26c2e6dd5b2c9eb0eff 100644
+index e477d141260648d312935395a516612e7d0550d9..60f3c4da5b5161c655f56b9a6a0a9f5303481d91 100644
 --- a/src/main/java/net/minecraft/server/commands/LocateCommand.java
 +++ b/src/main/java/net/minecraft/server/commands/LocateCommand.java
 @@ -23,25 +23,28 @@ import net.minecraft.world.entity.ai.village.poi.PoiManager;

@@ -5,7 +5,7 @@ Subject: [PATCH] GERMAN MINECRAFTMAIN
 
 
 diff --git a/src/main/java/net/minecraft/server/Main.java b/src/main/java/net/minecraft/server/Main.java
-index 0a843e0afbcb1af8e2641515eb244b791b819b8c..6204f863f58828e732a47a59abd99c891d4b18ef 100644
+index 0a843e0afbcb1af8e2641515eb244b791b819b8c..571c073fb83cbdd94fb5f13e83ab6dac962753a6 100644
 --- a/src/main/java/net/minecraft/server/Main.java
 +++ b/src/main/java/net/minecraft/server/Main.java
 @@ -128,13 +128,11 @@ public class Main {

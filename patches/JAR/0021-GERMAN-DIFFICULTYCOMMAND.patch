@@ -38,7 +38,7 @@ GERMAN DIFFICULTYCOMMAND2
 GERMAN DIFFICULTYCOMMAND2
 
 diff --git a/src/main/java/net/minecraft/commands/CommandSourceStack.java b/src/main/java/net/minecraft/commands/CommandSourceStack.java
-index 1f5a52c7890bfb399539362142241542788c7a19..c1c669927cebfd4e4bf0c8eade739cbf33291d8c 100644
+index 1f5a52c7890bfb399539362142241542788c7a19..afed3c8759e8897b031a178f1c59deaa4d64265b 100644
 --- a/src/main/java/net/minecraft/commands/CommandSourceStack.java
 +++ b/src/main/java/net/minecraft/commands/CommandSourceStack.java
 @@ -299,8 +299,9 @@ public class CommandSourceStack implements SharedSuggestionProvider, com.destroy
@@ -53,7 +53,7 @@ index 1f5a52c7890bfb399539362142241542788c7a19..c1c669927cebfd4e4bf0c8eade739cbf
  
      public void sendSuccess(@Nullable net.kyori.adventure.text.Component message, boolean broadcastToOps) {
 diff --git a/src/main/java/net/minecraft/server/commands/DifficultyCommand.java b/src/main/java/net/minecraft/server/commands/DifficultyCommand.java
-index 817193ca5fc15134d2985187bc2226ccbb4f0108..4c9833b32232645f0391e578fd551f530ea3cf13 100644
+index 817193ca5fc15134d2985187bc2226ccbb4f0108..f653fbc22b43b805b381f9c437fb3b14286c6bfc 100644
 --- a/src/main/java/net/minecraft/server/commands/DifficultyCommand.java
 +++ b/src/main/java/net/minecraft/server/commands/DifficultyCommand.java
 @@ -4,17 +4,17 @@ import com.mojang.brigadier.CommandDispatcher;
