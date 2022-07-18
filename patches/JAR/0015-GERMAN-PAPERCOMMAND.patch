@@ -1,0 +1,286 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Robert Jansen <noreply@github.com>
+Date: Mon, 18 Jul 2022 09:53:23 +0200
+Subject: [PATCH] GERMAN PAPERCOMMAND
+
+
+diff --git a/src/main/java/io/papermc/paper/command/PaperCommand.java b/src/main/java/io/papermc/paper/command/PaperCommand.java
+index 60b0ce4557390ee7030efe4c90933402c57bab59..f9df3d2476a7bedf21ea653872c18fa5645bb0d6 100644
+--- a/src/main/java/io/papermc/paper/command/PaperCommand.java
++++ b/src/main/java/io/papermc/paper/command/PaperCommand.java
+@@ -34,6 +34,8 @@ import org.checkerframework.framework.qual.DefaultQualifier;
+ import static net.kyori.adventure.text.Component.text;
+ import static net.kyori.adventure.text.format.NamedTextColor.RED;
+ 
++import net.kyori.adventure.text.minimessage.MiniMessage; // 0xBUKKIT
++
+ @DefaultQualifier(NonNull.class)
+ public final class PaperCommand extends Command {
+     static final String BASE_PERM = "bukkit.command.paper.";
+@@ -118,13 +120,13 @@ public final class PaperCommand extends Command {
+         }
+ 
+         if (args.length == 0) {
+-            sender.sendMessage(text("Usage: " + this.usageMessage, RED));
++            sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Bitte nutze den Befehl richtig! <gold>" + this.usageMessage)); // 0xBUKKIT
+             return false;
+         }
+         final @Nullable Pair<String, PaperSubcommand> subCommand = resolveCommand(args[0]);
+ 
+         if (subCommand == null) {
+-            sender.sendMessage(text("Usage: " + this.usageMessage, RED));
++            sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Bitte nutze den Befehl richtig! <gold>" + this.usageMessage)); // 0xBUKKIT
+             return false;
+         }
+ 
+diff --git a/src/main/java/io/papermc/paper/command/subcommands/ChunkDebugCommand.java b/src/main/java/io/papermc/paper/command/subcommands/ChunkDebugCommand.java
+index 4b367982fae4662c326aa247824e9c4185896de1..2f23ee42a9916a99178aee5f0809ab0e7006b741 100644
+--- a/src/main/java/io/papermc/paper/command/subcommands/ChunkDebugCommand.java
++++ b/src/main/java/io/papermc/paper/command/subcommands/ChunkDebugCommand.java
+@@ -26,6 +26,8 @@ import static net.kyori.adventure.text.format.NamedTextColor.DARK_AQUA;
+ import static net.kyori.adventure.text.format.NamedTextColor.GREEN;
+ import static net.kyori.adventure.text.format.NamedTextColor.RED;
+ 
++import net.kyori.adventure.text.minimessage.MiniMessage; // 0xBUKKIT
++
+ @DefaultQualifier(NonNull.class)
+ public final class ChunkDebugCommand implements PaperSubcommand {
+     @Override
+@@ -68,7 +70,7 @@ public final class ChunkDebugCommand implements PaperSubcommand {
+             for (final String arg : args) {
+                 org.bukkit.@Nullable World world = Bukkit.getWorld(arg);
+                 if (world == null) {
+-                    sender.sendMessage(text("World '" + arg + "' is invalid", RED));
++                    sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Die Welt <gold>" + arg + " <red>ist ungültig!")); // 0xBUKKIT
+                     return;
+                 }
+                 worlds.add(world);
+diff --git a/src/main/java/io/papermc/paper/command/subcommands/DumpItemCommand.java b/src/main/java/io/papermc/paper/command/subcommands/DumpItemCommand.java
+index 771503ff637fea10d4d8be0f37f3f146c41791d9..8baa73b961826388608de6bdf423d783a6cb660f 100644
+--- a/src/main/java/io/papermc/paper/command/subcommands/DumpItemCommand.java
++++ b/src/main/java/io/papermc/paper/command/subcommands/DumpItemCommand.java
+@@ -23,6 +23,8 @@ import static net.kyori.adventure.text.format.NamedTextColor.GRAY;
+ import static net.kyori.adventure.text.format.NamedTextColor.YELLOW;
+ import static net.kyori.adventure.text.format.TextDecoration.ITALIC;
+ 
++import net.kyori.adventure.text.minimessage.MiniMessage; // 0xBUKKIT
++
+ @DefaultQualifier(NonNull.class)
+ public final class DumpItemCommand implements PaperSubcommand {
+     @Override
+@@ -33,7 +35,7 @@ public final class DumpItemCommand implements PaperSubcommand {
+ 
+     private void doDumpItem(final CommandSender sender) {
+         if (!(sender instanceof Player)) {
+-            sender.sendMessage("Only players can use this command");
++            sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Nur Spieler können diesen Befehl benutzen!")); // 0xBUKKIT
+             return;
+         }
+         final ItemStack itemStack = CraftItemStack.asNMSCopy(((CraftPlayer) sender).getItemInHand());
+@@ -51,7 +53,7 @@ public final class DumpItemCommand implements PaperSubcommand {
+             .build();
+         Bukkit.getConsoleSender().sendMessage(message);
+         sender.sendMessage(message);
+-        sender.sendMessage(text().content("    Click to copy item to clipboard")
++        sender.sendMessage(text().content("    Klicke um in Zwischenablage zu kopieren!") // 0xBUKKIT
+             .color(GRAY)
+             .decorate(ITALIC)
+             .clickEvent(ClickEvent.copyToClipboard(tag == null ? itemId : (itemId + tag))));
+diff --git a/src/main/java/io/papermc/paper/command/subcommands/EntityCommand.java b/src/main/java/io/papermc/paper/command/subcommands/EntityCommand.java
+index 0dc96c39151ec4dbeec3947cb17606f53a6392d4..abb0efb0b372e6903690f5872cd2cc46c4844546 100644
+--- a/src/main/java/io/papermc/paper/command/subcommands/EntityCommand.java
++++ b/src/main/java/io/papermc/paper/command/subcommands/EntityCommand.java
+@@ -29,6 +29,8 @@ import org.checkerframework.framework.qual.DefaultQualifier;
+ import static net.kyori.adventure.text.Component.text;
+ import static net.kyori.adventure.text.format.NamedTextColor.RED;
+ 
++import net.kyori.adventure.text.minimessage.MiniMessage; // 0xBUKKIT
++
+ @DefaultQualifier(NonNull.class)
+ public final class EntityCommand implements PaperSubcommand {
+     @Override
+@@ -112,7 +114,7 @@ public final class EntityCommand implements PaperSubcommand {
+                 Pair<Integer, Map<ChunkPos, Integer>> info = list.get(name);
+                 int nonTicking = nonEntityTicking.getOrDefault(name, 0);
+                 if (info == null) {
+-                    sender.sendMessage(text("No entities found.", RED));
++                    sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Keine Entitäten gefunden!")); // 0xBUKKIT
+                     return;
+                 }
+                 sender.sendMessage("Entity: " + name + " Total Ticking: " + (info.getLeft() - nonTicking) + ", Total Non-Ticking: " + nonTicking);
+@@ -127,7 +129,7 @@ public final class EntityCommand implements PaperSubcommand {
+                     .toList();
+ 
+                 if (info.isEmpty()) {
+-                    sender.sendMessage(text("No entities found.", RED));
++                    sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Keine Entitäten gefunden!")); // 0xBUKKIT
+                     return;
+                 }
+ 
+diff --git a/src/main/java/io/papermc/paper/command/subcommands/FixLightCommand.java b/src/main/java/io/papermc/paper/command/subcommands/FixLightCommand.java
+index 68645bbbab9b4225048b647252d8f462028a9c84..db890aa8c16dba07adbb8a6c4fcca4f3e2f9be2d 100644
+--- a/src/main/java/io/papermc/paper/command/subcommands/FixLightCommand.java
++++ b/src/main/java/io/papermc/paper/command/subcommands/FixLightCommand.java
+@@ -25,6 +25,8 @@ import static net.kyori.adventure.text.format.NamedTextColor.DARK_AQUA;
+ import static net.kyori.adventure.text.format.NamedTextColor.GREEN;
+ import static net.kyori.adventure.text.format.NamedTextColor.RED;
+ 
++import net.kyori.adventure.text.minimessage.MiniMessage; // 0xBUKKIT
++
+ @DefaultQualifier(NonNull.class)
+ public final class FixLightCommand implements PaperSubcommand {
+     @Override
+@@ -35,7 +37,7 @@ public final class FixLightCommand implements PaperSubcommand {
+ 
+     private void doFixLight(final CommandSender sender, final String[] args) {
+         if (!(sender instanceof Player)) {
+-            sender.sendMessage(text("Only players can use this command", RED));
++            sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Nur Spieler können diesen Befehl benutzen!")); // 0xBUKKIT
+             return;
+         }
+         @Nullable Runnable post = null;
+@@ -44,7 +46,7 @@ public final class FixLightCommand implements PaperSubcommand {
+             try {
+                 final int parsed = Integer.parseInt(args[0]);
+                 if (parsed < 0) {
+-                    sender.sendMessage(text("Radius cannot be negative!", RED));
++                    sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Radius kann nicht negativ sein!")); // 0xBUKKIT
+                     return;
+                 }
+                 final int maxRadius = 32; // Paper - MOOOOOORE
+@@ -53,7 +55,7 @@ public final class FixLightCommand implements PaperSubcommand {
+                     post = () -> sender.sendMessage(text("Radius '" + parsed + "' was not in the required range [0, " + maxRadius + "], it was lowered to the maximum (" + maxRadius + " chunks).", RED));
+                 }
+             } catch (final Exception e) {
+-                sender.sendMessage(text("'" + args[0] + "' is not a valid number.", RED));
++                sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Keine Nummer!")); // 0xBUKKIT
+                 return;
+             }
+         }
+diff --git a/src/main/java/io/papermc/paper/command/subcommands/HeapDumpCommand.java b/src/main/java/io/papermc/paper/command/subcommands/HeapDumpCommand.java
+index cd2e4d792e972b8bf1e07b8961594a670ae949cf..c991f2be50cdcdf39de46b01c5fd760f03825ac4 100644
+--- a/src/main/java/io/papermc/paper/command/subcommands/HeapDumpCommand.java
++++ b/src/main/java/io/papermc/paper/command/subcommands/HeapDumpCommand.java
+@@ -14,6 +14,8 @@ import static net.kyori.adventure.text.format.NamedTextColor.GREEN;
+ import static net.kyori.adventure.text.format.NamedTextColor.RED;
+ import static net.kyori.adventure.text.format.NamedTextColor.YELLOW;
+ 
++import net.kyori.adventure.text.minimessage.MiniMessage; // 0xBUKKIT
++
+ @DefaultQualifier(NonNull.class)
+ public final class HeapDumpCommand implements PaperSubcommand {
+     @Override
+@@ -26,13 +28,13 @@ public final class HeapDumpCommand implements PaperSubcommand {
+         java.nio.file.Path dir = java.nio.file.Paths.get("./dumps");
+         String name = "heap-dump-" + DateTimeFormatter.ofPattern("yyyy-MM-dd_HH.mm.ss").format(LocalDateTime.now());
+ 
+-        Command.broadcastCommandMessage(sender, text("Writing JVM heap data...", YELLOW));
++        Command.broadcastCommandMessage(sender, MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <yellow>Schreibe JVM Heap Daten!")); // 0xBUKKIT
+ 
+         java.nio.file.Path file = CraftServer.dumpHeap(dir, name);
+         if (file != null) {
+-            Command.broadcastCommandMessage(sender, text("Heap dump saved to " + file, GREEN));
++            Command.broadcastCommandMessage(sender, MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Heap Dump wurde zu <gold>" + file + " <green>geschrieben!")); // 0xBUKKIT
+         } else {
+-            Command.broadcastCommandMessage(sender, text("Failed to write heap dump, see server log for details", RED));
++            Command.broadcastCommandMessage(sender, MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Fehler bei Heap Dump, Fehler sind in der Konsole!")); // 0xBUKKIT
+         }
+     }
+ }
+diff --git a/src/main/java/io/papermc/paper/command/subcommands/MobcapsCommand.java b/src/main/java/io/papermc/paper/command/subcommands/MobcapsCommand.java
+index 2e02d94e2903c48f6d08e743c1cf8bad9f9662df..c524a5e6ab5e6be8bec663e7cc52acabf9691584 100644
+--- a/src/main/java/io/papermc/paper/command/subcommands/MobcapsCommand.java
++++ b/src/main/java/io/papermc/paper/command/subcommands/MobcapsCommand.java
+@@ -29,6 +29,8 @@ import org.checkerframework.checker.nullness.qual.NonNull;
+ import org.checkerframework.checker.nullness.qual.Nullable;
+ import org.checkerframework.framework.qual.DefaultQualifier;
+ 
++import net.kyori.adventure.text.minimessage.MiniMessage; // 0xBUKKIT
++
+ @DefaultQualifier(NonNull.class)
+ public final class MobcapsCommand implements PaperSubcommand {
+     static final Map<MobCategory, TextColor> MOB_CATEGORY_COLORS = ImmutableMap.<MobCategory, TextColor>builder()
+@@ -107,7 +109,7 @@ public final class MobcapsCommand implements PaperSubcommand {
+                 }
+             }
+         } else {
+-            sender.sendMessage(Component.text("Too many arguments!", NamedTextColor.RED));
++            sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Zu viele Argumente!")); // 0xBUKKIT
+             return;
+         }
+ 
+@@ -153,11 +155,11 @@ public final class MobcapsCommand implements PaperSubcommand {
+             final String input = args[0];
+             player = Bukkit.getPlayerExact(input);
+             if (player == null) {
+-                sender.sendMessage(Component.text("Could not find player named '" + input + "'", NamedTextColor.RED));
++                sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Konnte keinen Spieler Namens <gold>" + input + " <red>finden!")); // 0xBUKKIT
+                 return;
+             }
+         } else {
+-            sender.sendMessage(Component.text("Too many arguments!", NamedTextColor.RED));
++            sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Zu viele Argumente!")); // 0xBUKKIT
+             return;
+         }
+ 
+@@ -219,7 +221,7 @@ public final class MobcapsCommand implements PaperSubcommand {
+                             Component.text("/", NamedTextColor.GRAY),
+                             Component.text('a')
+                         )
+-                        .hoverEvent(Component.text("This category does not naturally spawn.")));
++                        .hoverEvent(Component.text("Diese Kategorie spawnt nicht natürlich!"))); // 0xBUKKIT
+                 }
+                 return builder;
+             })
+diff --git a/src/main/java/io/papermc/paper/command/subcommands/ReloadCommand.java b/src/main/java/io/papermc/paper/command/subcommands/ReloadCommand.java
+index bd68139ae635f2ad7ec8e7a21e0056a139c4c62e..4db7b79616fc033ff4be5b737c618b9a06ae4ad4 100644
+--- a/src/main/java/io/papermc/paper/command/subcommands/ReloadCommand.java
++++ b/src/main/java/io/papermc/paper/command/subcommands/ReloadCommand.java
+@@ -12,6 +12,8 @@ import static net.kyori.adventure.text.Component.text;
+ import static net.kyori.adventure.text.format.NamedTextColor.GREEN;
+ import static net.kyori.adventure.text.format.NamedTextColor.RED;
+ 
++import net.kyori.adventure.text.minimessage.MiniMessage; // 0xBUKKIT
++
+ @DefaultQualifier(NonNull.class)
+ public final class ReloadCommand implements PaperSubcommand {
+     @Override
+@@ -21,13 +23,13 @@ public final class ReloadCommand implements PaperSubcommand {
+     }
+ 
+     private void doReload(final CommandSender sender) {
+-        Command.broadcastCommandMessage(sender, text("Please note that this command is not supported and may cause issues.", RED));
+-        Command.broadcastCommandMessage(sender, text("If you encounter any issues please use the /stop command to restart your server.", RED));
++        Command.broadcastCommandMessage(sender, MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Die Konfiguration neu zu laden ist nicht unterstützt!")); // 0xBUKKIT
++        Command.broadcastCommandMessage(sender, MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Bei Problemen den Server neustarten!")); // 0xBUKKIT
+ 
+         MinecraftServer server = ((CraftServer) sender.getServer()).getServer();
+         server.paperConfigurations.reloadConfigs(server);
+         server.server.reloadCount++;
+ 
+-        Command.broadcastCommandMessage(sender, text("Paper config reload complete.", GREEN));
++        Command.broadcastCommandMessage(sender, MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <gold>PAPER <green>Konfiguration neu geladen!")); // 0xBUKKIT
+     }
+ }
+diff --git a/src/main/java/io/papermc/paper/command/subcommands/SyncLoadInfoCommand.java b/src/main/java/io/papermc/paper/command/subcommands/SyncLoadInfoCommand.java
+index 1120aef5b0dd983c467167f77245884e1198552a..2c687737f93f1a7f308da5a5a1f0332300f4fabb 100644
+--- a/src/main/java/io/papermc/paper/command/subcommands/SyncLoadInfoCommand.java
++++ b/src/main/java/io/papermc/paper/command/subcommands/SyncLoadInfoCommand.java
+@@ -22,6 +22,8 @@ import static net.kyori.adventure.text.format.NamedTextColor.GRAY;
+ import static net.kyori.adventure.text.format.NamedTextColor.GREEN;
+ import static net.kyori.adventure.text.format.NamedTextColor.RED;
+ 
++import net.kyori.adventure.text.minimessage.MiniMessage; // 0xBUKKIT
++
+ @DefaultQualifier(NonNull.class)
+ public final class SyncLoadInfoCommand implements PaperSubcommand {
+     @Override
+@@ -37,7 +39,7 @@ public final class SyncLoadInfoCommand implements PaperSubcommand {
+ 
+     private void doSyncLoadInfo(final CommandSender sender, final String[] args) {
+         if (!SyncLoadFinder.ENABLED) {
+-            sender.sendMessage(text("This command requires the server startup flag '-Dpaper.debug-sync-loads=true' to be set.", RED));
++            sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Du brauchst dafür <gold>-Dpaper.debug-sync-loads=true <red>in deinen Start Argumenten!")); // 0xBUKKIT
+             return;
+         }
+ 
