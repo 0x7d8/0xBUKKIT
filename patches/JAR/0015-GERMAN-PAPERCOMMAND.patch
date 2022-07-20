@@ -3,9 +3,10 @@ From: Robert Jansen <noreply@github.com>
 Date: Mon, 18 Jul 2022 09:53:23 +0200
 Subject: [PATCH] GERMAN PAPERCOMMAND
 
+B3 - TRANSLATE PAPERCOMMAND MORE
 
 diff --git a/src/main/java/io/papermc/paper/command/PaperCommand.java b/src/main/java/io/papermc/paper/command/PaperCommand.java
-index 60b0ce4557390ee7030efe4c90933402c57bab59..f9df3d2476a7bedf21ea653872c18fa5645bb0d6 100644
+index 60b0ce4557390ee7030efe4c90933402c57bab59..f5f6528d22766459e1ccde83f653005326eb61d9 100644
 --- a/src/main/java/io/papermc/paper/command/PaperCommand.java
 +++ b/src/main/java/io/papermc/paper/command/PaperCommand.java
 @@ -34,6 +34,8 @@ import org.checkerframework.framework.qual.DefaultQualifier;
@@ -17,6 +18,17 @@ index 60b0ce4557390ee7030efe4c90933402c57bab59..f9df3d2476a7bedf21ea653872c18fa5
  @DefaultQualifier(NonNull.class)
  public final class PaperCommand extends Command {
      static final String BASE_PERM = "bukkit.command.paper.";
+@@ -68,8 +70,8 @@ public final class PaperCommand extends Command {
+ 
+     public PaperCommand(final String name) {
+         super(name);
+-        this.description = "Paper related commands";
+-        this.usageMessage = "/paper [" + String.join(" | ", SUBCOMMANDS.keySet()) + "]";
++        this.description = "PAPER BEFEHL";
++        this.usageMessage = "/paper <white>[<gold>" + String.join(" <white>| <gold>", SUBCOMMANDS.keySet()) + "<white>]";
+         final List<String> permissions = new ArrayList<>();
+         permissions.add("bukkit.command.paper");
+         permissions.addAll(SUBCOMMANDS.keySet().stream().map(s -> BASE_PERM + s).toList());
 @@ -118,13 +120,13 @@ public final class PaperCommand extends Command {
          }
  
