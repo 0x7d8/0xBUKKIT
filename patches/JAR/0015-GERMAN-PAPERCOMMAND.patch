@@ -5,8 +5,10 @@ Subject: [PATCH] GERMAN PAPERCOMMAND
 
 B3 - TRANSLATE PAPERCOMMAND MORE
 
+B4 - FIX SMALL PAPERCOMMAND ISSUE
+
 diff --git a/src/main/java/io/papermc/paper/command/PaperCommand.java b/src/main/java/io/papermc/paper/command/PaperCommand.java
-index 60b0ce4557390ee7030efe4c90933402c57bab59..f5f6528d22766459e1ccde83f653005326eb61d9 100644
+index 60b0ce4557390ee7030efe4c90933402c57bab59..88ff89388d82fdfb5bf87135cd406fd2041c68c4 100644
 --- a/src/main/java/io/papermc/paper/command/PaperCommand.java
 +++ b/src/main/java/io/papermc/paper/command/PaperCommand.java
 @@ -34,6 +34,8 @@ import org.checkerframework.framework.qual.DefaultQualifier;
@@ -25,7 +27,7 @@ index 60b0ce4557390ee7030efe4c90933402c57bab59..f5f6528d22766459e1ccde83f6530053
 -        this.description = "Paper related commands";
 -        this.usageMessage = "/paper [" + String.join(" | ", SUBCOMMANDS.keySet()) + "]";
 +        this.description = "PAPER BEFEHL";
-+        this.usageMessage = "/paper <white>[<gold>" + String.join(" <white>| <gold>", SUBCOMMANDS.keySet()) + "<white>]";
++        this.usageMessage = "/paper <white>[ <gold>" + String.join(" <white>| <gold>", SUBCOMMANDS.keySet()) + " <white>]";
          final List<String> permissions = new ArrayList<>();
          permissions.add("bukkit.command.paper");
          permissions.addAll(SUBCOMMANDS.keySet().stream().map(s -> BASE_PERM + s).toList());

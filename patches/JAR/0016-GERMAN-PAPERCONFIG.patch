@@ -3,9 +3,10 @@ From: root <root@ROBERT-PC.localdomain>
 Date: Mon, 13 Jun 2022 08:52:20 +0200
 Subject: [PATCH] GERMAN PAPERCONFIG
 
+B4 - FIX PAPERCONFIG ISSUE
 
 diff --git a/src/main/java/io/papermc/paper/configuration/PaperConfigurations.java b/src/main/java/io/papermc/paper/configuration/PaperConfigurations.java
-index 28c54542f8c4168c6da8e9d897d33569fc145caf..637f346188aa41e94797caf5dddc48385b0e8e80 100644
+index e446542ff64670e368c8515d1716af5407f98c7a..6335e56643707ed803b3c457619f555c4b0cc3b2 100644
 --- a/src/main/java/io/papermc/paper/configuration/PaperConfigurations.java
 +++ b/src/main/java/io/papermc/paper/configuration/PaperConfigurations.java
 @@ -79,34 +79,12 @@ public class PaperConfigurations extends Configurations<GlobalConfiguration, Wor
@@ -25,7 +26,7 @@ index 28c54542f8c4168c6da8e9d897d33569fc145caf..637f346188aa41e94797caf5dddc4838
 -            Docs: https://docs.papermc.io/
 -            Discord: https://discord.gg/papermc
 -            Website: https://papermc.io/""", WORLD_CONFIG_FILE_NAME);
-+            PAPER KONFIGURATON // 0xBUKKIT
++            PAPER KONFIGURATON
 +            https://discord.gg/papermc""", WORLD_CONFIG_FILE_NAME); // 0xBUKKIT
  
      private static final String WORLD_DEFAULTS_HEADER = """
@@ -42,7 +43,7 @@ index 28c54542f8c4168c6da8e9d897d33569fc145caf..637f346188aa41e94797caf5dddc4838
 -            Docs: https://docs.papermc.io/
 -            Discord: https://discord.gg/papermc
 -            Website: https://papermc.io/""";
-+            PAPER WELT KONFIGURATION // 0xBUKKIT
++            PAPER WELT KONFIGURATION
 +            https://discord.gg/papermc"""; // 0xBUKKIT
  
      private static final Function<ContextMap, String> WORLD_HEADER = map -> String.format("""
