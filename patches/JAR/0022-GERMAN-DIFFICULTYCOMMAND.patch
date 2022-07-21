@@ -38,10 +38,10 @@ GERMAN DIFFICULTYCOMMAND2
 GERMAN DIFFICULTYCOMMAND2
 
 diff --git a/src/main/java/net/minecraft/commands/CommandSourceStack.java b/src/main/java/net/minecraft/commands/CommandSourceStack.java
-index 1f5a52c7890bfb399539362142241542788c7a19..afed3c8759e8897b031a178f1c59deaa4d64265b 100644
+index 889756a54d1d244438a8c14d3f93f690b499e674..356d8293e40a7ef0e5851962a64350ad8711710a 100644
 --- a/src/main/java/net/minecraft/commands/CommandSourceStack.java
 +++ b/src/main/java/net/minecraft/commands/CommandSourceStack.java
-@@ -299,8 +299,9 @@ public class CommandSourceStack implements SharedSuggestionProvider, com.destroy
+@@ -300,8 +300,9 @@ public class CommandSourceStack implements SharedSuggestionProvider, com.destroy
          sendSuccess(net.kyori.adventure.text.minimessage.MiniMessage.miniMessage().deserialize(message), broadcastToOps);
      }
  
