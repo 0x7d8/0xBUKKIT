@@ -5,7 +5,7 @@ Subject: [PATCH] GERMAN SPIGOTRESTART
 
 
 diff --git a/src/main/java/org/spigotmc/RestartCommand.java b/src/main/java/org/spigotmc/RestartCommand.java
-index 160115bf8a153ff981ba308599d22c4c08026fb6..15e5e996f55741ffd205788a3efcf3b51cb598a6 100644
+index 160115bf8a153ff981ba308599d22c4c08026fb6..6e865210886428ad4cc6482e7789212ea85f4b9d 100644
 --- a/src/main/java/org/spigotmc/RestartCommand.java
 +++ b/src/main/java/org/spigotmc/RestartCommand.java
 @@ -13,7 +13,7 @@ public class RestartCommand extends Command

@@ -10,7 +10,7 @@ spi
 spi
 
 diff --git a/src/main/java/org/spigotmc/SpigotCommand.java b/src/main/java/org/spigotmc/SpigotCommand.java
-index 3112a8695639c402e9d18710acbc11cff5611e9c..542c5abdf415b230269cb881adbaa539d74fbfc5 100644
+index 3112a8695639c402e9d18710acbc11cff5611e9c..7860ea8db06399d562897662775c7c9923d3e759 100644
 --- a/src/main/java/org/spigotmc/SpigotCommand.java
 +++ b/src/main/java/org/spigotmc/SpigotCommand.java
 @@ -3,6 +3,7 @@ package org.spigotmc;

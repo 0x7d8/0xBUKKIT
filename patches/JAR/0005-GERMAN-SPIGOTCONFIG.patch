@@ -10,7 +10,7 @@ spi
 spi
 
 diff --git a/src/main/java/org/spigotmc/SpigotConfig.java b/src/main/java/org/spigotmc/SpigotConfig.java
-index 5d162f59fc5ef9adf7fa762b137bbcfca745d9c5..6974971af7e44f051df8ba1e2b01d58a9eee3f9c 100644
+index 5d162f59fc5ef9adf7fa762b137bbcfca745d9c5..f060c3664f01b1bc154bca19a5d46881a852f80f 100644
 --- a/src/main/java/org/spigotmc/SpigotConfig.java
 +++ b/src/main/java/org/spigotmc/SpigotConfig.java
 @@ -21,6 +21,7 @@ import net.minecraft.world.entity.ai.attributes.RangedAttribute;
