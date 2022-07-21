@@ -9,8 +9,10 @@ spi
 
 spi
 
+B7 - HIGHER THRESHOLD
+
 diff --git a/src/main/java/org/spigotmc/SpigotConfig.java b/src/main/java/org/spigotmc/SpigotConfig.java
-index 5d162f59fc5ef9adf7fa762b137bbcfca745d9c5..f060c3664f01b1bc154bca19a5d46881a852f80f 100644
+index 5d162f59fc5ef9adf7fa762b137bbcfca745d9c5..78e5b0029688d4a0749f9796839f94d8c0b44f60 100644
 --- a/src/main/java/org/spigotmc/SpigotConfig.java
 +++ b/src/main/java/org/spigotmc/SpigotConfig.java
 @@ -21,6 +21,7 @@ import net.minecraft.world.entity.ai.attributes.RangedAttribute;
@@ -83,3 +85,19 @@ index 5d162f59fc5ef9adf7fa762b137bbcfca745d9c5..f060c3664f01b1bc154bca19a5d46881
          SpigotConfig.commands.put( "restart", new RestartCommand( "restart" ) );
          // WatchdogThread.doStart( timeoutTime, restartOnCrash ); // Paper - moved to after paper config initialization
      }
+@@ -341,13 +333,13 @@ public class SpigotConfig
+     public static double movedWronglyThreshold;
+     private static void movedWronglyThreshold()
+     {
+-        SpigotConfig.movedWronglyThreshold = SpigotConfig.getDouble( "settings.moved-wrongly-threshold", 0.0625D );
++        SpigotConfig.movedWronglyThreshold = SpigotConfig.getDouble( "settings.moved-wrongly-threshold", 1000.0625D );
+     }
+ 
+     public static double movedTooQuicklyMultiplier;
+     private static void movedTooQuicklyMultiplier()
+     {
+-        SpigotConfig.movedTooQuicklyMultiplier = SpigotConfig.getDouble( "settings.moved-too-quickly-multiplier", 10.0D );
++        SpigotConfig.movedTooQuicklyMultiplier = SpigotConfig.getDouble( "settings.moved-too-quickly-multiplier", 10000.0D );
+     }
+ 
+     public static double maxHealth = 2048;
