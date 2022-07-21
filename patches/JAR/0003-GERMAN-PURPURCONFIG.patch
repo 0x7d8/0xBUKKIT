@@ -11,8 +11,10 @@ pur
 
 pur
 
+B7 - QUALITY OF LIFE
+
 diff --git a/src/main/java/org/purpurmc/purpur/PurpurConfig.java b/src/main/java/org/purpurmc/purpur/PurpurConfig.java
-index 6547a43d93b3d4e09ca8b4b9f84deeaf94791e93..18557936c3850456e69fed3ba0587e8dd0023f6a 100644
+index 61b2e901bdaa2df2159c0a832c5f4be44232e65b..77e6446f5409559c3f986faa9ef30ad36bb66f6d 100644
 --- a/src/main/java/org/purpurmc/purpur/PurpurConfig.java
 +++ b/src/main/java/org/purpurmc/purpur/PurpurConfig.java
 @@ -38,15 +38,8 @@ import java.util.logging.Level;
@@ -110,3 +112,18 @@ index 6547a43d93b3d4e09ca8b4b9f84deeaf94791e93..18557936c3850456e69fed3ba0587e8d
      private static void commandSettings() {
          commandTPSBarTitle = getString("settings.command.tpsbar.title", commandTPSBarTitle);
          commandTPSBarProgressOverlay = BossBar.Overlay.valueOf(getString("settings.command.tpsbar.overlay", commandTPSBarProgressOverlay.name()));
+@@ -427,11 +420,11 @@ public class PurpurConfig {
+         disableChorusPlantUpdates = getBoolean("settings.blocks.disable-chorus-plant-updates", disableChorusPlantUpdates);
+     }
+ 
+-    public static boolean loggerSuppressInitLegacyMaterialError = false;
++    public static boolean loggerSuppressInitLegacyMaterialError = true;
+     public static boolean loggerSuppressIgnoredAdvancementWarnings = false;
+-    public static boolean loggerSuppressUnrecognizedRecipeErrors = false;
++    public static boolean loggerSuppressUnrecognizedRecipeErrors = true;
+     public static boolean loggerSuppressSetBlockFarChunk = false;
+-    public static boolean loggerSuppressSentExpiredChat = false;
++    public static boolean loggerSuppressSentExpiredChat = true;
+     private static void loggerSettings() {
+         loggerSuppressInitLegacyMaterialError = getBoolean("settings.logger.suppress-init-legacy-material-errors", loggerSuppressInitLegacyMaterialError);
+         loggerSuppressIgnoredAdvancementWarnings = getBoolean("settings.logger.suppress-ignored-advancement-warnings", loggerSuppressIgnoredAdvancementWarnings);
