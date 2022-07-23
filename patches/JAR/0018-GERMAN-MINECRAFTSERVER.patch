@@ -8,10 +8,10 @@ GERMAN MINECRAFTMAIN2
 GERMAN MCS
 
 diff --git a/src/main/java/net/minecraft/server/MinecraftServer.java b/src/main/java/net/minecraft/server/MinecraftServer.java
-index 2ece154b5e7daaa3e0b128145fc5e1d452125f72..116cb22544a4d5871d4fe6ea03caa113b16114c5 100644
+index d48a3203e67617e2f3f75756bf9effe31f439457..7742726334484b180dbaeb16737ee161f5dfe29d 100644
 --- a/src/main/java/net/minecraft/server/MinecraftServer.java
 +++ b/src/main/java/net/minecraft/server/MinecraftServer.java
-@@ -908,7 +908,7 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
+@@ -909,7 +909,7 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
              if (this.hasStopped) return;
              this.hasStopped = true;
          }
@@ -20,16 +20,16 @@ index 2ece154b5e7daaa3e0b128145fc5e1d452125f72..116cb22544a4d5871d4fe6ea03caa113
          // Paper start - kill main thread, and kill it hard
          shutdownThread = Thread.currentThread();
          org.spigotmc.WatchdogThread.doStop(); // Paper
-@@ -927,7 +927,7 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
+@@ -928,7 +928,7 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
              this.cancelRecordingMetrics();
-         }
+         }*/ // Purpur
  
 -        MinecraftServer.LOGGER.info("Stopping server");
 +        MinecraftServer.LOGGER.info("Stoppe Server"); // 0xBUKKIT
          MinecraftTimings.stopServer(); // Paper
          // Purpur start
          if (upnp) {
-@@ -949,13 +949,13 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
+@@ -950,13 +950,13 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
  
          this.isSaving = true;
          if (this.playerList != null) {
@@ -45,7 +45,7 @@ index 2ece154b5e7daaa3e0b128145fc5e1d452125f72..116cb22544a4d5871d4fe6ea03caa113
          Iterator iterator = this.getAllLevels().iterator();
  
          ServerLevel worldserver;
-@@ -1025,11 +1025,11 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
+@@ -1026,11 +1026,11 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
          }
          // Spigot end
          // Paper start - move final shutdown items here
@@ -60,7 +60,7 @@ index 2ece154b5e7daaa3e0b128145fc5e1d452125f72..116cb22544a4d5871d4fe6ea03caa113
          try {
              net.minecrell.terminalconsole.TerminalConsoleAppender.close(); // Paper - Use TerminalConsoleAppender
          } catch (Exception e) {
-@@ -1059,7 +1059,7 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
+@@ -1060,7 +1060,7 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
          org.purpurmc.purpur.task.BeehiveTask.instance().unregister(); // Purpur
          this.isRestarting = isRestarting;
          this.hasLoggedStop = true; // Paper
@@ -69,7 +69,7 @@ index 2ece154b5e7daaa3e0b128145fc5e1d452125f72..116cb22544a4d5871d4fe6ea03caa113
          // Paper end
          this.running = false;
          if (flag) {
-@@ -1153,7 +1153,7 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
+@@ -1154,7 +1154,7 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
              // anything at 3+ won't be caught here but also will trip watchdog....
              // tasks are default scheduled at -1 + delay, and first tick will tick at 1
              String doneTime = String.format(java.util.Locale.ROOT, "%.3fs", (double) (Util.getNanos() - serverStartTime) / 1.0E9D);
@@ -78,7 +78,7 @@ index 2ece154b5e7daaa3e0b128145fc5e1d452125f72..116cb22544a4d5871d4fe6ea03caa113
              // Paper end
  
              org.spigotmc.WatchdogThread.tick(); // Paper
-@@ -1168,7 +1168,7 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
+@@ -1169,7 +1169,7 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
                      long j = i / 50L;
  
                      if (this.server.getWarnOnOverload()) // CraftBukkit
@@ -87,7 +87,7 @@ index 2ece154b5e7daaa3e0b128145fc5e1d452125f72..116cb22544a4d5871d4fe6ea03caa113
                      this.nextTickTime += j * 50L;
                      this.lastOverloadWarning = this.nextTickTime;
                  }
-@@ -1682,11 +1682,11 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
+@@ -1683,11 +1683,11 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
  
      @DontObfuscate
      public String getServerModName() {
@@ -101,7 +101,7 @@ index 2ece154b5e7daaa3e0b128145fc5e1d452125f72..116cb22544a4d5871d4fe6ea03caa113
              return Boolean.toString(this.running);
          });
          if (this.playerList != null) {
-@@ -1994,7 +1994,7 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
+@@ -2000,7 +2000,7 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
      @Override
      public void executeIfPossible(Runnable runnable) {
          if (this.isStopped()) {
