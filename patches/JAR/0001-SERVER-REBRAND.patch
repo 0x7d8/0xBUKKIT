@@ -142,7 +142,7 @@ index fba5dbdb7bcbb55400ef18342c9b54612972a718..a31e3a7a27ac3e0e2f8b6c0ab7e5d54a
          try {
              try (BufferedReader reader = Resources.asCharSource(
 -                new URL("https://api.purpurmc.org/v2/purpur/" + siteApiVersion), // Purpur
-+                new URL("https://api.rjansen.de/v2/0xBUKKIT/1.19"), // 0xBUKKIT
++                new URL("https://api.rjansen.de/v2/0xBUKKIT/1.19.1"), // 0xBUKKIT
                  Charsets.UTF_8
              ).openBufferedStream()) {
                  JsonObject json = new Gson().fromJson(reader, JsonObject.class);
