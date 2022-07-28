@@ -8,10 +8,10 @@ GERMAN MINECRAFTMAIN2
 GERMAN MCS
 
 diff --git a/src/main/java/net/minecraft/server/MinecraftServer.java b/src/main/java/net/minecraft/server/MinecraftServer.java
-index d48a3203e67617e2f3f75756bf9effe31f439457..7742726334484b180dbaeb16737ee161f5dfe29d 100644
+index e78170ae888146c2aab6b218f7501b911a70add6..4abb204a02c379f3515d2f6b350bc5e53cd4b445 100644
 --- a/src/main/java/net/minecraft/server/MinecraftServer.java
 +++ b/src/main/java/net/minecraft/server/MinecraftServer.java
-@@ -909,7 +909,7 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
+@@ -911,7 +911,7 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
              if (this.hasStopped) return;
              this.hasStopped = true;
          }
@@ -20,7 +20,7 @@ index d48a3203e67617e2f3f75756bf9effe31f439457..7742726334484b180dbaeb16737ee161
          // Paper start - kill main thread, and kill it hard
          shutdownThread = Thread.currentThread();
          org.spigotmc.WatchdogThread.doStop(); // Paper
-@@ -928,7 +928,7 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
+@@ -930,7 +930,7 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
              this.cancelRecordingMetrics();
          }*/ // Purpur
  
@@ -29,7 +29,7 @@ index d48a3203e67617e2f3f75756bf9effe31f439457..7742726334484b180dbaeb16737ee161
          MinecraftTimings.stopServer(); // Paper
          // Purpur start
          if (upnp) {
-@@ -950,13 +950,13 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
+@@ -952,13 +952,13 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
  
          this.isSaving = true;
          if (this.playerList != null) {
@@ -45,7 +45,7 @@ index d48a3203e67617e2f3f75756bf9effe31f439457..7742726334484b180dbaeb16737ee161
          Iterator iterator = this.getAllLevels().iterator();
  
          ServerLevel worldserver;
-@@ -1026,11 +1026,11 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
+@@ -1028,11 +1028,11 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
          }
          // Spigot end
          // Paper start - move final shutdown items here
@@ -60,7 +60,7 @@ index d48a3203e67617e2f3f75756bf9effe31f439457..7742726334484b180dbaeb16737ee161
          try {
              net.minecrell.terminalconsole.TerminalConsoleAppender.close(); // Paper - Use TerminalConsoleAppender
          } catch (Exception e) {
-@@ -1060,7 +1060,7 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
+@@ -1062,7 +1062,7 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
          org.purpurmc.purpur.task.BeehiveTask.instance().unregister(); // Purpur
          this.isRestarting = isRestarting;
          this.hasLoggedStop = true; // Paper
@@ -69,7 +69,7 @@ index d48a3203e67617e2f3f75756bf9effe31f439457..7742726334484b180dbaeb16737ee161
          // Paper end
          this.running = false;
          if (flag) {
-@@ -1154,7 +1154,7 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
+@@ -1157,7 +1157,7 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
              // anything at 3+ won't be caught here but also will trip watchdog....
              // tasks are default scheduled at -1 + delay, and first tick will tick at 1
              String doneTime = String.format(java.util.Locale.ROOT, "%.3fs", (double) (Util.getNanos() - serverStartTime) / 1.0E9D);
@@ -78,7 +78,7 @@ index d48a3203e67617e2f3f75756bf9effe31f439457..7742726334484b180dbaeb16737ee161
              // Paper end
  
              org.spigotmc.WatchdogThread.tick(); // Paper
-@@ -1169,7 +1169,7 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
+@@ -1172,7 +1172,7 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
                      long j = i / 50L;
  
                      if (this.server.getWarnOnOverload()) // CraftBukkit
