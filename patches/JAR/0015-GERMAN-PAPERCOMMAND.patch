@@ -13,6 +13,8 @@ B4 - FIX SMALL PAPERCOMMAND ISSUE
 
 [P] #33 - BETTER FORMATTING
 
+[P] #33 - MORE TRANSLATION
+
 diff --git a/src/main/java/io/papermc/paper/command/PaperCommand.java b/src/main/java/io/papermc/paper/command/PaperCommand.java
 index 60b0ce4557390ee7030efe4c90933402c57bab59..88ff89388d82fdfb5bf87135cd406fd2041c68c4 100644
 --- a/src/main/java/io/papermc/paper/command/PaperCommand.java
@@ -144,7 +146,7 @@ index 771503ff637fea10d4d8be0f37f3f146c41791d9..8baa73b961826388608de6bdf423d783
              .decorate(ITALIC)
              .clickEvent(ClickEvent.copyToClipboard(tag == null ? itemId : (itemId + tag))));
 diff --git a/src/main/java/io/papermc/paper/command/subcommands/EntityCommand.java b/src/main/java/io/papermc/paper/command/subcommands/EntityCommand.java
-index 0dc96c39151ec4dbeec3947cb17606f53a6392d4..abb0efb0b372e6903690f5872cd2cc46c4844546 100644
+index 0dc96c39151ec4dbeec3947cb17606f53a6392d4..353e8356be43d48206f5d706f3a6ddda3c5e7aea 100644
 --- a/src/main/java/io/papermc/paper/command/subcommands/EntityCommand.java
 +++ b/src/main/java/io/papermc/paper/command/subcommands/EntityCommand.java
 @@ -29,6 +29,8 @@ import org.checkerframework.framework.qual.DefaultQualifier;
@@ -156,6 +158,15 @@ index 0dc96c39151ec4dbeec3947cb17606f53a6392d4..abb0efb0b372e6903690f5872cd2cc46
  @DefaultQualifier(NonNull.class)
  public final class EntityCommand implements PaperSubcommand {
      @Override
+@@ -81,7 +83,7 @@ public final class EntityCommand implements PaperSubcommand {
+             } else if (sender instanceof Player) {
+                 worldName = ((Player) sender).getWorld().getName();
+             } else {
+-                sender.sendMessage(text("Please specify the name of a world", RED));
++                sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Bitte gebe einen Welt Namen an!")); // 0xBUKKIT
+                 sender.sendMessage(text("To do so without a filter, specify '*' as the filter", RED));
+                 sender.sendMessage(text("Usage: /paper entity list [filter] [worldName]", RED));
+                 return;
 @@ -112,7 +114,7 @@ public final class EntityCommand implements PaperSubcommand {
                  Pair<Integer, Map<ChunkPos, Integer>> info = list.get(name);
                  int nonTicking = nonEntityTicking.getOrDefault(name, 0);
@@ -175,7 +186,7 @@ index 0dc96c39151ec4dbeec3947cb17606f53a6392d4..abb0efb0b372e6903690f5872cd2cc46
                  }
  
 diff --git a/src/main/java/io/papermc/paper/command/subcommands/FixLightCommand.java b/src/main/java/io/papermc/paper/command/subcommands/FixLightCommand.java
-index 68645bbbab9b4225048b647252d8f462028a9c84..db890aa8c16dba07adbb8a6c4fcca4f3e2f9be2d 100644
+index 68645bbbab9b4225048b647252d8f462028a9c84..9aac368854b9cff038d868a0b0a30be23decf52c 100644
 --- a/src/main/java/io/papermc/paper/command/subcommands/FixLightCommand.java
 +++ b/src/main/java/io/papermc/paper/command/subcommands/FixLightCommand.java
 @@ -25,6 +25,8 @@ import static net.kyori.adventure.text.format.NamedTextColor.DARK_AQUA;
@@ -214,6 +225,24 @@ index 68645bbbab9b4225048b647252d8f462028a9c84..db890aa8c16dba07adbb8a6c4fcca4f3
                  return;
              }
          }
+@@ -119,7 +121,7 @@ public final class FixLightCommand implements PaperSubcommand {
+                     done.run();
+                 }
+             });
+-        sender.getBukkitEntity().sendMessage(text().color(BLUE).append(text("Relighting "), text(pending[0], DARK_AQUA), text(" chunks")));
++        sender.getBukkitEntity().sendMessage(text().color(BLUE).append(text("Beleuchte neu "), text(pending[0], DARK_AQUA), text(" chunks")));
+     }
+     // Paper end - rewrite light engine
+ 
+@@ -132,7 +134,7 @@ public final class FixLightCommand implements PaperSubcommand {
+     ) {
+         @Nullable ChunkPos coord = queue.poll();
+         if (coord == null) {
+-            sender.sendMessage(text("All Chunks Light updated", GREEN));
++            sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Alle Chunk Lichter wurden aktualisiert!")); // 0xBUKKIT
+             if (done != null) {
+                 done.run();
+             }
 diff --git a/src/main/java/io/papermc/paper/command/subcommands/HeapDumpCommand.java b/src/main/java/io/papermc/paper/command/subcommands/HeapDumpCommand.java
 index cd2e4d792e972b8bf1e07b8961594a670ae949cf..c991f2be50cdcdf39de46b01c5fd760f03825ac4 100644
 --- a/src/main/java/io/papermc/paper/command/subcommands/HeapDumpCommand.java
@@ -245,7 +274,7 @@ index cd2e4d792e972b8bf1e07b8961594a670ae949cf..c991f2be50cdcdf39de46b01c5fd760f
      }
  }
 diff --git a/src/main/java/io/papermc/paper/command/subcommands/MobcapsCommand.java b/src/main/java/io/papermc/paper/command/subcommands/MobcapsCommand.java
-index 2e02d94e2903c48f6d08e743c1cf8bad9f9662df..c524a5e6ab5e6be8bec663e7cc52acabf9691584 100644
+index 2e02d94e2903c48f6d08e743c1cf8bad9f9662df..21d6d32dab8e11b57fe9b21c636f472f269094d5 100644
 --- a/src/main/java/io/papermc/paper/command/subcommands/MobcapsCommand.java
 +++ b/src/main/java/io/papermc/paper/command/subcommands/MobcapsCommand.java
 @@ -29,6 +29,8 @@ import org.checkerframework.checker.nullness.qual.NonNull;
@@ -257,7 +286,15 @@ index 2e02d94e2903c48f6d08e743c1cf8bad9f9662df..c524a5e6ab5e6be8bec663e7cc52acab
  @DefaultQualifier(NonNull.class)
  public final class MobcapsCommand implements PaperSubcommand {
      static final Map<MobCategory, TextColor> MOB_CATEGORY_COLORS = ImmutableMap.<MobCategory, TextColor>builder()
-@@ -107,7 +109,7 @@ public final class MobcapsCommand implements PaperSubcommand {
+@@ -100,14 +102,14 @@ public final class MobcapsCommand implements PaperSubcommand {
+             } else {
+                 final @Nullable World world = Bukkit.getWorld(input);
+                 if (world == null) {
+-                    sender.sendMessage(Component.text("'" + input + "' is not a valid world!", NamedTextColor.RED));
++                    sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Die Welt <gold>" + input + " <red>wurde nicht gefunden!")); // 0xBUKKIT
+                     return;
+                 } else {
+                     worlds = List.of(world);
                  }
              }
          } else {
@@ -320,7 +357,7 @@ index bd68139ae635f2ad7ec8e7a21e0056a139c4c62e..4db7b79616fc033ff4be5b737c618b9a
      }
  }
 diff --git a/src/main/java/io/papermc/paper/command/subcommands/SyncLoadInfoCommand.java b/src/main/java/io/papermc/paper/command/subcommands/SyncLoadInfoCommand.java
-index 1120aef5b0dd983c467167f77245884e1198552a..2c687737f93f1a7f308da5a5a1f0332300f4fabb 100644
+index 1120aef5b0dd983c467167f77245884e1198552a..61b7c1a04d523f0c7722c840bc88fa07faf57e9a 100644
 --- a/src/main/java/io/papermc/paper/command/subcommands/SyncLoadInfoCommand.java
 +++ b/src/main/java/io/papermc/paper/command/subcommands/SyncLoadInfoCommand.java
 @@ -22,6 +22,8 @@ import static net.kyori.adventure.text.format.NamedTextColor.GRAY;
@@ -332,12 +369,19 @@ index 1120aef5b0dd983c467167f77245884e1198552a..2c687737f93f1a7f308da5a5a1f03323
  @DefaultQualifier(NonNull.class)
  public final class SyncLoadInfoCommand implements PaperSubcommand {
      @Override
-@@ -37,7 +39,7 @@ public final class SyncLoadInfoCommand implements PaperSubcommand {
+@@ -37,13 +39,13 @@ public final class SyncLoadInfoCommand implements PaperSubcommand {
  
      private void doSyncLoadInfo(final CommandSender sender, final String[] args) {
          if (!SyncLoadFinder.ENABLED) {
 -            sender.sendMessage(text("This command requires the server startup flag '-Dpaper.debug-sync-loads=true' to be set.", RED));
 +            sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Du brauchst dafür <gold>-Dpaper.debug-sync-loads=true <red>in deinen Start Argumenten!")); // 0xBUKKIT
+             return;
+         }
+ 
+         if (args.length > 0 && args[0].equals("clear")) {
+             SyncLoadFinder.clear();
+-            sender.sendMessage(text("Sync load data cleared.", GRAY));
++            sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Sync Load Daten geleert!")); // 0xBUKKIT
              return;
          }
  
