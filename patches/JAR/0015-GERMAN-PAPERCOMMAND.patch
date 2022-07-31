@@ -11,6 +11,8 @@ B4 - FIX SMALL PAPERCOMMAND ISSUE
 
 [P] #32 - FIX PAPERCOMMAND
 
+[P] #33 - BETTER FORMATTING
+
 diff --git a/src/main/java/io/papermc/paper/command/PaperCommand.java b/src/main/java/io/papermc/paper/command/PaperCommand.java
 index 60b0ce4557390ee7030efe4c90933402c57bab59..88ff89388d82fdfb5bf87135cd406fd2041c68c4 100644
 --- a/src/main/java/io/papermc/paper/command/PaperCommand.java
@@ -52,7 +54,7 @@ index 60b0ce4557390ee7030efe4c90933402c57bab59..88ff89388d82fdfb5bf87135cd406fd2
          }
  
 diff --git a/src/main/java/io/papermc/paper/command/subcommands/ChunkDebugCommand.java b/src/main/java/io/papermc/paper/command/subcommands/ChunkDebugCommand.java
-index 4b367982fae4662c326aa247824e9c4185896de1..c01b0779cb9786ccc718a4c4332f4da73fee6320 100644
+index 4b367982fae4662c326aa247824e9c4185896de1..e964f5fe6732d7044094c63f1baab93cd2a66dda 100644
 --- a/src/main/java/io/papermc/paper/command/subcommands/ChunkDebugCommand.java
 +++ b/src/main/java/io/papermc/paper/command/subcommands/ChunkDebugCommand.java
 @@ -26,6 +26,8 @@ import static net.kyori.adventure.text.format.NamedTextColor.DARK_AQUA;
@@ -78,7 +80,7 @@ index 4b367982fae4662c326aa247824e9c4185896de1..c01b0779cb9786ccc718a4c4332f4da7
      private void doDebug(final CommandSender sender, final String[] args) {
          if (args.length < 1) {
 -            sender.sendMessage(text("Use /paper debug [chunks] help for more information on a specific command", RED));
-+            sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Nutze <gold>/paper debug <white>[<gold>chunks</gold>] <red>für mehr Informationen eines Spezifischen Befehls!")); // 0xBUKKIT
++            sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Nutze <gold>/paper debug <white>[<gold>CHUNKS</gold>] <red>für mehr Informationen eines Spezifischen Befehls!")); // 0xBUKKIT
              return;
          }
  
@@ -87,17 +89,17 @@ index 4b367982fae4662c326aa247824e9c4185896de1..c01b0779cb9786ccc718a4c4332f4da7
              case "chunks" -> {
                  if (args.length >= 2 && args[1].toLowerCase(Locale.ENGLISH).equals("help")) {
 -                    sender.sendMessage(text("Use /paper debug chunks [world] to dump loaded chunk information to a file", RED));
-+                    sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Nutze <gold>/paper debug chunks <white>[<gold>welt</gold>] <gold>help <red>um Chunk Informationen zu einer Datei zu schreiben!")); // 0xBUKKIT
++                    sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Nutze <gold>/paper debug chunks <white>[<gold>WELT</gold>] <red>um Chunk Informationen zu einer Datei zu schreiben!")); // 0xBUKKIT
                      break;
                  }
                  File file = new File(new File(new File("."), "debug"),
                      "chunks-" + DateTimeFormatter.ofPattern("yyyy-MM-dd_HH.mm.ss").format(LocalDateTime.now()) + ".txt");
 -                sender.sendMessage(text("Writing chunk information dump to " + file, GREEN));
-+                sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <yellow>Schreibe Chunk Informationen zu <gold>" + file + " <yellow>!")); // 0xBUKKIT
++                sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <yellow>Schreibe Chunk Informationen zu <gold>" + file + "<yellow>!")); // 0xBUKKIT
                  try {
                      MCUtil.dumpChunks(file);
 -                    sender.sendMessage(text("Successfully written chunk information!", GREEN));
-+                    sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>>Chunk Informationen erfolgreich geschrieben!")); // 0xBUKKIT
++                    sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Chunk Informationen erfolgreich geschrieben!")); // 0xBUKKIT
                  } catch (Throwable thr) {
                      MinecraftServer.LOGGER.warn("Failed to dump chunk information to file " + file.toString(), thr);
 -                    sender.sendMessage(text("Failed to dump chunk information, see console", RED));
@@ -106,7 +108,7 @@ index 4b367982fae4662c326aa247824e9c4185896de1..c01b0779cb9786ccc718a4c4332f4da7
              }
              // "help" & default
 -            default -> sender.sendMessage(text("Use /paper debug [chunks] help for more information on a specific command", RED));
-+            default -> sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Nutze <gold>/paper debug <white>[<gold>chunks</gold>] <gold>help <red>für mehr Informationen eines Spezifischen Befehls!")); // 0xBUKKIT
++            default -> sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Nutze <gold>/paper debug <white>[<gold>CHUNKS</gold>] <red>für mehr Informationen eines Spezifischen Befehls!")); // 0xBUKKIT
          }
      }
  
