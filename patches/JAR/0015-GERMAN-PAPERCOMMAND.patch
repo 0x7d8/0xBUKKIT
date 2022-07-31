@@ -9,6 +9,8 @@ B4 - FIX SMALL PAPERCOMMAND ISSUE
 
 [P] #31 - TRANSLATE PAPERCOMMAND MORE
 
+[P] #32 - FIX PAPERCOMMAND
+
 diff --git a/src/main/java/io/papermc/paper/command/PaperCommand.java b/src/main/java/io/papermc/paper/command/PaperCommand.java
 index 60b0ce4557390ee7030efe4c90933402c57bab59..88ff89388d82fdfb5bf87135cd406fd2041c68c4 100644
 --- a/src/main/java/io/papermc/paper/command/PaperCommand.java
@@ -50,7 +52,7 @@ index 60b0ce4557390ee7030efe4c90933402c57bab59..88ff89388d82fdfb5bf87135cd406fd2
          }
  
 diff --git a/src/main/java/io/papermc/paper/command/subcommands/ChunkDebugCommand.java b/src/main/java/io/papermc/paper/command/subcommands/ChunkDebugCommand.java
-index 4b367982fae4662c326aa247824e9c4185896de1..cd754d7ee10efaf1967aaa89b7e68b00c7cc35f7 100644
+index 4b367982fae4662c326aa247824e9c4185896de1..c01b0779cb9786ccc718a4c4332f4da73fee6320 100644
 --- a/src/main/java/io/papermc/paper/command/subcommands/ChunkDebugCommand.java
 +++ b/src/main/java/io/papermc/paper/command/subcommands/ChunkDebugCommand.java
 @@ -26,6 +26,8 @@ import static net.kyori.adventure.text.format.NamedTextColor.DARK_AQUA;
@@ -85,7 +87,7 @@ index 4b367982fae4662c326aa247824e9c4185896de1..cd754d7ee10efaf1967aaa89b7e68b00
              case "chunks" -> {
                  if (args.length >= 2 && args[1].toLowerCase(Locale.ENGLISH).equals("help")) {
 -                    sender.sendMessage(text("Use /paper debug chunks [world] to dump loaded chunk information to a file", RED));
-+                    sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Nutze <gold>/paper debug chunks <white>[<gold>welt</gold>] <red>um Chunk Informationen zu einer Datei zu schreiben!")); // 0xBUKKIT
++                    sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Nutze <gold>/paper debug chunks <white>[<gold>welt</gold>] <gold>help <red>um Chunk Informationen zu einer Datei zu schreiben!")); // 0xBUKKIT
                      break;
                  }
                  File file = new File(new File(new File("."), "debug"),
@@ -104,7 +106,7 @@ index 4b367982fae4662c326aa247824e9c4185896de1..cd754d7ee10efaf1967aaa89b7e68b00
              }
              // "help" & default
 -            default -> sender.sendMessage(text("Use /paper debug [chunks] help for more information on a specific command", RED));
-+            sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Nutze <gold>/paper debug <white>[<gold>chunks</gold>] <red>für mehr Informationen eines Spezifischen Befehls!")); // 0xBUKKIT
++            default -> sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Nutze <gold>/paper debug <white>[<gold>chunks</gold>] <gold>help <red>für mehr Informationen eines Spezifischen Befehls!")); // 0xBUKKIT
          }
      }
  
