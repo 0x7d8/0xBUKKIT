@@ -6,7 +6,7 @@ Subject: [PATCH] GERMAN PAPERCONFIG
 B4 - FIX PAPERCONFIG ISSUE
 
 diff --git a/src/main/java/io/papermc/paper/configuration/PaperConfigurations.java b/src/main/java/io/papermc/paper/configuration/PaperConfigurations.java
-index e446542ff64670e368c8515d1716af5407f98c7a..6335e56643707ed803b3c457619f555c4b0cc3b2 100644
+index b2e961bbd33c6ecb7f049365b7aff6c5caa262ff..d161f6fe7a869572f54779aabbf464303ddc846b 100644
 --- a/src/main/java/io/papermc/paper/configuration/PaperConfigurations.java
 +++ b/src/main/java/io/papermc/paper/configuration/PaperConfigurations.java
 @@ -79,34 +79,12 @@ public class PaperConfigurations extends Configurations<GlobalConfiguration, Wor

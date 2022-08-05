@@ -1,0 +1,23 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Robert Jansen <63073556+rotvproHD@users.noreply.github.com>
+Date: Fri, 5 Aug 2022 08:46:05 +0200
+Subject: [PATCH] GERMAN PUFFERFISHCONFIG
+
+
+diff --git a/src/main/java/gg/pufferfish/pufferfish/PufferfishConfig.java b/src/main/java/gg/pufferfish/pufferfish/PufferfishConfig.java
+index fb91db697a8c0ceb09a751c364ee69199463f4de..6dd2e68efefcf6c0881c99dc87758c31f06653c9 100644
+--- a/src/main/java/gg/pufferfish/pufferfish/PufferfishConfig.java
++++ b/src/main/java/gg/pufferfish/pufferfish/PufferfishConfig.java
+@@ -70,10 +70,8 @@ public class PufferfishConfig {
+ 		
+ 		getString("info.version", "1.0");
+ 		setComment("info",
+-				"Pufferfish Configuration",
+-				"Check out Pufferfish Host for maximum performance server hosting: https://pufferfish.host",
+-				"Join our Discord for support: https://discord.gg/reZw4vQV9H",
+-				"Download new builds at https://ci.pufferfish.host/job/Pufferfish");
++				"PUFFERFISH KONFIGURATION",
++				"https://discord.gg/reZw4vQV9H");
+ 		
+ 		for (Method method : PufferfishConfig.class.getDeclaredMethods()) {
+ 			if (Modifier.isStatic(method.getModifiers()) && Modifier.isPrivate(method.getModifiers()) && method.getParameterCount() == 0 &&
