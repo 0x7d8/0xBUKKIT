@@ -16,7 +16,7 @@ pap
 pap
 
 diff --git a/src/main/java/io/papermc/paper/configuration/GlobalConfiguration.java b/src/main/java/io/papermc/paper/configuration/GlobalConfiguration.java
-index bc72131afa1ae9986ee311a9b371e97c8feb38f8..7942728db1b0da3b3457504d8fd919c42bc4aa6f 100644
+index 538bf435a4307a166bf6d926f71f391f620233f0..296809614c1ab2c851acb2b79ad66388bd075a74 100644
 --- a/src/main/java/io/papermc/paper/configuration/GlobalConfiguration.java
 +++ b/src/main/java/io/papermc/paper/configuration/GlobalConfiguration.java
 @@ -15,6 +15,10 @@ import org.spongepowered.configurate.objectmapping.meta.Comment;
@@ -62,7 +62,7 @@ index bc72131afa1ae9986ee311a9b371e97c8feb38f8..7942728db1b0da3b3457504d8fd919c4
  
          @Override
          public void postProcess() {
-             // Pufferfish start
+             /*// Pufferfish start // Purpur
              if (enabled && !reallyEnabled) {
 -                Bukkit.getLogger().log(Level.WARNING, "[Pufferfish] To improve performance, timings have been disabled by default");
 -                Bukkit.getLogger().log(Level.WARNING, "[Pufferfish] You can still use timings by using /timings on, but they will not start on server startup unless you set timings.really-enabled to true in paper.yml");
@@ -72,4 +72,4 @@ index bc72131afa1ae9986ee311a9b371e97c8feb38f8..7942728db1b0da3b3457504d8fd919c4
 +                Bukkit.getLogger().log(Level.WARNING, "[0xSERVER] If you would like to disable this message, either set timings.really-enabled to true or timings.enabled to false."); // 0xBUKKIT end
              }
              enabled = reallyEnabled;
-             // Pufferfish end
+             */// Pufferfish end // Purpur
