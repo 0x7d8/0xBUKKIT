@@ -94,7 +94,7 @@ index fba5dbdb7bcbb55400ef18342c9b54612972a718..a31e3a7a27ac3e0e2f8b6c0ab7e5d54a
              } else {
 -                org.bukkit.Bukkit.getLogger().warning("Unable to match version to pattern! Report to Purpur!"); // Purpur
 -                org.bukkit.Bukkit.getLogger().warning("Pattern: " + VER_PATTERN.toString());
-+                org.bukkit.Bukkit.getLogger().warning("Konnte nicht Version verarbeiten, kontaktiere den Fork ersteller!"); // Purpur // 0xBUKKIT
++                org.bukkit.Bukkit.getLogger().warning("Konnte nicht Version verarbeiten."); // Purpur // 0xBUKKIT
 +                org.bukkit.Bukkit.getLogger().warning("Muster: " + VER_PATTERN.toString()); // 0xBUKKIT
                  org.bukkit.Bukkit.getLogger().warning("Version: " + org.bukkit.Bukkit.getBukkitVersion());
              }
@@ -119,7 +119,7 @@ index fba5dbdb7bcbb55400ef18342c9b54612972a718..a31e3a7a27ac3e0e2f8b6c0ab7e5d54a
          switch (distance) {
              case -1:
 -                return Component.text("* Error obtaining version information", NamedTextColor.RED); // Purpur
-+                return org.bukkit.ChatColor.parseMM("<white>[<grey>Server<white>] <yellow>Fehler beim ergattern von Versions Informationen. <white>[<red>Hast du Internet?<white>]"); // Purpur // 0xBUKKIT
++                return org.bukkit.ChatColor.parseMM("<white>[<grey>Server<white>] <yellow>Fehler beim ergattern von Versions Informationen."); // Purpur // 0xBUKKIT
              case 0:
 -                return Component.text("* You are running the latest version", NamedTextColor.GREEN); // Purpur
 +                return org.bukkit.ChatColor.parseMM("<white>[<grey>Server<white>] <green>Du bist auf der neuesten Version!"); // Purpur // 0xBUKKIT
@@ -142,7 +142,7 @@ index fba5dbdb7bcbb55400ef18342c9b54612972a718..a31e3a7a27ac3e0e2f8b6c0ab7e5d54a
          try {
              try (BufferedReader reader = Resources.asCharSource(
 -                new URL("https://api.purpurmc.org/v2/purpur/" + siteApiVersion), // Purpur
-+                new URL("https://api.rjansen.de/v2/0xBUKKIT/" + getMinecraftVersion()), // 0xBUKKIT
++                new URL("https://api.rjansen.de/v2/0xBUKKIT/" + getMinecraftVersion(), parts[0]), // 0xBUKKIT
                  Charsets.UTF_8
              ).openBufferedStream()) {
                  JsonObject json = new Gson().fromJson(reader, JsonObject.class);
