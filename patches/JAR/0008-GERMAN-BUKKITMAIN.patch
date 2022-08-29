@@ -5,10 +5,10 @@ Subject: [PATCH] GERMAN BUKKITMAIN
 
 
 diff --git a/src/main/java/org/bukkit/craftbukkit/Main.java b/src/main/java/org/bukkit/craftbukkit/Main.java
-index 1f3c4adf3aeb28bcb91cb6913459ea2923ad95a4..edd36af867c46c2f2d2b01968bd2e3aaea26db7c 100644
+index 3080b2a7920a736880c48b66164ed45686ab1d44..27b6cafad79ebde7585f9226c225519ee6ef7a3d 100644
 --- a/src/main/java/org/bukkit/craftbukkit/Main.java
 +++ b/src/main/java/org/bukkit/craftbukkit/Main.java
-@@ -170,7 +170,7 @@ public class Main {
+@@ -182,7 +182,7 @@ public class Main {
                  acceptsAll(asList("server-name"), "Name of the server")
                          .withRequiredArg()
                          .ofType(String.class)
@@ -17,7 +17,7 @@ index 1f3c4adf3aeb28bcb91cb6913459ea2923ad95a4..edd36af867c46c2f2d2b01968bd2e3aa
                          .describedAs("Name");
                  // Paper end
              }
-@@ -232,7 +232,7 @@ public class Main {
+@@ -244,7 +244,7 @@ public class Main {
  
              float javaVersion = Float.parseFloat(System.getProperty("java.class.version"));
              if (javaVersion < 61.0) {
@@ -26,7 +26,7 @@ index 1f3c4adf3aeb28bcb91cb6913459ea2923ad95a4..edd36af867c46c2f2d2b01968bd2e3aa
                  return;
              }
  
-@@ -298,7 +298,7 @@ public class Main {
+@@ -310,7 +310,7 @@ public class Main {
                  }
                  // Paper end
                  System.setProperty( "library.jansi.version", "Paper" ); // Paper - set meaningless jansi version to prevent git builds from crashing on Windows
