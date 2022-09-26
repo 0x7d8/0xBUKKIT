@@ -1,7 +1,9 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
-From: Robert Jansen <noreply@github.com>
-Date: Mon, 18 Jul 2022 09:53:23 +0200
+From: Robert Jansen <63073556+rotvproHD@users.noreply.github.com>
+Date: Mon, 26 Sep 2022 13:48:46 +0200
 Subject: [PATCH] GERMAN PAPERCOMMAND
+
+GERMAN PAPERCOMMAND
 
 B3 - TRANSLATE PAPERCOMMAND MORE
 
@@ -16,7 +18,7 @@ B4 - FIX SMALL PAPERCOMMAND ISSUE
 [P] #33 - MORE TRANSLATION
 
 diff --git a/src/main/java/io/papermc/paper/command/PaperCommand.java b/src/main/java/io/papermc/paper/command/PaperCommand.java
-index 60b0ce4557390ee7030efe4c90933402c57bab59..88ff89388d82fdfb5bf87135cd406fd2041c68c4 100644
+index 724592234e2a178a518f6ab7d09c3180780371a7..35ef86cb75cd9f0c650835274f9809d6d82acd18 100644
 --- a/src/main/java/io/papermc/paper/command/PaperCommand.java
 +++ b/src/main/java/io/papermc/paper/command/PaperCommand.java
 @@ -34,6 +34,8 @@ import org.checkerframework.framework.qual.DefaultQualifier;
@@ -56,10 +58,10 @@ index 60b0ce4557390ee7030efe4c90933402c57bab59..88ff89388d82fdfb5bf87135cd406fd2
          }
  
 diff --git a/src/main/java/io/papermc/paper/command/subcommands/ChunkDebugCommand.java b/src/main/java/io/papermc/paper/command/subcommands/ChunkDebugCommand.java
-index 4b367982fae4662c326aa247824e9c4185896de1..e964f5fe6732d7044094c63f1baab93cd2a66dda 100644
+index 628c549b1436c3de75071ecd6182a9beadd4840b..01a9c3f6f042f5d17db5a327a1bf593d7d911931 100644
 --- a/src/main/java/io/papermc/paper/command/subcommands/ChunkDebugCommand.java
 +++ b/src/main/java/io/papermc/paper/command/subcommands/ChunkDebugCommand.java
-@@ -26,6 +26,8 @@ import static net.kyori.adventure.text.format.NamedTextColor.DARK_AQUA;
+@@ -30,6 +30,8 @@ import static net.kyori.adventure.text.format.NamedTextColor.DARK_AQUA;
  import static net.kyori.adventure.text.format.NamedTextColor.GREEN;
  import static net.kyori.adventure.text.format.NamedTextColor.RED;
  
@@ -68,7 +70,7 @@ index 4b367982fae4662c326aa247824e9c4185896de1..e964f5fe6732d7044094c63f1baab93c
  @DefaultQualifier(NonNull.class)
  public final class ChunkDebugCommand implements PaperSubcommand {
      @Override
-@@ -68,7 +70,7 @@ public final class ChunkDebugCommand implements PaperSubcommand {
+@@ -83,7 +85,7 @@ public final class ChunkDebugCommand implements PaperSubcommand {
              for (final String arg : args) {
                  org.bukkit.@Nullable World world = Bukkit.getWorld(arg);
                  if (world == null) {
@@ -77,7 +79,7 @@ index 4b367982fae4662c326aa247824e9c4185896de1..e964f5fe6732d7044094c63f1baab93c
                      return;
                  }
                  worlds.add(world);
-@@ -136,7 +138,7 @@ public final class ChunkDebugCommand implements PaperSubcommand {
+@@ -234,7 +236,7 @@ public final class ChunkDebugCommand implements PaperSubcommand {
  
      private void doDebug(final CommandSender sender, final String[] args) {
          if (args.length < 1) {
@@ -86,7 +88,7 @@ index 4b367982fae4662c326aa247824e9c4185896de1..e964f5fe6732d7044094c63f1baab93c
              return;
          }
  
-@@ -144,22 +146,22 @@ public final class ChunkDebugCommand implements PaperSubcommand {
+@@ -242,22 +244,22 @@ public final class ChunkDebugCommand implements PaperSubcommand {
          switch (debugType) {
              case "chunks" -> {
                  if (args.length >= 2 && args[1].toLowerCase(Locale.ENGLISH).equals("help")) {
@@ -99,7 +101,7 @@ index 4b367982fae4662c326aa247824e9c4185896de1..e964f5fe6732d7044094c63f1baab93c
 -                sender.sendMessage(text("Writing chunk information dump to " + file, GREEN));
 +                sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <yellow>Schreibe Chunk Informationen zu <gold>" + file + "<yellow>!")); // 0xBUKKIT
                  try {
-                     MCUtil.dumpChunks(file);
+                     MCUtil.dumpChunks(file, false);
 -                    sender.sendMessage(text("Successfully written chunk information!", GREEN));
 +                    sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Chunk Informationen erfolgreich geschrieben!")); // 0xBUKKIT
                  } catch (Throwable thr) {
@@ -186,7 +188,7 @@ index 0dc96c39151ec4dbeec3947cb17606f53a6392d4..353e8356be43d48206f5d706f3a6ddda
                  }
  
 diff --git a/src/main/java/io/papermc/paper/command/subcommands/FixLightCommand.java b/src/main/java/io/papermc/paper/command/subcommands/FixLightCommand.java
-index 68645bbbab9b4225048b647252d8f462028a9c84..9aac368854b9cff038d868a0b0a30be23decf52c 100644
+index 450bd95218852174cfbc88d4517e17daee5ffd5f..f564ce346c92d3b0f4c243bb0b7643799f64ef38 100644
 --- a/src/main/java/io/papermc/paper/command/subcommands/FixLightCommand.java
 +++ b/src/main/java/io/papermc/paper/command/subcommands/FixLightCommand.java
 @@ -25,6 +25,8 @@ import static net.kyori.adventure.text.format.NamedTextColor.DARK_AQUA;
@@ -215,7 +217,7 @@ index 68645bbbab9b4225048b647252d8f462028a9c84..9aac368854b9cff038d868a0b0a30be2
 +                    sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Radius kann nicht negativ sein!")); // 0xBUKKIT
                      return;
                  }
-                 final int maxRadius = 32; // Paper - MOOOOOORE
+                 final int maxRadius = 32;
 @@ -53,7 +55,7 @@ public final class FixLightCommand implements PaperSubcommand {
                      post = () -> sender.sendMessage(text("Radius '" + parsed + "' was not in the required range [0, " + maxRadius + "], it was lowered to the maximum (" + maxRadius + " chunks).", RED));
                  }
@@ -225,24 +227,6 @@ index 68645bbbab9b4225048b647252d8f462028a9c84..9aac368854b9cff038d868a0b0a30be2
                  return;
              }
          }
-@@ -119,7 +121,7 @@ public final class FixLightCommand implements PaperSubcommand {
-                     done.run();
-                 }
-             });
--        sender.getBukkitEntity().sendMessage(text().color(BLUE).append(text("Relighting "), text(pending[0], DARK_AQUA), text(" chunks")));
-+        sender.getBukkitEntity().sendMessage(text().color(BLUE).append(text("Beleuchte neu "), text(pending[0], DARK_AQUA), text(" chunks")));
-     }
-     // Paper end - rewrite light engine
- 
-@@ -132,7 +134,7 @@ public final class FixLightCommand implements PaperSubcommand {
-     ) {
-         @Nullable ChunkPos coord = queue.poll();
-         if (coord == null) {
--            sender.sendMessage(text("All Chunks Light updated", GREEN));
-+            sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <green>Alle Chunk Lichter wurden aktualisiert!")); // 0xBUKKIT
-             if (done != null) {
-                 done.run();
-             }
 diff --git a/src/main/java/io/papermc/paper/command/subcommands/HeapDumpCommand.java b/src/main/java/io/papermc/paper/command/subcommands/HeapDumpCommand.java
 index cd2e4d792e972b8bf1e07b8961594a670ae949cf..c991f2be50cdcdf39de46b01c5fd760f03825ac4 100644
 --- a/src/main/java/io/papermc/paper/command/subcommands/HeapDumpCommand.java

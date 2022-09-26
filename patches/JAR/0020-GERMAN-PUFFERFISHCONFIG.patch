@@ -5,10 +5,10 @@ Subject: [PATCH] GERMAN PUFFERFISHCONFIG
 
 
 diff --git a/src/main/java/gg/pufferfish/pufferfish/PufferfishConfig.java b/src/main/java/gg/pufferfish/pufferfish/PufferfishConfig.java
-index dddbcfb9230970149c7149567c255dc0b383a660..b0edbf2b8a064da9276d77a998ea349e8ba76d88 100644
+index 88d1c75c51ffc2e5f334b0c9d12ca63ff463ff0a..ff15fc2dc8cdb30d0bbee6d6481227bf452a6937 100644
 --- a/src/main/java/gg/pufferfish/pufferfish/PufferfishConfig.java
 +++ b/src/main/java/gg/pufferfish/pufferfish/PufferfishConfig.java
-@@ -72,10 +72,8 @@ public class PufferfishConfig {
+@@ -63,10 +63,8 @@ public class PufferfishConfig {
  		
  		getString("info.version", "1.0");
  		setComment("info",

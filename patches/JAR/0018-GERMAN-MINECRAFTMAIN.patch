@@ -5,10 +5,10 @@ Subject: [PATCH] GERMAN MINECRAFTMAIN
 
 
 diff --git a/src/main/java/net/minecraft/server/Main.java b/src/main/java/net/minecraft/server/Main.java
-index 0a843e0afbcb1af8e2641515eb244b791b819b8c..571c073fb83cbdd94fb5f13e83ab6dac962753a6 100644
+index 5962f7a2b185d7d54a0f9e341a4fdf6e6f1c1ec5..dfc4ced95c9bb9e6bb848c94eed11dbeaec3d2ab 100644
 --- a/src/main/java/net/minecraft/server/Main.java
 +++ b/src/main/java/net/minecraft/server/Main.java
-@@ -128,13 +128,11 @@ public class Main {
+@@ -145,13 +145,11 @@ public class Main {
              boolean eulaAgreed = Boolean.getBoolean( "com.mojang.eula.agree" );
              if ( eulaAgreed )
              {
@@ -24,7 +24,7 @@ index 0a843e0afbcb1af8e2641515eb244b791b819b8c..571c073fb83cbdd94fb5f13e83ab6dac
                  return;
              }
  
-@@ -184,7 +182,7 @@ public class Main {
+@@ -201,7 +199,7 @@ public class Main {
              try {
                  com.google.common.io.Files.write("{\n"
                          + "    \"pack\": {\n"
