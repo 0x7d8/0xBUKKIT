@@ -195,10 +195,10 @@ index fb87620c742ff7912f5e8ccd2a7930dd605576d9..8351b43a49a0b28a40864c9235816831
  
          if (stream != null) {
 diff --git a/src/main/java/org/purpurmc/purpur/PurpurConfig.java b/src/main/java/org/purpurmc/purpur/PurpurConfig.java
-index d44b8ce90db7c6c27f71aa841d6fb64b159b7b42..61b2e901bdaa2df2159c0a832c5f4be44232e65b 100644
+index f45b0002efd30b45633b31cf9995cfcbdf0f7504..205f351bb9056ea9d66417f0edd1ed6741bf6993 100644
 --- a/src/main/java/org/purpurmc/purpur/PurpurConfig.java
 +++ b/src/main/java/org/purpurmc/purpur/PurpurConfig.java
-@@ -235,7 +235,7 @@ public class PurpurConfig {
+@@ -239,7 +239,7 @@ public class PurpurConfig {
          if (!TimingsManager.hiddenConfigs.contains("settings.seed")) TimingsManager.hiddenConfigs.add("settings.seed");
      }
  
