@@ -13,8 +13,10 @@ pur
 
 B7 - QUALITY OF LIFE
 
+[P] #77 - FIX PURPURCONFIG
+
 diff --git a/src/main/java/org/purpurmc/purpur/PurpurConfig.java b/src/main/java/org/purpurmc/purpur/PurpurConfig.java
-index 205f351bb9056ea9d66417f0edd1ed6741bf6993..ad808058d99af0bc1569810f17d2f1904b078e7d 100644
+index 205f351bb9056ea9d66417f0edd1ed6741bf6993..cbc03a16950a3ee1b0a5e3754e0941f399c76e05 100644
 --- a/src/main/java/org/purpurmc/purpur/PurpurConfig.java
 +++ b/src/main/java/org/purpurmc/purpur/PurpurConfig.java
 @@ -38,15 +38,8 @@ import java.util.logging.Level;
@@ -75,25 +77,25 @@ index 205f351bb9056ea9d66417f0edd1ed6741bf6993..ad808058d99af0bc1569810f17d2f190
      public static String unverifiedUsername = "default";
      public static String sleepSkippingNight = "default";
      public static String sleepingPlayersPercent = "default";
-@@ -259,6 +252,7 @@ public class PurpurConfig {
+@@ -259,7 +252,7 @@ public class PurpurConfig {
          disableGiveCommandDrops = getBoolean("settings.disable-give-dropping", disableGiveCommandDrops);
      }
  
-+<<<<<<< HEAD
-     public static String commandRamBarTitle = "<gray>Ram<yellow>:</yellow> <used>/<xmx> (<percent>)";
+-    public static String commandRamBarTitle = "<gray>Ram<yellow>:</yellow> <used>/<xmx> (<percent>)";
++    public static String commandRamBarTitle = "<gray>RAM<yellow>:</yellow> <used>/<xmx>";
      public static BossBar.Overlay commandRamBarProgressOverlay = BossBar.Overlay.NOTCHED_20;
      public static BossBar.Color commandRamBarProgressColorGood = BossBar.Color.GREEN;
-@@ -269,6 +263,9 @@ public class PurpurConfig {
+     public static BossBar.Color commandRamBarProgressColorMedium = BossBar.Color.YELLOW;
+@@ -268,7 +261,7 @@ public class PurpurConfig {
+     public static String commandRamBarTextColorMedium = "<gradient:#ffff55:#ffaa00><text></gradient>";
      public static String commandRamBarTextColorLow = "<gradient:#ff5555:#aa0000><text></gradient>";
      public static int commandRamBarTickInterval = 20;
-     public static String commandTPSBarTitle = "<gray>TPS<yellow>:</yellow> <tps> MSPT<yellow>:</yellow> <mspt> Ping<yellow>:</yellow> <ping>ms";
-+=======
+-    public static String commandTPSBarTitle = "<gray>TPS<yellow>:</yellow> <tps> MSPT<yellow>:</yellow> <mspt> Ping<yellow>:</yellow> <ping>ms";
 +    public static String commandTPSBarTitle = "<gray>TPS <tps> MSPT <mspt> Ping <ping>ms"; // 0xBUKKIT
-+>>>>>>> GERMAN PURPURCONFIG
      public static BossBar.Overlay commandTPSBarProgressOverlay = BossBar.Overlay.NOTCHED_20;
      public static TPSBarTask.FillMode commandTPSBarProgressFillMode = TPSBarTask.FillMode.MSPT;
      public static BossBar.Color commandTPSBarProgressColorGood = BossBar.Color.GREEN;
-@@ -278,7 +275,7 @@ public class PurpurConfig {
+@@ -278,7 +271,7 @@ public class PurpurConfig {
      public static String commandTPSBarTextColorMedium = "<gradient:#ffff55:#ffaa00><text></gradient>";
      public static String commandTPSBarTextColorLow = "<gradient:#ff5555:#aa0000><text></gradient>";
      public static int commandTPSBarTickInterval = 20;
@@ -102,7 +104,7 @@ index 205f351bb9056ea9d66417f0edd1ed6741bf6993..ad808058d99af0bc1569810f17d2f190
      public static BossBar.Overlay commandCompassBarProgressOverlay = BossBar.Overlay.PROGRESS;
      public static BossBar.Color commandCompassBarProgressColor = BossBar.Color.BLUE;
      public static float commandCompassBarProgressPercent = 1.0F;
-@@ -287,14 +284,14 @@ public class PurpurConfig {
+@@ -287,14 +280,14 @@ public class PurpurConfig {
      public static int commandFillMaxArea = 32768;
      public static boolean hideHiddenPlayersFromEntitySelector = false;
      public static String uptimeFormat = "<days><hours><minutes><seconds>";
@@ -125,7 +127,7 @@ index 205f351bb9056ea9d66417f0edd1ed6741bf6993..ad808058d99af0bc1569810f17d2f190
      private static void commandSettings() {
          commandRamBarTitle = getString("settings.command.rambar.title", commandRamBarTitle);
          commandRamBarProgressOverlay = BossBar.Overlay.valueOf(getString("settings.command.rambar.overlay", commandRamBarProgressOverlay.name()));
-@@ -450,11 +447,11 @@ public class PurpurConfig {
+@@ -450,11 +443,11 @@ public class PurpurConfig {
          disableChorusPlantUpdates = getBoolean("settings.blocks.disable-chorus-plant-updates", disableChorusPlantUpdates);
      }
  
