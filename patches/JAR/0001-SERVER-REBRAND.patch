@@ -38,7 +38,7 @@ ver
 ver
 
 diff --git a/build.gradle.kts b/build.gradle.kts
-index 4e4bc7e55a81dc44d7f6cfc6a8761141d0d3bb6c..6a0f091a7b3079fba8bfb53be055e7fa724fc379 100644
+index a61a0f4f1ce89681336d2ed246e6b616aa6fe73d..d80ee6958b43329c68eab3c4514a4f647accde2d 100644
 --- a/build.gradle.kts
 +++ b/build.gradle.kts
 @@ -9,7 +9,7 @@ plugins {
@@ -195,10 +195,10 @@ index fb87620c742ff7912f5e8ccd2a7930dd605576d9..8351b43a49a0b28a40864c9235816831
  
          if (stream != null) {
 diff --git a/src/main/java/org/purpurmc/purpur/PurpurConfig.java b/src/main/java/org/purpurmc/purpur/PurpurConfig.java
-index f45b0002efd30b45633b31cf9995cfcbdf0f7504..205f351bb9056ea9d66417f0edd1ed6741bf6993 100644
+index 14844cb8a402ac987f44a91b95d5ebdac73c6dfe..9817472da8f7f6282bb9153d1e0c1f1340a50b1f 100644
 --- a/src/main/java/org/purpurmc/purpur/PurpurConfig.java
 +++ b/src/main/java/org/purpurmc/purpur/PurpurConfig.java
-@@ -239,7 +239,7 @@ public class PurpurConfig {
+@@ -244,7 +244,7 @@ public class PurpurConfig {
          if (!TimingsManager.hiddenConfigs.contains("settings.seed")) TimingsManager.hiddenConfigs.add("settings.seed");
      }
  
