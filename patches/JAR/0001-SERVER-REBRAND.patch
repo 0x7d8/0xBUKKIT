@@ -38,7 +38,7 @@ ver
 ver
 
 diff --git a/build.gradle.kts b/build.gradle.kts
-index a61a0f4f1ce89681336d2ed246e6b616aa6fe73d..d80ee6958b43329c68eab3c4514a4f647accde2d 100644
+index 2ee34f92e8a89b90448bbf710fdc0d5d6350e919..6448878ca6501dcc92baa11c7c8e10cef09e5a51 100644
 --- a/build.gradle.kts
 +++ b/build.gradle.kts
 @@ -9,7 +9,7 @@ plugins {
@@ -169,10 +169,10 @@ index fba5dbdb7bcbb55400ef18342c9b54612972a718..ad51dd800ba37ace072c04620c34e6d4
      }
  }
 diff --git a/src/main/java/org/bukkit/craftbukkit/CraftServer.java b/src/main/java/org/bukkit/craftbukkit/CraftServer.java
-index e9c20441e37db68d500c230a4371610f98c69428..2013579682df52dc49dcc375d18f16fad45509ee 100644
+index f9508a26b2e764e752da3d2c9f43a9d7de19dd27..3a3db1418a28bf4c231457138e480df8145eadbf 100644
 --- a/src/main/java/org/bukkit/craftbukkit/CraftServer.java
 +++ b/src/main/java/org/bukkit/craftbukkit/CraftServer.java
-@@ -248,7 +248,7 @@ import javax.annotation.Nullable; // Paper
+@@ -249,7 +249,7 @@ import javax.annotation.Nullable; // Paper
  import javax.annotation.Nonnull; // Paper
  
  public final class CraftServer implements Server {
@@ -195,7 +195,7 @@ index fb87620c742ff7912f5e8ccd2a7930dd605576d9..8351b43a49a0b28a40864c9235816831
  
          if (stream != null) {
 diff --git a/src/main/java/org/purpurmc/purpur/PurpurConfig.java b/src/main/java/org/purpurmc/purpur/PurpurConfig.java
-index 14844cb8a402ac987f44a91b95d5ebdac73c6dfe..9817472da8f7f6282bb9153d1e0c1f1340a50b1f 100644
+index 5d71e3040df116a94df7efa83e61dc1766cc4a93..f509babe5e3e3b38733119422401fe9a87569308 100644
 --- a/src/main/java/org/purpurmc/purpur/PurpurConfig.java
 +++ b/src/main/java/org/purpurmc/purpur/PurpurConfig.java
 @@ -244,7 +244,7 @@ public class PurpurConfig {

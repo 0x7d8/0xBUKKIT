@@ -6,10 +6,10 @@ Subject: [PATCH] GERMAN PAPERCONFIG
 B4 - FIX PAPERCONFIG ISSUE
 
 diff --git a/src/main/java/io/papermc/paper/configuration/PaperConfigurations.java b/src/main/java/io/papermc/paper/configuration/PaperConfigurations.java
-index b2e961bbd33c6ecb7f049365b7aff6c5caa262ff..d161f6fe7a869572f54779aabbf464303ddc846b 100644
+index e731de3ac158c5a4cff236c6f5001674cd488a77..af5174c787f2ac3e9c393e5b071b911c4567f94d 100644
 --- a/src/main/java/io/papermc/paper/configuration/PaperConfigurations.java
 +++ b/src/main/java/io/papermc/paper/configuration/PaperConfigurations.java
-@@ -79,34 +79,12 @@ public class PaperConfigurations extends Configurations<GlobalConfiguration, Wor
+@@ -77,34 +77,12 @@ public class PaperConfigurations extends Configurations<GlobalConfiguration, Wor
      private static final String BACKUP_DIR ="legacy-backup";
  
      private static final String GLOBAL_HEADER = String.format("""

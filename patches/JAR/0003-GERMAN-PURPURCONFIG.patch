@@ -16,7 +16,7 @@ B7 - QUALITY OF LIFE
 [P] #77 - FIX PURPURCONFIG
 
 diff --git a/src/main/java/org/purpurmc/purpur/PurpurConfig.java b/src/main/java/org/purpurmc/purpur/PurpurConfig.java
-index 9817472da8f7f6282bb9153d1e0c1f1340a50b1f..9452da43341b54432ee8e66e998ae5404cd838d5 100644
+index f509babe5e3e3b38733119422401fe9a87569308..80ce19b37c3b2b1637acf5c01ae081acb625bb5d 100644
 --- a/src/main/java/org/purpurmc/purpur/PurpurConfig.java
 +++ b/src/main/java/org/purpurmc/purpur/PurpurConfig.java
 @@ -41,15 +41,8 @@ import java.util.logging.Level;
@@ -139,6 +139,6 @@ index 9817472da8f7f6282bb9153d1e0c1f1340a50b1f..9452da43341b54432ee8e66e998ae540
      public static boolean loggerSuppressSetBlockFarChunk = false;
 -    public static boolean loggerSuppressSentExpiredChat = false;
 +    public static boolean loggerSuppressSentExpiredChat = true;
+     public static boolean loggerSuppressLibraryLoader = false;
      private static void loggerSettings() {
          loggerSuppressInitLegacyMaterialError = getBoolean("settings.logger.suppress-init-legacy-material-errors", loggerSuppressInitLegacyMaterialError);
-         loggerSuppressIgnoredAdvancementWarnings = getBoolean("settings.logger.suppress-ignored-advancement-warnings", loggerSuppressIgnoredAdvancementWarnings);
