@@ -58,7 +58,7 @@ index 724592234e2a178a518f6ab7d09c3180780371a7..35ef86cb75cd9f0c650835274f9809d6
          }
  
 diff --git a/src/main/java/io/papermc/paper/command/subcommands/ChunkDebugCommand.java b/src/main/java/io/papermc/paper/command/subcommands/ChunkDebugCommand.java
-index 628c549b1436c3de75071ecd6182a9beadd4840b..01a9c3f6f042f5d17db5a327a1bf593d7d911931 100644
+index a6fb7ae77d7cad2243e28a33718e4631f65697fa..78fa534aaf81bfe8a5931afb1b85b6b0c6cf0b77 100644
 --- a/src/main/java/io/papermc/paper/command/subcommands/ChunkDebugCommand.java
 +++ b/src/main/java/io/papermc/paper/command/subcommands/ChunkDebugCommand.java
 @@ -30,6 +30,8 @@ import static net.kyori.adventure.text.format.NamedTextColor.DARK_AQUA;
@@ -188,7 +188,7 @@ index 0dc96c39151ec4dbeec3947cb17606f53a6392d4..353e8356be43d48206f5d706f3a6ddda
                  }
  
 diff --git a/src/main/java/io/papermc/paper/command/subcommands/FixLightCommand.java b/src/main/java/io/papermc/paper/command/subcommands/FixLightCommand.java
-index 450bd95218852174cfbc88d4517e17daee5ffd5f..f564ce346c92d3b0f4c243bb0b7643799f64ef38 100644
+index 7784d72ddd6db00c674e22759c00c430222c4b85..747111271757cdc4abe5d1796a755f03c65e4973 100644
 --- a/src/main/java/io/papermc/paper/command/subcommands/FixLightCommand.java
 +++ b/src/main/java/io/papermc/paper/command/subcommands/FixLightCommand.java
 @@ -25,6 +25,8 @@ import static net.kyori.adventure.text.format.NamedTextColor.DARK_AQUA;
@@ -341,23 +341,27 @@ index bd68139ae635f2ad7ec8e7a21e0056a139c4c62e..4db7b79616fc033ff4be5b737c618b9a
      }
  }
 diff --git a/src/main/java/io/papermc/paper/command/subcommands/SyncLoadInfoCommand.java b/src/main/java/io/papermc/paper/command/subcommands/SyncLoadInfoCommand.java
-index 1120aef5b0dd983c467167f77245884e1198552a..61b7c1a04d523f0c7722c840bc88fa07faf57e9a 100644
+index a73e35e7c71c1337c2846010b3ccd6875cae640e..cecdaeb5031190e9909856f0d2cd59c0ea8fc938 100644
 --- a/src/main/java/io/papermc/paper/command/subcommands/SyncLoadInfoCommand.java
 +++ b/src/main/java/io/papermc/paper/command/subcommands/SyncLoadInfoCommand.java
-@@ -22,6 +22,8 @@ import static net.kyori.adventure.text.format.NamedTextColor.GRAY;
- import static net.kyori.adventure.text.format.NamedTextColor.GREEN;
+@@ -28,6 +28,8 @@ import static net.kyori.adventure.text.format.NamedTextColor.GREEN;
  import static net.kyori.adventure.text.format.NamedTextColor.RED;
+ import static net.kyori.adventure.text.format.NamedTextColor.WHITE;
  
 +import net.kyori.adventure.text.minimessage.MiniMessage; // 0xBUKKIT
 +
  @DefaultQualifier(NonNull.class)
  public final class SyncLoadInfoCommand implements PaperSubcommand {
      @Override
-@@ -37,13 +39,13 @@ public final class SyncLoadInfoCommand implements PaperSubcommand {
+@@ -45,17 +47,13 @@ public final class SyncLoadInfoCommand implements PaperSubcommand {
  
      private void doSyncLoadInfo(final CommandSender sender, final String[] args) {
          if (!SyncLoadFinder.ENABLED) {
--            sender.sendMessage(text("This command requires the server startup flag '-Dpaper.debug-sync-loads=true' to be set.", RED));
+-            String systemFlag = "-Dpaper.debug-sync-loads=true";
+-            sender.sendMessage(text().color(RED).append(text("This command requires the server startup flag '")).append(
+-                text(systemFlag, WHITE).clickEvent(ClickEvent.copyToClipboard(systemFlag))
+-                                       .hoverEvent(HoverEvent.showText(text("Click to copy the system flag")))).append(
+-                text("' to be set.")));
 +            sender.sendMessage(MiniMessage.miniMessage().deserialize("<white>[<gray>Server<white>] <red>Du brauchst dafür <gold>-Dpaper.debug-sync-loads=true <red>in deinen Start Argumenten!")); // 0xBUKKIT
              return;
          }

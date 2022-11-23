@@ -16,7 +16,7 @@ B7 - QUALITY OF LIFE
 [P] #77 - FIX PURPURCONFIG
 
 diff --git a/src/main/java/org/purpurmc/purpur/PurpurConfig.java b/src/main/java/org/purpurmc/purpur/PurpurConfig.java
-index f509babe5e3e3b38733119422401fe9a87569308..80ce19b37c3b2b1637acf5c01ae081acb625bb5d 100644
+index 6b62bed58c72496fb5d38cb4330ac70a933d770e..fc63c47dbd5e4d8cf29d20a6150c38d8823d38a0 100644
 --- a/src/main/java/org/purpurmc/purpur/PurpurConfig.java
 +++ b/src/main/java/org/purpurmc/purpur/PurpurConfig.java
 @@ -41,15 +41,8 @@ import java.util.logging.Level;
@@ -127,7 +127,7 @@ index f509babe5e3e3b38733119422401fe9a87569308..80ce19b37c3b2b1637acf5c01ae081ac
      private static void commandSettings() {
          commandRamBarTitle = getString("settings.command.rambar.title", commandRamBarTitle);
          commandRamBarProgressOverlay = BossBar.Overlay.valueOf(getString("settings.command.rambar.overlay", commandRamBarProgressOverlay.name()));
-@@ -483,11 +476,11 @@ public class PurpurConfig {
+@@ -485,11 +478,11 @@ public class PurpurConfig {
          disableChorusPlantUpdates = getBoolean("settings.blocks.disable-chorus-plant-updates", disableChorusPlantUpdates);
      }
  
